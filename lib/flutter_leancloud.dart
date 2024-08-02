@@ -15,7 +15,7 @@ class FlutterLeanCloud {
     LeanCloud.initialize(appId, appKey, server: server, queryCache: queryCache);
   }
 
-  static Future<Version> lcBuild(String objectId) async {
+  static Future<Version> getVersion(String objectId) async {
     try {
       final packageInfo = await PackageInfo.fromPlatform();
       LCQuery<LCObject> query = LCQuery('version');
@@ -78,7 +78,6 @@ class FlutterLeanCloud {
     }
 
     final json = jsonDecode(data);
-
     List<App> apps = [const App(id: 'BannerView')];
     if (json is List) {
       for (var element in json) {
@@ -93,7 +92,7 @@ class FlutterLeanCloud {
   static Future<String> md(Version version) async {
     DateTime now = DateTime.now();
     int timestamp = now.microsecondsSinceEpoch;
-    final url = '${version.apps}?t=$timestamp';
+    final url = '${version.md}?t=$timestamp';
 
     final network = CachedNetwork();
     try {

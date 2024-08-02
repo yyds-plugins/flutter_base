@@ -1,3 +1,5 @@
+library apk_download;
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
@@ -6,125 +8,76 @@ import 'package:cached_network/cached_network.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:flutter_leancloud/widget/update_dialog/update_dialog.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:html_parser_plus/html_parser_plus.dart';
 import 'package:install_plugin/install_plugin.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:share_plus/share_plus.dart';
 
-import '../flutter_leancloud.dart';
-import '../models/app.dart';
-import '../models/version.dart';
-import '../widget/update_dialog/update_dialog.dart';
+import 'models/version.dart';
 
-part 'version.g.dart';
-
-@riverpod
-class ApkFileUrl extends _$ApkFileUrl {
+class ApkDownload {
   static UpdateDialog? dialog;
   static double progress = 0.0;
-  static String loadFilePath = '';
 
-  @override
-  Future<Version> build() async {
-    var version = await ref.read(versionNotifierProvider.future);
-    loadFilePath = '${await getFilePath()}flutter_v${version.version}(${version.build}).apk';
-
-    return version;
-  }
-
-  Future<String?> getFilePath() async {
-    String? docPath;
-    if (Platform.isAndroid) {
-      docPath = "/storage/emulated/0/Download/";
-      Directory dir = Directory(docPath);
-      try {
-        dir.listSync();
-      } catch (e) {
-        // 一些系统没有权限
-        docPath = (await getExternalStorageDirectory())?.path;
-        docPath = '$docPath/';
-      }
-    } else {
-      docPath = (await getTemporaryDirectory()).path;
-      docPath = docPath.replaceFirst("Library/Caches", "Documents/");
-    }
-    return docPath;
-  }
-
-  Future<String> apkFileUrl(String url) async {
-    final network = CachedNetwork();
+  static Future<String> _getFilePath(String filename) async {
+    Directory? dir;
     try {
-      debugPrint("直接嗅探 URL=$url");
-      return await jxApkUrl(url);
-    } catch (error) {
-      debugPrint(error.toString());
-      final version = await ref.read(versionNotifierProvider.future);
-      for (var i = 0; i < version.jxs.length; i++) {
-        final _url = version.jxs[i] + version.url;
-        debugPrint('jxs=$i url=$_url');
-        try {
-          var html = await network.request(version.url);
-          Map<String, dynamic> json = jsonDecode(html);
-          if (int.parse(json['code']) == 200) {
-            if (json['data'] != null) {
-              return json['data']['url'];
-            }
-            if (json['down'] != null) {
-              return json['down'];
-            }
-          }
-        } catch (error) {
-          debugPrint(error.toString());
-        }
+      if (Platform.isIOS) {
+        dir = await getApplicationDocumentsDirectory(); // 针对 iOS
+      } else {
+        dir = Directory('/storage/emulated/0/Download/'); // 针对 android
+        if (!await dir.exists()) dir = (await getExternalStorageDirectory())!;
       }
+    } catch (err) {
+      print("Cannot get download folder path $err");
     }
-    return '';
+    return "${dir?.path}$filename";
   }
 
   //有新版本更新
-  void onUpdateApk(BuildContext context) async {
-    final version = await future;
+  static void onUpdateApk(BuildContext context, Version version) async {
     if (!version.isNew) return; //暂无更新
+    String savePath = await _getFilePath(version.fileName); // 获取存储在本地的路径
     if (!context.mounted) return;
-    showUpdateDialog(context, version, onDownloadApk: (savePath) async {
+    showUpdateDialog(context, version, savePath, onDownloadApk: (savePath) async {
       installPlugin(savePath);
     });
   }
 
   ///检查更新
-  void checkUpdateApk(BuildContext context) async {
-    final version = await future;
+  static void checkUpdateApk(BuildContext context, Version version) async {
     if (!version.isNew) return; //暂无更新
-    final bool isFile = await isFileExists(loadFilePath);
+    String savePath = await _getFilePath(version.fileName); // 获取存储在本地的路径
+    final bool isFile = await isFileExists(savePath);
     if (isFile) {
-      installPlugin(loadFilePath);
+      installPlugin(savePath);
     } else {
       if (!context.mounted && !version.isMode) return;
-      showUpdateDialog(context, version, onDownloadApk: (savePath) async {
+      showUpdateDialog(context, version, savePath, onDownloadApk: (savePath) async {
         installPlugin(savePath);
       });
     }
   }
 
   // 分享 APK
-  void onShareApk(BuildContext context) async {
-    final version = await future;
-    debugPrint(loadFilePath);
-    final bool isFile = await isFileExists(loadFilePath);
+  static void onShareApk(BuildContext context, Version version) async {
+    String savePath = await _getFilePath(version.fileName); // 获取存储在本地的路径
+    debugPrint(savePath);
+    final bool isFile = await isFileExists(savePath);
     if (isFile) {
-      Share.shareXFiles([XFile(loadFilePath)]);
+      Share.shareXFiles([XFile(savePath)]);
     } else {
       if (!context.mounted) return;
-      showUpdateDialog(context, version, onDownloadApk: (savePath) async {
+      showUpdateDialog(context, version, savePath, onDownloadApk: (savePath) async {
         Share.shareXFiles([XFile(savePath)]);
       });
     }
   }
 
   /// 更新弹窗
-  void showUpdateDialog(BuildContext context, Version version, {required void Function(String) onDownloadApk}) {
+  static void showUpdateDialog(BuildContext context, Version version, String apkPath, {required void Function(String) onDownloadApk}) {
     if (dialog != null && dialog!.isShowing()) return;
     final cancelToken = CancelToken();
     dialog = UpdateDialog.showUpdate(context,
@@ -147,9 +100,10 @@ class ApkFileUrl extends _$ApkFileUrl {
       cancelToken.cancel('cancelled');
       dialog!.dismiss();
     }, onUpdate: () async {
-      var url = await apkFileUrl(version.url);
+      var url = await apkFileUrl(version);
       debugPrint('version.url=$url');
-      final req = await downloadApk(url, loadFilePath, cancelToken);
+      String savePath = await _getFilePath(version.fileName); // 获取存储在本地的路径
+      final req = await downloadApk(url, savePath, cancelToken);
       dialog!.dismiss();
       onDownloadApk(req);
     }, onClose: () {
@@ -163,6 +117,7 @@ class ApkFileUrl extends _$ApkFileUrl {
   static Future<String> downloadApk(String url, String savePath, CancelToken cancelToken) async {
     try {
       SmartDialog.showToast('开始下载...');
+
       var response = await Dio().download(url, savePath, cancelToken: cancelToken, onReceiveProgress: (count, total) {
         debugPrint("count  $count total=$total");
         final value = count / total;
@@ -201,6 +156,35 @@ class ApkFileUrl extends _$ApkFileUrl {
       // 处理异常情况
       return false;
     }
+  }
+
+  static Future<String> apkFileUrl(Version version) async {
+    final network = CachedNetwork();
+    try {
+      debugPrint("直接嗅探 URL=${version.url}");
+      return await jxApkUrl(version.url);
+    } catch (error) {
+      debugPrint(error.toString());
+      for (var i = 0; i < version.jxs.length; i++) {
+        final _url = version.jxs[i] + version.url;
+        debugPrint('jxs=$i url=$_url');
+        try {
+          var html = await network.request(version.url);
+          Map<String, dynamic> json = jsonDecode(html);
+          if (int.parse(json['code']) == 200) {
+            if (json['data'] != null) {
+              return json['data']['url'];
+            }
+            if (json['down'] != null) {
+              return json['down'];
+            }
+          }
+        } catch (error) {
+          debugPrint(error.toString());
+        }
+      }
+    }
+    return '';
   }
 
   //============================================================================
@@ -263,32 +247,5 @@ class ApkFileUrl extends _$ApkFileUrl {
     debugPrint('webView.run()');
 
     return await completer.future;
-  }
-}
-
-@riverpod
-class VersionNotifier extends _$VersionNotifier {
-  @override
-  Future<Version> build() async {
-    final objectId = Platform.isAndroid ? '665d7227df41fa26e2727f5e' : '665d72d1df41fa26e2727f5f';
-    return await FlutterLeanCloud.lcBuild(objectId);
-  }
-}
-
-@riverpod
-class Apps extends _$Apps {
-  @override
-  Future<List<App>> build() async {
-    var version = await ref.read(versionNotifierProvider.future);
-    return await FlutterLeanCloud.appList(version);
-  }
-}
-
-@riverpod
-class ReadMe extends _$ReadMe {
-  @override
-  Future<String> build() async {
-    final version = await ref.read(versionNotifierProvider.future);
-    return await FlutterLeanCloud.md(version);
   }
 }

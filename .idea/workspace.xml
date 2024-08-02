@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9727270a-2ab4-43bc-ab95-1bdea14486c4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../flutter_gtads/lib/adid.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/apk_download.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ios/Podfile" beforeDir="false" afterPath="$PROJECT_DIR$/../../ios/Podfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/admob_ads/ad_page.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/admob_ads/admob_ads.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/admob_ads/config/config.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/admob_ads/widgets/AppLifecycleReactor.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/admob_ads/widgets/AppOpenAdManager.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/admob_ads/widgets/banner_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/flutter_ad_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/flutter_ad_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/gtads/ad_splash.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/gtads/banner_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/gtads/feed_view.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/gtads/flutter_gtads.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/model/app.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/model/app.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/model/version.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/model/version.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/page/about.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/page/about.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/page/app/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/page/app/app.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/page/app/app_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/page/app/app_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/page/home/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/page/home/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/page/test/test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/page/test/test.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/provider/source.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/provider/source.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/provider/version.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/provider/version.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/schema/setting.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/schema/setting.g.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/util/parser.dart" beforeDir="false" afterPath="$PROJECT_DIR$/../../lib/util/parser.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/widget/update_dialog/flutter_update_dialog.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/widget/update_dialog/number_progress.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../lib/widget/update_dialog/update_dialog.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_leancloud.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_leancloud.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/provider/version.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/provider/version.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/codec/lc_decoder.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/codec/lc_encoder.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/file/lc_aws_uploader.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/file/lc_qiniu_uploader.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/http/lc_app_router.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/http/lc_app_server.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/http/lc_http_client.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/object/lc_batch.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/object/lc_object_data.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/object/lc_subclass_info.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/operation/lc_add_operation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/operation/lc_add_relation_operation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/operation/lc_add_unique_operation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/operation/lc_decrement_operation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/operation/lc_delete_operation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/operation/lc_increment_operation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/operation/lc_operation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/operation/lc_remove_operation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/operation/lc_remove_relation_operation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/operation/lc_set_operation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/query/lc_compositional_condition.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/query/lc_equal_condition.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/query/lc_operation_condition.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/query/lc_query_condition.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/query/lc_related_condition.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/utils/lc_utils.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/internal/utils/lc_uuid.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_acl.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_captcha_client.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_cloud.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_exception.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_file.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_friendship.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_geo_point.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_logger.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_object.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_query.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_query_cache.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_relation.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_role.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_search_query.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_search_response.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_search_sort_builder.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_sms_client.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_status.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_status_query.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_user.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/lc_user_auth_data_login_option.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/lib/leancloud.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/logo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/Flutter/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/Flutter/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/Flutter/src/main/java/io/flutter/plugins/GeneratedPluginRegistrant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/include_flutter.groovy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/local.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.android/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.ios/Flutter/FlutterPluginRegistrant/Classes/GeneratedPluginRegistrant.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.ios/Flutter/FlutterPluginRegistrant/Classes/GeneratedPluginRegistrant.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.ios/Flutter/FlutterPluginRegistrant/FlutterPluginRegistrant.podspec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.ios/Flutter/Generated.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.ios/Flutter/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.ios/Flutter/flutter_export_environment.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/.ios/Flutter/podhelper.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/README_zh.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/AppDelegate.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/AppDelegate.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/ios/Runner/main.m" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/lib/dio_helper.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/lib/panels/cache_manage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/lib/panels/helper.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/lib/panels/panel_204.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/lib/panels/panel_get.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/lib/panels/panel_get_bytes.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/lib/panels/panel_get_from_service.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/lib/panels/panel_post.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/lib/tuple.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/example/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/lib/dio_http_cache.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/lib/src/builder_dio.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/lib/src/core/config.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/lib/src/core/manager.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/lib/src/core/obj.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/lib/src/core/obj.g.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/lib/src/manager_dio.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/lib/src/store/store_disk.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/lib/src/store/store_impl.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/lib/src/store/store_memory.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/shells/cleanpub.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/shells/json.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/dio-http-cache/test/dio_cache_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/.pubignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/analysis_options.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/.metadata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/analysis_options.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/main/kotlin/com/qiniu/example/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/main/res/values/styles.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/android/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Flutter/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Flutter/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/lib/main.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/lib/token.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/lib/utils/uint.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/lib/widgets/app.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/lib/widgets/console.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/lib/widgets/dispose.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/lib/widgets/progress.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/lib/widgets/select_file.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/lib/widgets/string_input.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Flutter/Flutter-Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Flutter/Flutter-Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Podfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/AppDelegate.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Base.lproj/MainMenu.xib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Configs/AppInfo.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Configs/Debug.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Configs/Release.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Configs/Warnings.xcconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/DebugProfile.entitlements" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Info.plist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/MainFlutterWindow.swift" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/macos/Runner/Release.entitlements" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/example/test/widget_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/lib/qiniu_flutter_sdk.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/lib/src/storage/controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/lib/src/storage/storage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_flutter_sdk/test/qiniu_flutter_sdk_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/.pubignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/analysis_options.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/coverage.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/qiniu_sdk_base.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/auth/auth.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/auth/put_policy.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/error/error.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/config/cache.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/config/config.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/config/host.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/config/protocol.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/error/error.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/by_part/cache_mixin.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/by_part/complete_parts_task.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/by_part/init_parts_task.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/by_part/part.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/by_part/put_parts_task.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/by_part/upload_part_task.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/by_part/upload_parts_task.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/by_single/put_by_single_task.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/put.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/put_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/put_options.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/methods/put/put_response.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/resource/bytes_resource.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/resource/file_resource.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/resource/resource.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/status/status.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/storage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/task/request_task.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/task/request_task_controller.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/task/request_task_manager.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/task/task.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/lib/src/storage/task/task_manager.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test/auth/auth_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test/config.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test/config_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test/put/helpers.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test/put/put_by_parts/put_bytes_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test/put/put_by_parts/put_file_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test/put/put_by_single/put_bytes_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test/put/put_by_single/put_file_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test/resource_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test/retry_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test/test_coverage.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test_resource/test_for_put.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/plugins/qiniu_sdk_base/test_resource/test_for_put_parts.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/pubspec.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/pubspec.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/acl_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/captcha_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/cloud_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/exception_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/file_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/friend_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/full_text_search_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/geo_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/nullsafety_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/object_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/operation_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/query_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/relation_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/role_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/sms_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/status_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/subclass_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/user_test.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../leancloud_storage/test/utils.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2k5O3oKR3h5oQvr5XVZ9GauaWWA" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/provider" />
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9727270a-2ab4-43bc-ab95-1bdea14486c4" name="Changes" comment="" />
+      <created>1722569779613</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1722569779613</updated>
+    </task>
+    <servers />
+  </component>
+</project>

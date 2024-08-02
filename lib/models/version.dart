@@ -62,6 +62,11 @@ class Version {
     return isNew;
   }
 
+  String get fileName {
+    String fileName = "flutter_v$version($build).apk'"; // 设定下载文件的名称
+    return fileName;
+  }
+
   factory Version.fromJson(Map<String, dynamic> json) => _$VersionFromJson(json);
   Map<String, dynamic> toJson() => _$VersionToJson(this);
 }
