@@ -63,7 +63,7 @@ class FlutterLeanCloud {
     final url = '${version.apps}?t=$timestamp';
     try {
       debugPrint(url);
-      data = await network.request(url);
+      data = await network.request(url, reacquire: true);
     } catch (error) {
       debugPrint(error.toString());
       for (var i = 0; i < version.githubs.length; i++) {
@@ -97,7 +97,7 @@ class FlutterLeanCloud {
     final network = CachedNetwork();
     try {
       debugPrint(url);
-      return await network.request(url);
+      return await network.request(url, reacquire: true);
     } catch (error) {
       debugPrint(error.toString());
       for (var i = 0; i < version.githubs.length; i++) {
