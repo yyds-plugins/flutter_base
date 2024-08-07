@@ -1,4 +1,4 @@
-library flutter_leancloud;
+library leancloud_storage;
 
 import 'dart:convert';
 
