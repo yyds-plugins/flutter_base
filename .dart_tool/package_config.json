@@ -224,6 +224,18 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "fl_umeng",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/fl_umeng-3.6.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
+      "name": "fl_umeng_apm",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/fl_umeng_apm-0.5.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///Users/yun/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -426,6 +438,12 @@
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/mime-1.0.5",
       "packageUri": "lib/",
       "languageVersion": "3.2"
+    },
+    {
+      "name": "openinstall_flutter_plugin",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/openinstall_flutter_plugin-2.5.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "package_config",
@@ -722,6 +740,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "talkingdata_sdk_plugin",
+      "rootUri": "../plugins/talkingdata_sdk_plugin",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "term_glyph",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/term_glyph-1.2.1",
       "packageUri": "lib/",
@@ -836,13 +860,13 @@
       "languageVersion": "2.19"
     },
     {
-      "name": "flutter_base",
+      "name": "flutter_leancloud",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-08-07T06:25:44.173804Z",
+  "generated": "2024-08-07T06:33:01.027342Z",
   "generator": "pub",
   "generatorVersion": "3.4.4",
   "flutterRoot": "file:///Users/yun/flutter",

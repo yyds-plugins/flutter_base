@@ -1,4 +1,4 @@
-name: flutter_base
+name: flutter_leancloud
 description: "A new Flutter project."
 version: 0.0.1
 homepage:
@@ -22,7 +22,13 @@ dependencies:
 
   leancloud_storage:
     path: ./plugins/leancloud_storage
+  talkingdata_sdk_plugin:
+    path: ./plugins/talkingdata_sdk_plugin
 
+  #第三方sdk
+  openinstall_flutter_plugin: ^2.5.0
+  fl_umeng: ^3.6.1
+  fl_umeng_apm: ^0.5.1
 
   # 模型处理
   flutter_riverpod: ^2.4.10

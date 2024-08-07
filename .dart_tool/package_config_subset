@@ -142,6 +142,14 @@ fixnum
 2.19
 file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/fixnum-1.1.0/
 file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/fixnum-1.1.0/lib/
+fl_umeng
+2.18
+file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/fl_umeng-3.6.1/
+file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/fl_umeng-3.6.1/lib/
+fl_umeng_apm
+2.18
+file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/fl_umeng_apm-0.5.1/
+file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/fl_umeng_apm-0.5.1/lib/
 flutter_inappwebview
 2.14
 file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/flutter_inappwebview-5.8.0/
@@ -262,6 +270,10 @@ mime
 3.2
 file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/mime-1.0.5/
 file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/mime-1.0.5/lib/
+openinstall_flutter_plugin
+2.12
+file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/openinstall_flutter_plugin-2.5.0/
+file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/openinstall_flutter_plugin-2.5.0/lib/
 package_config
 2.12
 file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/package_config-2.1.0/
@@ -522,7 +534,7 @@ yaml
 2.19
 file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/yaml-3.1.2/
 file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/yaml-3.1.2/lib/
-flutter_base
+flutter_leancloud
 3.0
 file:///Users/yun/Documents/GitHub/plugins/flutter_base/
 file:///Users/yun/Documents/GitHub/plugins/flutter_base/lib/
@@ -542,6 +554,10 @@ qiniu_sdk_base
 2.15
 file:///Users/yun/Documents/GitHub/plugins/flutter_base/plugins/leancloud_storage/plugins/qiniu_sdk_base/
 file:///Users/yun/Documents/GitHub/plugins/flutter_base/plugins/leancloud_storage/plugins/qiniu_sdk_base/lib/
+talkingdata_sdk_plugin
+2.12
+file:///Users/yun/Documents/GitHub/plugins/flutter_base/plugins/talkingdata_sdk_plugin/
+file:///Users/yun/Documents/GitHub/plugins/flutter_base/plugins/talkingdata_sdk_plugin/lib/
 sky_engine
 3.2
 file:///Users/yun/flutter/bin/cache/pkg/sky_engine/

@@ -296,6 +296,22 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.1.0"
+  fl_umeng:
+    dependency: "direct main"
+    description:
+      name: fl_umeng
+      sha256: "3a128c10a70d56435a92c147df5a4681cb9c5638ddd022ea95593bfd45563a28"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.6.1"
+  fl_umeng_apm:
+    dependency: "direct main"
+    description:
+      name: fl_umeng_apm
+      sha256: "376219f9932f5c944414bb040b0dad859c3d3b47837cfacbd8c3c74283b82437"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.5.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -558,6 +574,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.5"
+  openinstall_flutter_plugin:
+    dependency: "direct main"
+    description:
+      name: openinstall_flutter_plugin
+      sha256: b0fd720e4175953e487d2141632c695682608d60884e2d7b65be693b517f737f
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "2.5.0"
   package_config:
     dependency: transitive
     description:
@@ -945,6 +969,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "3.1.0+1"
+  talkingdata_sdk_plugin:
+    dependency: "direct main"
+    description:
+      path: "plugins/talkingdata_sdk_plugin"
+      relative: true
+    source: path
+    version: "0.0.1"
   term_glyph:
     dependency: transitive
     description:

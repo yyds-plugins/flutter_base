@@ -63,7 +63,7 @@ class Version {
   }
 
   String get fileName {
-    String fileName = "flutter_v$version($build).apk'"; // 设定下载文件的名称
+    String fileName = "$name$version($build).apk'"; // 设定下载文件的名称
     return fileName;
   }
 
