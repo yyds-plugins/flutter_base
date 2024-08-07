@@ -1,4 +1,4 @@
-library flutter_leancloud;
+library leancloud_storage;
 
 import 'dart:convert';
 
@@ -10,7 +10,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'models/app.dart';
 import 'models/version.dart';
 
-class FlutterLeanCloud {
+class LeancloudStorage {
   static Future<void> initSDK(String appId, String appKey, {String? server, LCQueryCache? queryCache}) async {
     LeanCloud.initialize(appId, appKey, server: server, queryCache: queryCache);
   }

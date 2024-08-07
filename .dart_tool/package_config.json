@@ -836,13 +836,13 @@
       "languageVersion": "2.19"
     },
     {
-      "name": "flutter_leancloud",
+      "name": "flutter_base",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-08-06T03:15:18.402342Z",
+  "generated": "2024-08-07T06:25:44.173804Z",
   "generator": "pub",
   "generatorVersion": "3.4.4",
   "flutterRoot": "file:///Users/yun/flutter",
