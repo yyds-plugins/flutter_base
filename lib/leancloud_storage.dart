@@ -10,7 +10,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'models/app.dart';
 import 'models/version.dart';
 
-class FlutterLeanCloud {
+class LeancloudStorage {
   static Future<Version> getVersion(String objectId) async {
     try {
       final packageInfo = await PackageInfo.fromPlatform();
