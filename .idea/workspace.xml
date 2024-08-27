@@ -5,9 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9727270a-2ab4-43bc-ab95-1bdea14486c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/flutter_base.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/util/logger_util.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/util/util.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widget/setting_tile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/apk_download.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apk_download.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_base.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_base.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_openinstall.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_openinstall.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_umeng.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_umeng.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/leancloud_storage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/leancloud_storage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/version.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/version.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +63,7 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/yun/Documents/GitHub/plugins/flutter_base/lib&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }

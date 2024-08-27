@@ -375,13 +375,13 @@
     },
     {
       "name": "leak_tracker",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/leak_tracker-10.0.4",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/leak_tracker-10.0.5",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
     {
       "name": "leak_tracker_flutter_testing",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/leak_tracker_flutter_testing-3.0.3",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/leak_tracker_flutter_testing-3.0.5",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -404,6 +404,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "logger",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/logger-2.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "logging",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/logging-1.2.0",
       "packageUri": "lib/",
@@ -417,7 +423,7 @@
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/material_color_utilities-0.8.0",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/material_color_utilities-0.11.1",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -429,7 +435,7 @@
     },
     {
       "name": "meta",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/meta-1.12.0",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/meta-1.15.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -753,9 +759,9 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/test_api-0.7.0",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/test_api-0.7.2",
       "packageUri": "lib/",
-      "languageVersion": "3.0"
+      "languageVersion": "3.2"
     },
     {
       "name": "timing",
@@ -770,10 +776,34 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "url_launcher",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/url_launcher-6.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
+      "name": "url_launcher_android",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/url_launcher_android-6.3.10",
+      "packageUri": "lib/",
+      "languageVersion": "3.5"
+    },
+    {
+      "name": "url_launcher_ios",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/url_launcher_ios-6.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "url_launcher_linux",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/url_launcher_linux-3.1.1",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "url_launcher_macos",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/url_launcher_macos-3.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
     },
     {
       "name": "url_launcher_platform_interface",
@@ -807,7 +837,7 @@
     },
     {
       "name": "vm_service",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/vm_service-14.2.1",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/vm_service-14.2.4",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -866,10 +896,10 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-08-07T06:44:14.754693Z",
+  "generated": "2024-08-27T02:17:34.401088Z",
   "generator": "pub",
-  "generatorVersion": "3.4.4",
+  "generatorVersion": "3.5.0",
   "flutterRoot": "file:///Users/yun/flutter",
-  "flutterVersion": "3.22.3",
+  "flutterVersion": "3.24.0",
   "pubCache": "file:///Users/yun/.pub-cache"
 }

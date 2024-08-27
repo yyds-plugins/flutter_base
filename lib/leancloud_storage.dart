@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:cached_network/cached_network.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_base/util/logger_util.dart';
 import 'package:leancloud_storage/leancloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -16,11 +17,11 @@ class LeancloudStorage {
       final packageInfo = await PackageInfo.fromPlatform();
       LCQuery<LCObject> query = LCQuery('version');
       final value = await query.get(objectId);
-      debugPrint('LC value=$value');
+      Log.d('LC value=$value');
       final version = Version.fromJson(json.decode(value.toString())).copyWith(b2v: packageInfo.version, b2: packageInfo.buildNumber);
       return version;
     } catch (error) {
-      debugPrint(error.toString());
+      Log.d(error.toString());
       return Version();
     }
 
@@ -34,21 +35,21 @@ class LeancloudStorage {
     // DateTime now = DateTime.now();
     // int timestamp = now.microsecondsSinceEpoch;
     // final url = 'https://raw.githubusercontent.com/yyds-m/movie/main/jsons/flutter_v_updater.json?t=$timestamp';
-    // debugPrint('request url=${url}');
+    // Log.d('request url=${url}');
     // final data = await network.request(url, duration: duration);
     // Map<String, dynamic> json = jsonDecode(data);
     // var version = Version.fromJson(json).copyWith(b2: packageInfo.buildNumber);
-    // debugPrint('Github Version=${version.toJson()}');
+    // Log.d('Github Version=${version.toJson()}');
     // var lanz = JhEncryptUtils.aesEncrypt(version.lanz);
     // var helpUrl = JhEncryptUtils.aesEncrypt(version.helpUrl);
     //
-    // debugPrint('加密后的：lanz=${lanz}');
-    // debugPrint('加密后的：helpUrl=${helpUrl}');
+    // Log.d('加密后的：lanz=${lanz}');
+    // Log.d('加密后的：helpUrl=${helpUrl}');
     //
     // var _lanz = JhEncryptUtils.aesDecrypt(lanz);
     // var _helpUrl = JhEncryptUtils.aesDecrypt(helpUrl);
-    // debugPrint('解密后的：_lanz=${_lanz}');
-    // debugPrint('解密后的：_helpUrl=${_helpUrl}');
+    // Log.d('解密后的：_lanz=${_lanz}');
+    // Log.d('解密后的：_helpUrl=${_helpUrl}');
   }
 
   static Future<List<App>> appList(Version version) async {
@@ -58,17 +59,17 @@ class LeancloudStorage {
     int timestamp = now.microsecondsSinceEpoch;
     final url = '${version.apps}?t=$timestamp';
     try {
-      debugPrint(url);
+      Log.d(url);
       data = await network.request(url, reacquire: true);
     } catch (error) {
-      debugPrint(error.toString());
+      Log.d(error.toString());
       for (var i = 0; i < version.githubs.length; i++) {
         final _url = version.githubs[i] + url;
-        debugPrint('githubs=$i _url=$_url');
+        Log.d('githubs=$i _url=$_url');
         try {
           data = await network.request(_url);
         } catch (error) {
-          debugPrint(error.toString());
+          Log.d(error.toString());
         }
       }
     }
@@ -92,16 +93,16 @@ class LeancloudStorage {
 
     final network = CachedNetwork();
     try {
-      debugPrint(url);
+      Log.d(url);
       return await network.request(url, reacquire: true);
     } catch (error) {
-      debugPrint(error.toString());
+      Log.d(error.toString());
       for (var i = 0; i < version.githubs.length; i++) {
         final _url = version.githubs[i] + url;
         try {
           return await network.request(_url);
         } catch (error) {
-          debugPrint(error.toString());
+          Log.d(error.toString());
         }
       }
     }

@@ -21,7 +21,7 @@ class Version {
   final String platform; //
   final bool isMode; //
   final String feedUrl; // 订阅 url
-  final String sourceUrl; // 订阅 url
+  final String sourceUrl; // 订阅url
   final List<String> githubs; //
 
   Version({

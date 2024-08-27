@@ -7,6 +7,7 @@ import 'dart:io';
 import 'package:cached_network/cached_network.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_base/util/logger_util.dart';
 import 'package:flutter_base/widget/update_dialog/update_dialog.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
@@ -64,7 +65,7 @@ class ApkDownload {
   // 分享 APK
   static void onShareApk(BuildContext context, Version version) async {
     String savePath = await _getFilePath(version.fileName); // 获取存储在本地的路径
-    debugPrint(savePath);
+    Log.d(savePath);
     final bool isFile = await isFileExists(savePath);
     if (isFile) {
       Share.shareXFiles([XFile(savePath)]);
@@ -96,18 +97,18 @@ class ApkDownload {
         ignoreButtonText: '忽略此版本',
         enableIgnore: !version.isMode, //可忽略更新
         onIgnore: () {
-      debugPrint('onIgnore');
+      Log.d('onIgnore');
       cancelToken.cancel('cancelled');
       dialog!.dismiss();
     }, onUpdate: () async {
       var url = await apkFileUrl(version);
-      debugPrint('version.url=$url');
+      Log.d('version.url=$url');
       String savePath = await _getFilePath(version.fileName); // 获取存储在本地的路径
       final req = await downloadApk(url, savePath, cancelToken);
       dialog!.dismiss();
       onDownloadApk(req);
     }, onClose: () {
-      debugPrint('onClose');
+      Log.d('onClose');
       cancelToken.cancel('cancelled');
       dialog!.dismiss();
     });
@@ -119,7 +120,7 @@ class ApkDownload {
       SmartDialog.showToast('开始下载...');
 
       var response = await Dio().download(url, savePath, cancelToken: cancelToken, onReceiveProgress: (count, total) {
-        debugPrint("count  $count total=$total");
+        Log.d("count  $count total=$total");
         final value = count / total;
         if (progress != value) {
           if (progress < 1.0) {
@@ -128,10 +129,10 @@ class ApkDownload {
             progress = 0.0;
           }
           dialog!.update(progress);
-          debugPrint("${(progress * 100).toStringAsFixed(2)}%");
+          Log.d("${(progress * 100).toStringAsFixed(2)}%");
         }
       });
-      debugPrint("Response  ${response.data}");
+      Log.d("Response  ${response.data}");
       SmartDialog.showToast('下载成功！');
       return savePath;
     } on DioException catch (e) {
@@ -144,7 +145,7 @@ class ApkDownload {
   static installPlugin(String savePath) async {
     final res = await InstallPlugin.install(savePath);
     if (res['isSuccess'] == true) SmartDialog.showToast('安装成功！');
-    debugPrint("install apk ${res['isSuccess'] == true ? 'success' : 'fail:${res['errorMessage'] ?? ''}'}");
+    Log.d("install apk ${res['isSuccess'] == true ? 'success' : 'fail:${res['errorMessage'] ?? ''}'}");
   }
 
   ///判断文件存不存在
@@ -161,13 +162,13 @@ class ApkDownload {
   static Future<String> apkFileUrl(Version version) async {
     final network = CachedNetwork();
     try {
-      debugPrint("直接嗅探 URL=${version.url}");
+      Log.d("直接嗅探 URL=${version.url}");
       return await jxApkUrl(version.url);
     } catch (error) {
-      debugPrint(error.toString());
+      Log.d(error.toString());
       for (var i = 0; i < version.jxs.length; i++) {
         final _url = version.jxs[i] + version.url;
-        debugPrint('jxs=$i url=$_url');
+        Log.d('jxs=$i url=$_url');
         try {
           var html = await network.request(version.url);
           Map<String, dynamic> json = jsonDecode(html);
@@ -180,7 +181,7 @@ class ApkDownload {
             }
           }
         } catch (error) {
-          debugPrint(error.toString());
+          Log.d(error.toString());
         }
       }
     }
@@ -202,7 +203,7 @@ class ApkDownload {
       if (!completer.isCompleted) completer.complete(url);
     }
 
-    debugPrint('嗅探初始化 $url');
+    Log.d('嗅探初始化 $url');
     headlessWebView = HeadlessInAppWebView(
       initialUrlRequest: URLRequest(url: Uri.parse(url)),
       // initialSettings: InAppWebViewSettings(isInspectable: kDebugMode),
@@ -217,12 +218,12 @@ class ApkDownload {
 
       onLoadStop: (controller, webUri) async {
         var html = await controller.evaluateJavascript(source: "document.body.innerHTML");
-        debugPrint('File html: $html');
+        Log.d('File html: $html');
 
         final parser = HtmlParser();
         var item = parser.parse(html);
         final name = parser.query(item, '//div[@class=\'appname\']@text');
-        debugPrint('--->>>items name>>>${name}');
+        Log.d('--->>>items name>>>${name}');
 
         // Extract the values of 'var link =' and 'var urlpt ='
         RegExp linkRegex = RegExp(r"var link = '(.*?)';");
@@ -234,7 +235,7 @@ class ApkDownload {
         if (linkMatch != null && urlptMatch != null) {
           String linkValue = linkMatch.group(1) ?? '';
           String urlptValue = urlptMatch.group(1) ?? '';
-          debugPrint('Urlpt value: ${urlptValue + linkValue}');
+          Log.d('Urlpt value: ${urlptValue + linkValue}');
 
           _handleResult(urlptValue + linkValue, tag: 'onLoadStop');
         } else {
@@ -244,7 +245,7 @@ class ApkDownload {
     );
 
     await headlessWebView.run();
-    debugPrint('webView.run()');
+    Log.d('webView.run()');
 
     return await completer.future;
   }

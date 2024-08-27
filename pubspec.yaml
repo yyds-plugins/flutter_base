@@ -14,11 +14,15 @@ dependencies:
   path_provider: ^2.0.14
   cached_network: ^2.1.0
   flutter_inappwebview: ^5.8.0
-  share_plus: ^9.0.0
-  install_plugin: ^2.1.0  # 安装插件，打开安装界面
   flutter_smart_dialog: ^4.9.7+8
   html_parser_plus: ^0.1.4
+
+
+  share_plus: ^9.0.0
+  install_plugin: ^2.1.0  # 安装插件，打开安装界面
   package_info_plus: ^6.0.0
+  url_launcher: ^6.3.0
+  logger: ^2.4.0
 
   leancloud_storage:
     path: ./plugins/leancloud_storage
