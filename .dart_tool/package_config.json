@@ -20,6 +20,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "ansicolor",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/ansicolor-2.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "args",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/args-2.5.0",
       "packageUri": "lib/",
@@ -110,6 +116,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "chinese_font_library",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/chinese_font_library-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "clock",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/clock-1.1.1",
       "packageUri": "lib/",
@@ -192,6 +204,12 @@
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/dio_web_adapter-1.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
+    },
+    {
+      "name": "equatable",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/equatable-2.0.5",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "expressions",
@@ -302,6 +320,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "group_button",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/group_button-5.3.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "html",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/html-0.15.4",
       "packageUri": "lib/",
@@ -330,6 +354,12 @@
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/http_parser-4.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "iconsax_flutter",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/iconsax_flutter-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "install_plugin",
@@ -510,6 +540,12 @@
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/path_provider_windows-2.3.0",
       "packageUri": "lib/",
       "languageVersion": "3.2"
+    },
+    {
+      "name": "pausable_timer",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/pausable_timer-3.1.0+3",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "petitparser",
@@ -746,6 +782,24 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "talker",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/talker-4.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "talker_flutter",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/talker_flutter-4.4.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "talker_logger",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/talker_logger-4.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "talkingdata_sdk_plugin",
       "rootUri": "../plugins/talkingdata_sdk_plugin",
       "packageUri": "lib/",
@@ -768,6 +822,12 @@
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/timing-1.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "toastification",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/toastification-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "typed_data",
@@ -896,7 +956,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-08-27T02:17:34.401088Z",
+  "generated": "2024-08-29T08:06:54.245967Z",
   "generator": "pub",
   "generatorVersion": "3.5.0",
   "flutterRoot": "file:///Users/yun/flutter",

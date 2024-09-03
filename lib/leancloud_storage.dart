@@ -3,8 +3,7 @@ library leancloud_storage;
 import 'dart:convert';
 
 import 'package:cached_network/cached_network.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_base/util/logger_util.dart';
+import 'package:flutter_base/utils/logger_util.dart';
 import 'package:leancloud_storage/leancloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
@@ -63,6 +62,8 @@ class LeancloudStorage {
       data = await network.request(url, reacquire: true);
     } catch (error) {
       Log.d(error.toString());
+      Log.d('githubs=${version.githubs}');
+
       for (var i = 0; i < version.githubs.length; i++) {
         final _url = version.githubs[i] + url;
         Log.d('githubs=$i _url=$_url');

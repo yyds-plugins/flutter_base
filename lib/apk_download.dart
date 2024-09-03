@@ -6,8 +6,9 @@ import 'dart:io';
 
 import 'package:cached_network/cached_network.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base/util/logger_util.dart';
+import 'package:flutter_base/utils/logger_util.dart';
 import 'package:flutter_base/widget/update_dialog/update_dialog.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
@@ -32,9 +33,16 @@ class ApkDownload {
         if (!await dir.exists()) dir = (await getExternalStorageDirectory())!;
       }
     } catch (err) {
-      print("Cannot get download folder path $err");
+      if (kDebugMode) {
+        print("Cannot get download folder path $err");
+      }
     }
-    return "${dir?.path}$filename";
+
+    var path = "${dir?.path}$filename";
+    if (kDebugMode) {
+      Log.e(path);
+    }
+    return path;
   }
 
   //有新版本更新

@@ -1,5 +1,5 @@
 import 'package:fl_umeng_apm/fl_umeng_apm.dart';
-import 'package:flutter_base/util/logger_util.dart';
+import 'package:flutter_base/utils/logger_util.dart';
 
 class FlutterUMeng {
   /// 初始化

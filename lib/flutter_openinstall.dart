@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_base/util/logger_util.dart';
+import 'package:flutter_base/utils/logger_util.dart';
 import 'package:openinstall_flutter_plugin/openinstall_flutter_plugin.dart';
 
 class FlutterOpeninstall {

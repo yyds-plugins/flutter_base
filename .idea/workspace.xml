@@ -5,23 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9727270a-2ab4-43bc-ab95-1bdea14486c4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/util/logger_util.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/util/util.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/widget/setting_tile.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/chore.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/log_toast.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/time_parser.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/utils/value_util.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widget/buttons/icon_button.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widget/buttons/icon_outline_button.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/apk_download.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apk_download.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/flutter_base.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_base.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/flutter_openinstall.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_openinstall.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/flutter_umeng.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_umeng.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/leancloud_storage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/leancloud_storage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/version.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/version.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/util/logger_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/logger_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/util/util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/util.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
