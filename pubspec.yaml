@@ -32,6 +32,9 @@ dependencies:
     path: ./plugins/leancloud_storage
   talkingdata_sdk_plugin:
     path: ./plugins/talkingdata_sdk_plugin
+  permission_request_page:
+    path: ./plugins/permission_request_page
+
 
   #第三方sdk
   openinstall_flutter_plugin: ^2.5.0
