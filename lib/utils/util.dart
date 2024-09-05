@@ -3,6 +3,7 @@ import 'package:url_launcher/url_launcher.dart';
 export 'package:flutter_base/utils/chore.dart';
 export 'package:flutter_base/utils/log_toast.dart';
 export 'package:flutter_base/utils/logger_util.dart';
+export 'package:flutter_base/utils/permission_engine.dart';
 export 'package:flutter_base/utils/time_parser.dart';
 export 'package:flutter_base/utils/util.dart';
 export 'package:flutter_base/utils/value_util.dart';
