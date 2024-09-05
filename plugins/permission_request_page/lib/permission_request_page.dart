@@ -23,7 +23,7 @@ export 'models/permission_type.dart';
 typedef InitFunction = Future<InitResult> Function();
 
 /// Builder for building custom splash view.
-typedef SplashViewBuilder = Widget Function();
+typedef SplashViewBuilder = Widget Function(void Function() onTap);
 
 /// Builder for building custom permission view header.
 typedef PermissionViewHeaderBuilder = Widget Function();
@@ -101,8 +101,7 @@ class PermissionRequestPage extends StatefulWidget {
   State<StatefulWidget> createState() => _PermissionRequestPageState();
 }
 
-class _PermissionRequestPageState extends State<PermissionRequestPage>
-    with TickerProviderStateMixin {
+class _PermissionRequestPageState extends State<PermissionRequestPage> with TickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
 
@@ -128,9 +127,7 @@ class _PermissionRequestPageState extends State<PermissionRequestPage>
     final prefs = await SharedPreferences.getInstance();
     final isCheckFirst = prefs.getBool('isCheckFirst') ?? true;
 
-    PermissionRequestPageUtils.instance
-        .checkPermissions(permissions)
-        .then((result) {
+    PermissionRequestPageUtils.instance.checkPermissions(permissions).then((result) {
       if (permissions.isEmpty || (result.isGranted && !isCheckFirst)) {
         _startAppInitialization();
         return;
@@ -148,17 +145,13 @@ class _PermissionRequestPageState extends State<PermissionRequestPage>
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool('isCheckFirst', false);
 
-    PermissionRequestPageUtils.instance
-        .requestPermissions(permissions)
-        .then((result) {
+    PermissionRequestPageUtils.instance.requestPermissions(permissions).then((result) {
       if (permissions.isEmpty || result.isGranted) {
         _startAppInitialization();
         return;
       }
 
-      final contentBuffer = StringBuffer(
-          widget.customText?.popupTextWhenPermissionDenied ??
-              Localization.dictionary['msgWhenPermissionDenied']);
+      final contentBuffer = StringBuffer(widget.customText?.popupTextWhenPermissionDenied ?? Localization.dictionary['msgWhenPermissionDenied']);
       contentBuffer.write('[');
       final deniedPermissions = result.deniedPermissions;
       for (var i = 0; i < result.deniedPermissions.length; i++) {
@@ -178,17 +171,16 @@ class _PermissionRequestPageState extends State<PermissionRequestPage>
 
     final initResult = await widget.initFunction();
     if (initResult.complete) {
-      Timer(widget.splashDuration, () {
-        _animationController.reverse().then((_) {
-          final route = MaterialPageRoute(builder: (_) => widget.nextPage);
-          Navigator.pushReplacement(context, route);
-        });
-      });
+      // Timer(widget.splashDuration, () {
+      //   _animationController.reverse().then((_) {
+      //     final route = MaterialPageRoute(builder: (_) => widget.nextPage);
+      //     Navigator.pushReplacement(context, route);
+      //   });
+      // });
     } else {
       if (initResult.showsError) {
         _showSystemDialog(
-          content: initResult.errorMessage ??
-              Localization.dictionary['appInitializationErrMsg'],
+          content: initResult.errorMessage ?? Localization.dictionary['appInitializationErrMsg'],
           positiveButtonText: Localization.dictionary['dialogRetryButtonText'],
           negativeButtonText: Localization.dictionary['dialogExitButtonText'],
           onPositiveButtonPressed: _startAppInitialization,
@@ -242,16 +234,14 @@ class _PermissionRequestPageState extends State<PermissionRequestPage>
 
         if (onNegativeButtonPressed != null) {
           final negativeAction = dialogActionBuilder(
-            text: negativeButtonText ??
-                Localization.dictionary['dialogNegativeButtonText'],
+            text: negativeButtonText ?? Localization.dictionary['dialogNegativeButtonText'],
             onPressed: onNegativeButtonPressed,
             positive: false,
           );
           dialogActions.add(negativeAction);
         }
         final positiveAction = dialogActionBuilder(
-          text: positiveButtonText ??
-              Localization.dictionary['dialogPositiveButtonText'],
+          text: positiveButtonText ?? Localization.dictionary['dialogPositiveButtonText'],
           onPressed: onPositiveButtonPressed,
           positive: true,
         );
@@ -276,9 +266,7 @@ class _PermissionRequestPageState extends State<PermissionRequestPage>
   void initState() {
     super.initState();
     _initAnimationController();
-    PermissionRequestPageUtils.instance
-        .filterByPlatform(widget.permissions)
-        .then((filteredPermissions) {
+    PermissionRequestPageUtils.instance.filterByPlatform(widget.permissions).then((filteredPermissions) {
       _filteredPermissions.addAll(filteredPermissions);
       _checkPermissions(filteredPermissions);
     });
@@ -312,12 +300,24 @@ class _PermissionRequestPageState extends State<PermissionRequestPage>
   Widget _buildSplashView() {
     Widget splashView;
     if (widget.splashViewBuilder != null) {
-      splashView = widget.splashViewBuilder!();
+      splashView = widget.splashViewBuilder!(() {
+        _animationController.reverse().then((_) {
+          Navigator.pushReplacement(
+            context,
+            PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) => widget.nextPage,
+              transitionDuration: Duration.zero, // 设置过渡动画时间为零
+              reverseTransitionDuration: Duration.zero, // 设置反向过渡动画时间为零
+            ),
+          );
+
+          // final route = MaterialPageRoute(builder: (_) => widget.nextPage);
+          // Navigator.pushReplacement(context, route);
+        });
+      });
     } else {
       splashView = Center(
-        child: widget.appIconAssetPath == null
-            ? const Icon(Icons.android_rounded, size: 80)
-            : Image.asset(widget.appIconAssetPath!, height: 80),
+        child: widget.appIconAssetPath == null ? const Icon(Icons.android_rounded, size: 80) : Image.asset(widget.appIconAssetPath!, height: 80),
       );
     }
 
@@ -348,19 +348,13 @@ class _PermissionRequestPageState extends State<PermissionRequestPage>
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 15, 0, 10),
-          child: widget.appIconAssetPath == null
-              ? const Icon(Icons.android_rounded, size: 50)
-              : Image.asset(widget.appIconAssetPath!, height: 50),
+          child: widget.appIconAssetPath == null ? const Icon(Icons.android_rounded, size: 50) : Image.asset(widget.appIconAssetPath!, height: 50),
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 15),
           child: Text(
-            widget.customText?.permissionViewHeaderText ??
-                Localization.dictionary['permissionViewHeaderText'],
-            style: Theme.of(context)
-                .textTheme
-                .titleLarge
-                ?.merge(widget.requestMessageStyle),
+            widget.customText?.permissionViewHeaderText ?? Localization.dictionary['permissionViewHeaderText'],
+            style: Theme.of(context).textTheme.titleLarge?.merge(widget.requestMessageStyle),
           ),
         ),
         const Divider(),
@@ -372,8 +366,7 @@ class _PermissionRequestPageState extends State<PermissionRequestPage>
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
       itemCount: _filteredPermissions.length,
-      itemBuilder: (_, index) =>
-          _buildPermissionListItem(_filteredPermissions[index]),
+      itemBuilder: (_, index) => _buildPermissionListItem(_filteredPermissions[index]),
     );
   }
 
@@ -382,28 +375,17 @@ class _PermissionRequestPageState extends State<PermissionRequestPage>
       return widget.permissionListItemBuilder!.call(permission);
     }
 
-    final TextStyle? permissionNameStyle = Theme.of(context)
-        .textTheme
-        .titleMedium
-        ?.copyWith(height: 1.2)
-        .merge(widget.permissionNameStyle);
-    final TextStyle? permissionDescStyle = Theme.of(context)
-        .textTheme
-        .bodyMedium
-        ?.merge(widget.permissionDescStyle);
-    final Color? permissionIconColor =
-        widget.permissionIconColor ?? permissionDescStyle?.color;
+    final TextStyle? permissionNameStyle = Theme.of(context).textTheme.titleMedium?.copyWith(height: 1.2).merge(widget.permissionNameStyle);
+    final TextStyle? permissionDescStyle = Theme.of(context).textTheme.bodyMedium?.merge(widget.permissionDescStyle);
+    final Color? permissionIconColor = widget.permissionIconColor ?? permissionDescStyle?.color;
 
-    String permissionName =
-        permission.permissionName ?? permission.permissionType.defaultName();
+    String permissionName = permission.permissionName ?? permission.permissionType.defaultName();
     final bool isNecessary = permission.isNecessary;
     if (isNecessary) {
       permissionName += ' ${Localization.necessary(isNecessary)}';
     }
-    final String permissionDesc =
-        permission.description ?? permission.permissionType.defaultDesc();
-    final Icon permissionIcon =
-        permission.permissionType.defaultIcon(color: permissionIconColor);
+    final String permissionDesc = permission.description ?? permission.permissionType.defaultDesc();
+    final Icon permissionIcon = permission.permissionType.defaultIcon(color: permissionIconColor);
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
@@ -437,8 +419,7 @@ class _PermissionRequestPageState extends State<PermissionRequestPage>
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         ),
         child: Text(
-          widget.customText?.permissionRequestButtonText ??
-              Localization.dictionary['permissionRequestButtonText'],
+          widget.customText?.permissionRequestButtonText ?? Localization.dictionary['permissionRequestButtonText'],
           style: Theme.of(context).textTheme.labelLarge,
         ),
         onPressed: () => _requestPermissions(_filteredPermissions),
