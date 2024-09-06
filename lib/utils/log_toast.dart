@@ -2,18 +2,16 @@ import 'dart:ui';
 
 import 'package:chinese_font_library/chinese_font_library.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:talker_flutter/talker_flutter.dart';
+import 'package:flutter_base/utils/talker.dart';
 import 'package:toastification/toastification.dart';
-
-Talker globalTalker = Talker();
 
 void initFlutterLogger() {
   FlutterError.onError = (details) {
     FlutterError.presentError(details);
-    globalTalker.error("[Flutter Error] $details");
+    talker.error("[Flutter Error] $details");
   };
   PlatformDispatcher.instance.onError = (error, stack) {
-    globalTalker.error("[PlatForm Error] Error: $error\nStackTrace: $stack");
+    talker.error("[PlatForm Error] Error: $error\nStackTrace: $stack");
     return true;
   };
 }
@@ -33,7 +31,7 @@ class LogToast {
         style: const TextStyle().useSystemChineseFont(),
       ),
     );
-    globalTalker.info(log);
+    talker.info(log);
   }
 
   static void success(String toastTitle, String toastDesc, String log, {bool isLong = false}) {
@@ -50,7 +48,7 @@ class LogToast {
         style: const TextStyle().useSystemChineseFont(),
       ),
     );
-    globalTalker.info(log);
+    talker.info(log);
   }
 
   static void warning(String toastTitle, String toastDesc, String log, {bool isLong = false}) {
@@ -67,7 +65,7 @@ class LogToast {
         style: const TextStyle().useSystemChineseFont(),
       ),
     );
-    globalTalker.warning(log);
+    talker.warning(log);
   }
 
   static void error(String toastTitle, String toastDesc, String log, {bool isLong = false}) {
@@ -84,7 +82,7 @@ class LogToast {
         style: const TextStyle().useSystemChineseFont(),
       ),
     );
-    globalTalker.error(log);
+    talker.error(log);
   }
 
   static String _filterStackTrace(String desc) {

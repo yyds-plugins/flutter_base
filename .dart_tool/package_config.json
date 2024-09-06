@@ -531,15 +531,15 @@
     },
     {
       "name": "package_info_plus",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/package_info_plus-6.0.0",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/package_info_plus-8.0.2",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
     {
       "name": "package_info_plus_platform_interface",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/package_info_plus_platform_interface-2.0.1",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/package_info_plus_platform_interface-3.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.18"
     },
     {
       "name": "path",
@@ -723,13 +723,13 @@
     },
     {
       "name": "share_plus",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/share_plus-9.0.0",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/share_plus-10.0.2",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
     {
       "name": "share_plus_platform_interface",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/share_plus_platform_interface-4.0.0",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/share_plus_platform_interface-5.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -879,7 +879,7 @@
     },
     {
       "name": "talker_flutter",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/talker_flutter-4.4.0",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/talker_flutter-4.4.1",
       "packageUri": "lib/",
       "languageVersion": "2.15"
     },
@@ -1005,15 +1005,15 @@
     },
     {
       "name": "web",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/web-0.5.1",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/web-1.0.0",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.4"
     },
     {
       "name": "web_socket_channel",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/web_socket_channel-2.4.5",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/web_socket_channel-2.4.0",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "2.15"
     },
     {
       "name": "win32",
@@ -1064,7 +1064,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-09-05T03:34:16.794962Z",
+  "generated": "2024-09-05T09:38:28.625982Z",
   "generator": "pub",
   "generatorVersion": "3.5.0",
   "flutterRoot": "file:///Users/yun/flutter",

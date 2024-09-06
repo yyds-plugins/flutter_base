@@ -1,9 +1,63 @@
-import 'dart:convert';
-import 'dart:developer' as dev;
-import 'dart:developer';
-
 import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
+import 'dart:developer' as developer;
+
+class JsonLog {
+  static const int LEFT_BIG_BRACKET = 123; // "{"
+  static const int LEFT_MIDDLE_BRACKET = 91; // "["
+  static const int RIGHT_BIG_BRACKET = 125; // "}"
+  static const int RIGHT_MIDDLE_BRACKET = 93; // "]"
+  static const int COMMA = 44; // ","
+  static const String SPACE = "  ";
+  static const String WRAP = "\n";
+
+  static void writeSpace(StringBuffer stringBuffer, int writeCount) {
+    for (int i = 1; i <= writeCount; i++) {
+      stringBuffer.write(SPACE);
+    }
+  }
+
+  static String formatJson(String jsonStr) {
+    var stringBuffer = StringBuffer();
+    var codeUnits = jsonStr.codeUnits;
+    var deep = 0;
+    for (var i = 0; i < codeUnits.length; i++) {
+      var unit = codeUnits[i];
+      var string = String.fromCharCode(unit);
+      switch (unit) {
+        case const (LEFT_BIG_BRACKET | LEFT_MIDDLE_BRACKET):
+          {
+            deep++;
+            stringBuffer.write(string);
+            stringBuffer.write(WRAP);
+            writeSpace(stringBuffer, deep);
+          }
+          break;
+        case const (RIGHT_BIG_BRACKET | RIGHT_BIG_BRACKET):
+          {
+            deep--;
+            stringBuffer.write(WRAP);
+            writeSpace(stringBuffer, deep);
+            stringBuffer.write(string);
+          }
+          break;
+        case COMMA:
+          {
+            stringBuffer.write(string);
+            stringBuffer.write(WRAP);
+            writeSpace(stringBuffer, deep);
+          }
+          break;
+        default:
+          {
+            stringBuffer.write(string);
+          }
+          break;
+      }
+    }
+    return stringBuffer.toString();
+  }
+}
 
 class Log {
   const Log._();
@@ -55,152 +109,40 @@ class Log {
     _logger.f(message);
   }
 
-  static void l(dynamic message) {
+  static void log(dynamic message) {
     if (kDebugMode) {
-      log(message.toString());
+      developer.log(message.toString());
     }
   }
 
-  /// 调试模式打印
+
   static void p(Object? object) {
     if (kDebugMode) {
       print(object);
     }
   }
 
-  /// 调试模式打印
   static void dp(dynamic object) {
     if (kDebugMode) {
       debugPrint(object?.toString());
     }
   }
+
   //====================================================
+  static const String TOP_LINE = "┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────";
+  static const String START_LINE = "│ ";
+  static const String SPLIT_LINE =
+      "|┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄";
+  static const String END_LINE = "└────────────────────────────────────────────────────────────────────────────────────────────────────────────────";
 
-  static void line({
-    String separator = '=',
-    int? length,
-    String tag = '',
-    int spaceLine = 0,
-  }) {
-    String text = separator * (length ?? lineSeparatorLength) + '\n' * spaceLine;
-    dev.log(text, name: tag);
-  }
-
-  static void i1(
-    dynamic message, {
-    String? tag,
-    StackTrace? stackTrace,
-    bool? expand,
-  }) {
-    _printLog(
-      message,
-      '${tag ?? defaultTag} ❕',
-      stackTrace,
-      expand: expand,
-    );
-  }
-
-  static void d1(
-    dynamic message, {
-    String? tag,
-    StackTrace? stackTrace,
-    bool? expand,
-  }) {
-    _printLog(
-      message,
-      '${tag ?? defaultTag} 🐛',
-      stackTrace,
-      expand: expand,
-    );
-  }
-
-  static void n1(
-    dynamic message, {
-    String? tag,
-    StackTrace? stackTrace,
-    int? level,
-    bool? expand,
-  }) {
-    if (apiLogOpen) {
-      _printLog(
-        message,
-        '🌐 ${tag ?? 'network'}',
-        stackTrace,
-        level: level,
-        expand: expand,
-      );
-    }
-  }
-
-  static void w1(
-    dynamic message, {
-    String? tag,
-    StackTrace? stackTrace,
-    bool? expand,
-  }) {
-    _printLog(
-      message,
-      '${tag ?? defaultTag} ⚠️',
-      stackTrace,
-      expand: expand,
-    );
-  }
-
-  static void e1(
-    dynamic message, {
-    String? tag,
-    StackTrace? stackTrace,
-    bool withStackTrace = true,
-    bool isError = true,
-    int? level,
-  }) {
-    _printLog(
-      message,
-      '${tag ?? defaultTag} ❌',
-      stackTrace,
-      level: level ?? 800,
-      isError: isError,
-      withStackTrace: withStackTrace,
-    );
-  }
-
-  static void _printLog(
-    dynamic message,
-    String? tag,
-    StackTrace? stackTrace, {
-    bool isError = false,
-    int? level,
-    bool withStackTrace = true,
-    bool? expand,
-  }) {
-    dev.log(
-      '${_timeDateFormat(DateTime.now())} ${_messageFormat(message, expand ?? expandLog)}',
-      time: DateTime.now(),
-      name: tag ?? defaultTag,
-      level: level ?? 800,
-      stackTrace: stackTrace ?? (isError && withStackTrace ? StackTrace.current : null),
-    );
-  }
-
-  static dynamic _messageFormat(dynamic message, bool expand) {
-    String result = expand ? '\n' : '';
-    try {
-      if (expand) {
-        result += const JsonEncoder.withIndent(' ').convert(message);
-      } else {
-        result += jsonEncode(message);
-      }
-    } catch (e) {
-      result = message;
-    }
-    return result;
-  }
-
-  static String _timeDateFormat(DateTime dateTime) {
-    String intToTwoString(int number) {
-      return number.toString().padLeft(2, '0');
-    }
-
-    return '[${intToTwoString(dateTime.hour)}:${intToTwoString(dateTime.minute)}:${intToTwoString(dateTime.second)}:${intToTwoString(dateTime.millisecond)}]';
+  static void jsonLog(dynamic object) {
+    print(TOP_LINE);
+    print(SPLIT_LINE);
+    var formatJson = JsonLog.formatJson(object.toString());
+    var splitJson = formatJson.split("\n");
+    splitJson.forEach((element) {
+      print(START_LINE + element);
+    });
+    print(END_LINE);
   }
 }

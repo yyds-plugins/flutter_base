@@ -20,9 +20,9 @@ dependencies:
 
 
 
-  share_plus: ^9.0.0
+  share_plus: ^10.0.2
   install_plugin: ^2.1.0  # 安装插件，打开安装界面
-  package_info_plus: ^6.0.0
+  package_info_plus: ^8.0.2
   url_launcher: ^6.3.0
   logger: ^2.4.0
   talker_flutter: ^4.1.5
