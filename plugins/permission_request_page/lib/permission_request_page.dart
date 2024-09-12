@@ -170,13 +170,15 @@ class _PermissionRequestPageState extends State<PermissionRequestPage> with Tick
     _isSplashViewVisible.value = true;
 
     final initResult = await widget.initFunction();
-    if (initResult.complete && widget.splashViewBuilder==null) {
-      Timer(widget.splashDuration, () {
-        _animationController.reverse().then((_) {
-          final route = MaterialPageRoute(builder: (_) => widget.nextPage);
-          Navigator.pushReplacement(context, route);
+    if (initResult.complete) {
+      if (widget.splashViewBuilder == null) {
+        Timer(widget.splashDuration, () {
+          _animationController.reverse().then((_) {
+            final route = MaterialPageRoute(builder: (_) => widget.nextPage);
+            Navigator.pushReplacement(context, route);
+          });
         });
-      });
+      }
     } else {
       if (initResult.showsError) {
         _showSystemDialog(
