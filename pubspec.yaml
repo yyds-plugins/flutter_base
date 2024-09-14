@@ -13,6 +13,7 @@ dependencies:
   dio: ^5.4.1
   path_provider: ^2.0.14
   cached_network: ^2.1.0
+  cached_network_image: ^3.3.1
   flutter_inappwebview: ^5.8.0
   flutter_smart_dialog: ^4.9.7+9
   smart_alert_dialog: ^4.0.4
