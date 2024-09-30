@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 import '../utils/utils_image.dart';
 
@@ -35,8 +35,7 @@ class LoadImage extends StatelessWidget {
           : Container(
               width: width,
               height: height,
-              color: Colors.grey.withOpacity(0.2),
-              child: Center(child: Text('加载失败', style: TextStyle(color: Colors.grey))));
+              child: Center(child: CupertinoActivityIndicator()));
       return CachedNetworkImage(
         imageUrl: image,
         httpHeaders: httpHeaders,
