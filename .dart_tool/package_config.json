@@ -32,6 +32,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "archive",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/archive-3.6.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "args",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/args-2.5.0",
       "packageUri": "lib/",
@@ -146,6 +152,18 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "ci",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/ci-0.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "cli_util",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/cli_util-0.4.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "clock",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/clock-1.1.1",
       "packageUri": "lib/",
@@ -162,6 +180,12 @@
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/collection-1.18.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
+    },
+    {
+      "name": "color",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/color-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "connectivity_plus",
@@ -212,16 +236,34 @@
       "languageVersion": "2.19"
     },
     {
-      "name": "custom_lint_core",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/custom_lint_core-0.6.3",
+      "name": "custom_lint",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/custom_lint-0.5.11",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "custom_lint_builder",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/custom_lint_builder-0.5.14",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "custom_lint_core",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/custom_lint_core-0.5.14",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "dart_style",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/dart_style-2.3.6",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "dartx",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/dartx-1.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "dbus",
@@ -320,10 +362,28 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "flutter_gen_core",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/flutter_gen_core-5.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "flutter_gen_runner",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/flutter_gen_runner-5.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "flutter_inappwebview",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/flutter_inappwebview-5.8.0",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "flutter_launcher_icons",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/flutter_launcher_icons-0.13.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "flutter_lints",
@@ -333,9 +393,9 @@
     },
     {
       "name": "flutter_riverpod",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/flutter_riverpod-2.5.1",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/flutter_riverpod-3.0.0-dev.3",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "flutter_smart_dialog",
@@ -386,6 +446,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "hashcodes",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/hashcodes-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "hotreloader",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/hotreloader-4.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "html",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/html-0.15.4",
       "packageUri": "lib/",
@@ -420,6 +492,18 @@
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/iconsax_flutter-1.0.0",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "image",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/image-4.3.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "image_size_getter",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/image_size_getter-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "install_plugin",
@@ -578,6 +662,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "path_parsing",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/path_parsing-1.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "path_provider",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/path_provider-2.1.4",
       "packageUri": "lib/",
@@ -723,27 +813,33 @@
     },
     {
       "name": "riverpod",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/riverpod-2.5.1",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/riverpod-3.0.0-dev.3",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "riverpod_analyzer_utils",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/riverpod_analyzer_utils-0.5.1",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/riverpod_analyzer_utils-1.0.0-dev.1",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
       "name": "riverpod_annotation",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/riverpod_annotation-2.3.5",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/riverpod_annotation-3.0.0-dev.3",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
     },
     {
       "name": "riverpod_generator",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/riverpod_generator-2.4.0",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/riverpod_generator-3.0.0-dev.11",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "riverpod_lint",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/riverpod_lint-3.0.0-dev.4",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
     },
     {
       "name": "rxdart",
@@ -938,6 +1034,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "time",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/time-2.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "timing",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/timing-1.0.1",
       "packageUri": "lib/",
@@ -1016,6 +1118,18 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "vector_graphics_codec",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/vector_graphics_codec-1.1.11+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "vector_graphics_compiler",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/vector_graphics_compiler-1.1.11+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/vector_math-2.1.4",
       "packageUri": "lib/",
@@ -1023,7 +1137,7 @@
     },
     {
       "name": "vm_service",
-      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/vm_service-14.2.4",
+      "rootUri": "file:///Users/yun/.pub-cache/hosted/pub.flutter-io.cn/vm_service-14.2.5",
       "packageUri": "lib/",
       "languageVersion": "3.3"
     },
@@ -1094,10 +1208,10 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-09-14T00:43:25.518892Z",
+  "generated": "2024-10-18T02:36:10.372206Z",
   "generator": "pub",
-  "generatorVersion": "3.5.0",
+  "generatorVersion": "3.5.3",
   "flutterRoot": "file:///Users/yun/flutter",
-  "flutterVersion": "3.24.0",
+  "flutterVersion": "3.24.3",
   "pubCache": "file:///Users/yun/.pub-cache"
 }

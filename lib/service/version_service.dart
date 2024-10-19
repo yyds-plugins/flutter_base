@@ -7,16 +7,21 @@ import 'package:flutter_base/utils/logger_util.dart';
 import 'package:leancloud_storage/leancloud.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
-import 'models/app.dart';
-import 'models/version.dart';
+import '../models/app.dart';
+import '../models/version.dart';
 
-class LeancloudStorage {
-  static Future<Version> getVersion(String objectId) async {
+class VersionService {
+  factory VersionService() => _instance ??= VersionService._();
+
+  static VersionService? _instance;
+
+  VersionService._();
+
+  static Future<Version> fetchVersion(String objectId) async {
     try {
       final packageInfo = await PackageInfo.fromPlatform();
       LCQuery<LCObject> query = LCQuery('version');
       final value = await query.get(objectId);
-      Log.d('LC value=$value');
       final version = Version.fromJson(json.decode(value.toString())).copyWith(b2v: packageInfo.version, b2: packageInfo.buildNumber);
       return version;
     } catch (error) {
@@ -51,24 +56,23 @@ class LeancloudStorage {
     // Log.d('解密后的：_helpUrl=${_helpUrl}');
   }
 
-  static Future<List<App>> appList(Version version) async {
+  static Future<List<App>> fetchAppList(
+    Version version,
+    CachedNetwork network,
+  ) async {
     var data = '';
-    final network = CachedNetwork();
-    DateTime now = DateTime.now();
-    int timestamp = now.microsecondsSinceEpoch;
-    final url = '${version.apps}?t=$timestamp';
     try {
-      Log.d(url);
-      data = await network.request(url, reacquire: true);
+      Log.d(version.apps);
+      data = await network.request(version.apps, reacquire: true);
     } catch (error) {
       Log.d(error.toString());
       Log.d('githubs=${version.githubs}');
 
       for (var i = 0; i < version.githubs.length; i++) {
-        final _url = version.githubs[i] + url;
+        final _url = version.githubs[i] + version.apps;
         Log.d('githubs=$i _url=$_url');
         try {
-          data = await network.request(_url);
+          data = await network.request(_url,reacquire: true);
         } catch (error) {
           Log.d(error.toString());
         }
@@ -87,21 +91,21 @@ class LeancloudStorage {
     return apps;
   }
 
-  static Future<String> md(Version version) async {
-    DateTime now = DateTime.now();
-    int timestamp = now.microsecondsSinceEpoch;
-    final url = '${version.md}?t=$timestamp';
-
-    final network = CachedNetwork();
+  static Future<String> fetchMd(
+    Version version,
+    CachedNetwork network,
+  ) async {
     try {
-      Log.d(url);
-      return await network.request(url, reacquire: true);
+      return await network.request(version.md, reacquire: true);
     } catch (error) {
       Log.d(error.toString());
       for (var i = 0; i < version.githubs.length; i++) {
-        final _url = version.githubs[i] + url;
+        DateTime now = DateTime.now();
+        int timestamp = now.microsecondsSinceEpoch;
+        final _url = version.githubs[i] + version.md;
+
         try {
-          return await network.request(_url);
+          return await network.request(_url,reacquire: true);
         } catch (error) {
           Log.d(error.toString());
         }

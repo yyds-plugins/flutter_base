@@ -12,6 +12,15 @@ class TextUtil {
     return text == null || text.isEmpty;
   }
 
+  static bool isUrl(String input) {
+    try {
+      Uri.parse(input);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+
   /// 每隔 x位 加 pattern
   static String? formatDigitPattern(String? text, {int digit = 4, String pattern = ' '}) {
     text = text?.replaceAllMapped(RegExp('(.{$digit})'), (Match match) {

@@ -5,7 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9727270a-2ab4-43bc-ab95-1bdea14486c4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/service/service.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widget/text_search_bar.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/widget/widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/version" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_base.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_base.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/leancloud_storage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/version_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/text_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/text_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/util.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widget/load_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/load_image.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +67,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/service" />
       <recent name="$PROJECT_DIR$/lib/provider" />
       <recent name="$PROJECT_DIR$/lib" />
     </key>

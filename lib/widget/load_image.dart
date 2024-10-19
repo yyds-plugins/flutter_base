@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../utils/utils_image.dart';
 
@@ -14,7 +15,8 @@ class LoadImage extends StatelessWidget {
       this.holderImg,
       this.cacheWidth,
       this.cacheHeight,
-      this.httpHeaders})
+      this.httpHeaders,
+      this.color})
       : super(key: key);
 
   final String image;
@@ -26,26 +28,33 @@ class LoadImage extends StatelessWidget {
   final int? cacheWidth;
   final int? cacheHeight;
   final Map<String, String>? httpHeaders;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     if (image.isEmpty || image.startsWith('http')) {
+
+      Widget _error = Container(width: width, height: height,decoration: BoxDecoration(
+        color: Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(6),
+      ));
+
       Widget _image = holderImg != null
           ? LoadAssetImage(holderImg!, height: height, width: width, fit: fit)
-          : Container(
-              width: width,
-              height: height,
-              child: Center(child: CupertinoActivityIndicator()));
+          : Container(width: width, height: height, child: Center(child: CupertinoActivityIndicator()));
+
       return CachedNetworkImage(
         imageUrl: image,
         httpHeaders: httpHeaders,
         placeholder: (_, __) => _image,
-        errorWidget: (_, __, dynamic error) => _image,
+        errorWidget: (_, __, dynamic error) => _error,
         width: width,
         height: height,
         fit: fit,
         memCacheWidth: cacheWidth,
         memCacheHeight: cacheHeight,
+        color: color, //目标颜色
+        colorBlendMode: BlendMode.color, //颜色混合模式
       );
     } else {
       return LoadAssetImage(
