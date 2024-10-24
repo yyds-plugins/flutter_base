@@ -8,7 +8,7 @@ import 'package:cached_network/cached_network.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_base/utils/logger_util.dart';
+import 'package:flutter_base/utils/util.dart';
 import 'package:flutter_base/widget/update_dialog/update_dialog.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
@@ -23,22 +23,25 @@ class ApkDownload {
   static UpdateDialog? dialog;
   static double progress = 0.0;
 
-  static Future<String> _getFilePath(String filename) async {
-    Directory? dir;
-    try {
-      if (Platform.isIOS) {
-        dir = await getApplicationDocumentsDirectory(); // 针对 iOS
-      } else {
-        dir = Directory('/storage/emulated/0/Download/'); // 针对 android
-        if (!await dir.exists()) dir = (await getExternalStorageDirectory())!;
+  static Future<String> _getFilePath(String fileName) async {
+    String? docPath;
+    if (Platform.isAndroid) {
+      docPath = "/storage/emulated/0/Download/";
+      Directory dir = Directory(docPath);
+      try {
+        dir.listSync();
+      } catch (e) {
+        // 一些系统没有权限
+        docPath = (await getExternalStorageDirectory())?.path;
+        docPath = '$docPath/';
       }
-    } catch (err) {
-      if (kDebugMode) {
-        print("Cannot get download folder path $err");
-      }
+    } else {
+      docPath = (await getTemporaryDirectory()).path;
+      docPath = docPath.replaceFirst("Library/Caches", "Documents/");
     }
 
-    var path = "${dir?.path}$filename";
+    var path = '$docPath$fileName';
+    ;
     if (kDebugMode) {
       Log.e(path);
     }
@@ -73,8 +76,9 @@ class ApkDownload {
   // 分享 APK
   static void onShareApk(BuildContext context, Version version) async {
     String savePath = await _getFilePath(version.fileName); // 获取存储在本地的路径
-    Log.d(savePath);
     final bool isFile = await isFileExists(savePath);
+    Log.d('savePath=$savePath isFile=$isFile');
+
     if (isFile) {
       Share.shareXFiles([XFile(savePath)]);
     } else {
@@ -89,6 +93,9 @@ class ApkDownload {
   static void showUpdateDialog(BuildContext context, Version version, String apkPath, {required void Function(String) onDownloadApk}) {
     if (dialog != null && dialog!.isShowing()) return;
     final cancelToken = CancelToken();
+
+    final isMode = version.isMode;
+
     dialog = UpdateDialog.showUpdate(context,
         width: 300,
         title: version.title,
@@ -100,21 +107,26 @@ class ApkDownload {
         radius: 8,
         themeColor: Colors.red,
         progressBackgroundColor: const Color(0x5AFFAC5D),
-        isForce: version.isMode, // 是否是强制更新
+        isForce: isMode, // 是否是强制更新
         updateButtonText: '下载',
         ignoreButtonText: '忽略此版本',
-        enableIgnore: !version.isMode, //可忽略更新
+        enableIgnore: !isMode, //可忽略更新
         onIgnore: () {
       Log.d('onIgnore');
       cancelToken.cancel('cancelled');
       dialog!.dismiss();
     }, onUpdate: () async {
-      var url = await apkFileUrl(version);
-      Log.d('version.url=$url');
-      String savePath = await _getFilePath(version.fileName); // 获取存储在本地的路径
-      final req = await downloadApk(url, savePath, cancelToken);
-      dialog!.dismiss();
-      onDownloadApk(req);
+      await Util.LaunchUrl(version.url);
+
+      // if (Platform.isAndroid) {
+      //   var url = await apkFileUrl(version);
+      //   Log.d('version.url=$url');
+      //   String savePath = await _getFilePath(version.fileName); // 获取存储在本地的路径
+      //   final req = await downloadApk(url, savePath, cancelToken);
+      //   onDownloadApk(req);
+      // } else {
+      //   await Util.LaunchUrl(version.url);
+      // }
     }, onClose: () {
       Log.d('onClose');
       cancelToken.cancel('cancelled');

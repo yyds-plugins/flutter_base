@@ -1,0 +1,25 @@
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+App _$AppFromJson(Map<String, dynamic> json) => App(
+      id: json['id'] as String? ?? '',
+      url: json['url'] as String? ?? '',
+      name: json['name'] as String? ?? '',
+      description: json['description'] as String? ?? '',
+      iconUrl: json['iconUrl'] as String? ?? '',
+      packageName: json['packageName'] as String? ?? '',
+      bundleId: json['bundleId'] as String? ?? '',
+      urlScheme: json['urlScheme'] as String? ?? '',
+    );
+
+Map<String, dynamic> _$AppToJson(App instance) => <String, dynamic>{
+      'id': instance.id,
+      'url': instance.url,
+      'name': instance.name,
+      'description': instance.description,
+      'iconUrl': instance.iconUrl,
+      'packageName': instance.packageName,
+      'bundleId': instance.bundleId,
+      'urlScheme': instance.urlScheme,
+    };

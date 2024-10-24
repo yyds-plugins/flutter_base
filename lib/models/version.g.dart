@@ -41,6 +41,8 @@ abstract class _$VersionCWProxy {
 
   Version githubs(List<String> githubs);
 
+  Version jxApi(List<String> jxApi);
+
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Version(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
   /// Usage
@@ -65,6 +67,7 @@ abstract class _$VersionCWProxy {
     String? feedUrl,
     String? sourceUrl,
     List<String>? githubs,
+    List<String>? jxApi,
   });
 }
 
@@ -126,6 +129,9 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
   Version githubs(List<String> githubs) => this(githubs: githubs);
 
   @override
+  Version jxApi(List<String> jxApi) => this(jxApi: jxApi);
+
+  @override
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Version(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -151,6 +157,7 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
     Object? feedUrl = const $CopyWithPlaceholder(),
     Object? sourceUrl = const $CopyWithPlaceholder(),
     Object? githubs = const $CopyWithPlaceholder(),
+    Object? jxApi = const $CopyWithPlaceholder(),
   }) {
     return Version(
       name: name == const $CopyWithPlaceholder() || name == null
@@ -222,6 +229,10 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
           ? _value.githubs
           // ignore: cast_nullable_to_non_nullable
           : githubs as List<String>,
+      jxApi: jxApi == const $CopyWithPlaceholder() || jxApi == null
+          ? _value.jxApi
+          // ignore: cast_nullable_to_non_nullable
+          : jxApi as List<String>,
     );
   }
 }
@@ -258,6 +269,9 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
               ?.map((e) => e as String)
               .toList() ??
           const [],
+      jxApi:
+          (json['jxApi'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+              const [],
     );
 
 Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
@@ -278,4 +292,5 @@ Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
       'feedUrl': instance.feedUrl,
       'sourceUrl': instance.sourceUrl,
       'githubs': instance.githubs,
+      'jxApi': instance.jxApi,
     };

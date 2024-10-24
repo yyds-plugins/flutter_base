@@ -82,7 +82,7 @@ extension $ResultDataCopyWith on ResultData {
 // **************************************************************************
 
 ResultData _$ResultDataFromJson(Map<String, dynamic> json) => ResultData(
-      code: json['code'] as int? ?? 0,
+      code: (json['code'] as num?)?.toInt() ?? 0,
       list: json['list'],
       msg: json['msg'] as String? ?? '',
     );

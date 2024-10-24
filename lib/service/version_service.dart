@@ -22,7 +22,10 @@ class VersionService {
       final packageInfo = await PackageInfo.fromPlatform();
       LCQuery<LCObject> query = LCQuery('version');
       final value = await query.get(objectId);
+
       final version = Version.fromJson(json.decode(value.toString())).copyWith(b2v: packageInfo.version, b2: packageInfo.buildNumber);
+      // Log.d(version.toJson());
+
       return version;
     } catch (error) {
       Log.d(error.toString());
@@ -56,39 +59,38 @@ class VersionService {
     // Log.d('解密后的：_helpUrl=${_helpUrl}');
   }
 
-  static Future<List<App>> fetchAppList(
-    Version version,
-    CachedNetwork network,
-  ) async {
-    var data = '';
-    try {
-      Log.d(version.apps);
-      data = await network.request(version.apps, reacquire: true);
-    } catch (error) {
-      Log.d(error.toString());
-      Log.d('githubs=${version.githubs}');
-
-      for (var i = 0; i < version.githubs.length; i++) {
-        final _url = version.githubs[i] + version.apps;
-        Log.d('githubs=$i _url=$_url');
-        try {
-          data = await network.request(_url,reacquire: true);
-        } catch (error) {
-          Log.d(error.toString());
-        }
-      }
-    }
-
-    final json = jsonDecode(data);
+  static Future<List<App>> fetchAppList(String url, List urls, CachedNetwork network) async {
+    final json = await fetchUrl(url, urls, network);
     List<App> apps = [const App(id: 'BannerView')];
     if (json is List) {
       for (var element in json) {
         apps.add(App.fromJson(element));
       }
-    } else {
+    } else if (json is Map<String, dynamic>) {
       apps.add(App.fromJson(json));
     }
     return apps;
+  }
+
+  /// 获取视频 Url
+  static Future<dynamic> fetchUrl(
+    String url,
+    List urls,
+    CachedNetwork network,
+  ) async {
+    Log.d("urls: $urls");
+
+    for (var i = 0; i < urls.length; i++) {
+      final _url = urls[i] + url;
+      try {
+        final data = await network.request(_url, reacquire: true);
+        final json = jsonDecode(data);
+        Log.d("json: $json");
+        return json;
+      } catch (error) {
+        Log.d(error.toString());
+      }
+    }
   }
 
   static Future<String> fetchMd(
@@ -105,7 +107,7 @@ class VersionService {
         final _url = version.githubs[i] + version.md;
 
         try {
-          return await network.request(_url,reacquire: true);
+          return await network.request(_url, reacquire: true);
         } catch (error) {
           Log.d(error.toString());
         }

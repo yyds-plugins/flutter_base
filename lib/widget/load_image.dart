@@ -35,7 +35,6 @@ class LoadImage extends StatelessWidget {
     if (image.isEmpty || image.startsWith('http')) {
 
       Widget _error = Container(width: width, height: height,decoration: BoxDecoration(
-        color: Colors.grey.shade200,
         borderRadius: BorderRadius.circular(6),
       ));
 

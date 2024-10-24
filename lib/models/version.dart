@@ -23,6 +23,7 @@ class Version {
   final String feedUrl; // 订阅 url
   final String sourceUrl; // 订阅url
   final List<String> githubs; //
+  final List<String> jxApi; //
 
   Version({
     this.name = '',
@@ -42,6 +43,7 @@ class Version {
     this.feedUrl = '',
     this.sourceUrl = '',
     this.githubs = const [],
+    this.jxApi = const [],
   });
 
   bool get isNew {
