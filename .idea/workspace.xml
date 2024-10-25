@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9727270a-2ab4-43bc-ab95-1bdea14486c4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/apk_download.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apk_download.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/version.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/version.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/version.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/version.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/version_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/service/version_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/network/result_data.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/network/result_data.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widget/load_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/load_image.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
