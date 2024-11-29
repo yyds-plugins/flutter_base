@@ -14,7 +14,8 @@ class TextUtil {
 
   static bool isUrl(String input) {
     try {
-      Uri.parse(input);
+      if(input.isEmpty) return false;
+      Uri.tryParse(input);
       return true;
     } catch (e) {
       return false;

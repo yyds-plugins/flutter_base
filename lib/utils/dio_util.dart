@@ -35,13 +35,13 @@ class DioUtil {
   }) async {
     timeout ??= const Duration(seconds: 10);
     duration ??= cacheDuration;
+    String cacheUrl = Uri.parse(url).replace(queryParameters: body);
 
-    String cacheUrl = url;
-    if (body != null) {
-      cacheUrl = '$url?${body.entries.map((entry) {
-        return '${Uri.encodeComponent(entry.key)}=${Uri.encodeComponent(entry.value.toString())}';
-      }).join('&')}';
-    }
+    // if (body != null) {
+    //   cacheUrl = '$url?${body.entries.map((entry) {
+    //     return '${Uri.encodeComponent(entry.key)}=${Uri.encodeComponent(entry.value.toString())}';
+    //   }).join('&')}';
+    // }
     final valid = await _valid(cacheUrl, duration: duration);
 
     if (!valid || reacquire) {

@@ -24,11 +24,23 @@
       <excludeFolder url="file://$MODULE_DIR$/plugins/leancloud_storage/plugins/qiniu_sdk_base/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/plugins/leancloud_storage/plugins/qiniu_sdk_base/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/plugins/leancloud_storage/plugins/qiniu_sdk_base/build" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/permission_request_page/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/permission_request_page/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/permission_request_page/build" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/permission_request_page/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/permission_request_page/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/permission_request_page/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/talkingdata_sdk_plugin/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/talkingdata_sdk_plugin/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/talkingdata_sdk_plugin/build" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/talkingdata_sdk_plugin/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/talkingdata_sdk_plugin/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/plugins/talkingdata_sdk_plugin/example/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Dart SDK" level="project" />
-    <orderEntry type="library" name="Dart Packages" level="project" />
     <orderEntry type="library" name="Flutter Plugins" level="project" />
+    <orderEntry type="library" name="Dart Packages" level="project" />
   </component>
 </module>
