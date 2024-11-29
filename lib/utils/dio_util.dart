@@ -7,6 +7,8 @@ import 'package:flutter/foundation.dart';
 import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 
+import 'logger_util.dart';
+
 class DioUtil {
   DioUtil({this.prefix, this.temporaryDirectory, this.timeout, this.cacheDuration});
 
@@ -35,13 +37,13 @@ class DioUtil {
   }) async {
     timeout ??= const Duration(seconds: 10);
     duration ??= cacheDuration;
-    String cacheUrl = Uri.parse(url).replace(queryParameters: body);
-
-    // if (body != null) {
-    //   cacheUrl = '$url?${body.entries.map((entry) {
-    //     return '${Uri.encodeComponent(entry.key)}=${Uri.encodeComponent(entry.value.toString())}';
-    //   }).join('&')}';
-    // }
+    String cacheUrl = url;
+    if (body != null) {
+      cacheUrl = '$url?${body.entries.map((entry) {
+        return '${Uri.encodeComponent(entry.key)}=${Uri.encodeComponent(entry.value.toString())}';
+      }).join('&')}';
+    }
+    Log.e(cacheUrl);
     final valid = await _valid(cacheUrl, duration: duration);
 
     if (!valid || reacquire) {
