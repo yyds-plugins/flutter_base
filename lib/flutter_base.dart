@@ -1,5 +1,5 @@
 export 'package:cached_network_image/cached_network_image.dart';
-export 'package:flutter_base/service/service.dart';
+export 'package:flutter_base/models/version.dart';
 export 'package:flutter_base/utils/log_toast.dart';
 export 'package:flutter_base/utils/talker.dart';
 export 'package:flutter_base/utils/util.dart';

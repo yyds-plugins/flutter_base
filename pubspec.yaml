@@ -32,6 +32,9 @@ dependencies:
   permission_handler: ^11.3.1
   connectivity_plus: ^6.0.4
 
+  isar: ^4.0.0-dev.14
+  isar_flutter_libs: ^4.0.0-dev.14
+
 
 
   leancloud_storage:

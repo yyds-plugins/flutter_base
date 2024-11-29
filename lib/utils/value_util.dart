@@ -1,7 +1,7 @@
 class ValueUtil {
   static int toInt(dynamic value) {
     if (value is String) {
-      if (value.length > 0) {
+      if (value.isNotEmpty) {
         return int.parse(value);
       } else {
         return 0;
@@ -15,7 +15,7 @@ class ValueUtil {
 
   static double toDouble(dynamic value) {
     if (value is String) {
-      if (value.length > 0) {
+      if (value.isNotEmpty) {
         return double.parse(value);
       } else {
         return 0.0;

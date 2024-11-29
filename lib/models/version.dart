@@ -1,11 +1,17 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:isar/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
+
+import '../utils/util.dart';
 
 part 'version.g.dart';
 
 @JsonSerializable()
 @CopyWith()
+@collection
+@Name("version")
 class Version {
+  String get id => Util.fastHash('version').toString();
   final String name; //App名称
   final String title; //更新标题
   final String msg; //

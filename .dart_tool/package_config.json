@@ -524,10 +524,22 @@
       "languageVersion": "3.0"
     },
     {
-      "name": "js",
-      "rootUri": "file:///Users/nnianhou/.pub-cache/hosted/pub.flutter-io.cn/js-0.7.1",
+      "name": "isar",
+      "rootUri": "file:///Users/nnianhou/.pub-cache/hosted/pub.flutter-io.cn/isar-4.0.0-dev.14",
       "packageUri": "lib/",
       "languageVersion": "3.1"
+    },
+    {
+      "name": "isar_flutter_libs",
+      "rootUri": "file:///Users/nnianhou/.pub-cache/hosted/pub.flutter-io.cn/isar_flutter_libs-4.0.0-dev.14",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
+      "name": "js",
+      "rootUri": "file:///Users/nnianhou/.pub-cache/hosted/pub.flutter-io.cn/js-0.6.7",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "json_annotation",
@@ -1208,7 +1220,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-11-29T07:09:03.363918Z",
+  "generated": "2024-11-29T08:51:27.034122Z",
   "generator": "pub",
   "generatorVersion": "3.5.4",
   "flutterRoot": "file:///Users/nnianhou/flutter",
