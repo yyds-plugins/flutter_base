@@ -35,13 +35,11 @@ abstract class _$VersionCWProxy {
 
   Version isMode(bool isMode);
 
-  Version feedUrl(String feedUrl);
-
-  Version sourceUrl(String sourceUrl);
-
   Version githubs(List<String> githubs);
 
-  Version jxApi(List<String> jxApi);
+  Version createAt(DateTime? createAt);
+
+  Version updateAt(DateTime? updateAt);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Version(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -64,10 +62,9 @@ abstract class _$VersionCWProxy {
     String? b2,
     String? platform,
     bool? isMode,
-    String? feedUrl,
-    String? sourceUrl,
     List<String>? githubs,
-    List<String>? jxApi,
+    DateTime? createAt,
+    DateTime? updateAt,
   });
 }
 
@@ -120,16 +117,13 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
   Version isMode(bool isMode) => this(isMode: isMode);
 
   @override
-  Version feedUrl(String feedUrl) => this(feedUrl: feedUrl);
-
-  @override
-  Version sourceUrl(String sourceUrl) => this(sourceUrl: sourceUrl);
-
-  @override
   Version githubs(List<String> githubs) => this(githubs: githubs);
 
   @override
-  Version jxApi(List<String> jxApi) => this(jxApi: jxApi);
+  Version createAt(DateTime? createAt) => this(createAt: createAt);
+
+  @override
+  Version updateAt(DateTime? updateAt) => this(updateAt: updateAt);
 
   @override
 
@@ -154,10 +148,9 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
     Object? b2 = const $CopyWithPlaceholder(),
     Object? platform = const $CopyWithPlaceholder(),
     Object? isMode = const $CopyWithPlaceholder(),
-    Object? feedUrl = const $CopyWithPlaceholder(),
-    Object? sourceUrl = const $CopyWithPlaceholder(),
     Object? githubs = const $CopyWithPlaceholder(),
-    Object? jxApi = const $CopyWithPlaceholder(),
+    Object? createAt = const $CopyWithPlaceholder(),
+    Object? updateAt = const $CopyWithPlaceholder(),
   }) {
     return Version(
       name: name == const $CopyWithPlaceholder() || name == null
@@ -217,22 +210,18 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
           ? _value.isMode
           // ignore: cast_nullable_to_non_nullable
           : isMode as bool,
-      feedUrl: feedUrl == const $CopyWithPlaceholder() || feedUrl == null
-          ? _value.feedUrl
-          // ignore: cast_nullable_to_non_nullable
-          : feedUrl as String,
-      sourceUrl: sourceUrl == const $CopyWithPlaceholder() || sourceUrl == null
-          ? _value.sourceUrl
-          // ignore: cast_nullable_to_non_nullable
-          : sourceUrl as String,
       githubs: githubs == const $CopyWithPlaceholder() || githubs == null
           ? _value.githubs
           // ignore: cast_nullable_to_non_nullable
           : githubs as List<String>,
-      jxApi: jxApi == const $CopyWithPlaceholder() || jxApi == null
-          ? _value.jxApi
+      createAt: createAt == const $CopyWithPlaceholder()
+          ? _value.createAt
           // ignore: cast_nullable_to_non_nullable
-          : jxApi as List<String>,
+          : createAt as DateTime?,
+      updateAt: updateAt == const $CopyWithPlaceholder()
+          ? _value.updateAt
+          // ignore: cast_nullable_to_non_nullable
+          : updateAt as DateTime?,
     );
   }
 }
@@ -252,7 +241,7 @@ extension $VersionCopyWith on Version {
 // ignore_for_file: type=lint
 
 extension GetVersionCollection on Isar {
-  IsarCollection<String, Version> get versions => this.collection();
+  IsarCollection<int, Version> get versions => this.collection();
 }
 
 const VersionSchema = IsarGeneratedSchema(
@@ -318,24 +307,16 @@ const VersionSchema = IsarGeneratedSchema(
         type: IsarType.bool,
       ),
       IsarPropertySchema(
-        name: 'feedUrl',
-        type: IsarType.string,
-      ),
-      IsarPropertySchema(
-        name: 'sourceUrl',
-        type: IsarType.string,
-      ),
-      IsarPropertySchema(
         name: 'githubs',
         type: IsarType.stringList,
       ),
       IsarPropertySchema(
-        name: 'jxApi',
-        type: IsarType.stringList,
+        name: 'updateAt',
+        type: IsarType.dateTime,
       ),
       IsarPropertySchema(
-        name: 'id',
-        type: IsarType.string,
+        name: 'createAt',
+        type: IsarType.dateTime,
       ),
       IsarPropertySchema(
         name: 'isNew',
@@ -348,7 +329,7 @@ const VersionSchema = IsarGeneratedSchema(
     ],
     indexes: [],
   ),
-  converter: IsarObjectConverter<String, Version>(
+  converter: IsarObjectConverter<int, Version>(
     serialize: serializeVersion,
     deserialize: deserializeVersion,
     deserializeProperty: deserializeVersionProp,
@@ -379,28 +360,21 @@ int serializeVersion(IsarWriter writer, Version object) {
   IsarCore.writeString(writer, 12, object.b2);
   IsarCore.writeString(writer, 13, object.platform);
   IsarCore.writeBool(writer, 14, object.isMode);
-  IsarCore.writeString(writer, 15, object.feedUrl);
-  IsarCore.writeString(writer, 16, object.sourceUrl);
   {
     final list = object.githubs;
-    final listWriter = IsarCore.beginList(writer, 17, list.length);
+    final listWriter = IsarCore.beginList(writer, 15, list.length);
     for (var i = 0; i < list.length; i++) {
       IsarCore.writeString(listWriter, i, list[i]);
     }
     IsarCore.endList(writer, listWriter);
   }
-  {
-    final list = object.jxApi;
-    final listWriter = IsarCore.beginList(writer, 18, list.length);
-    for (var i = 0; i < list.length; i++) {
-      IsarCore.writeString(listWriter, i, list[i]);
-    }
-    IsarCore.endList(writer, listWriter);
-  }
-  IsarCore.writeString(writer, 19, object.id);
-  IsarCore.writeBool(writer, 20, object.isNew);
-  IsarCore.writeString(writer, 21, object.fileName);
-  return Isar.fastHash(object.id);
+  IsarCore.writeLong(writer, 16,
+      object.updateAt?.toUtc().microsecondsSinceEpoch ?? -9223372036854775808);
+  IsarCore.writeLong(writer, 17,
+      object.createAt?.toUtc().microsecondsSinceEpoch ?? -9223372036854775808);
+  IsarCore.writeBool(writer, 18, object.isNew);
+  IsarCore.writeString(writer, 19, object.fileName);
+  return object.id;
 }
 
 @isarProtected
@@ -448,13 +422,9 @@ Version deserializeVersion(IsarReader reader) {
   _platform = IsarCore.readString(reader, 13) ?? '';
   final bool _isMode;
   _isMode = IsarCore.readBool(reader, 14);
-  final String _feedUrl;
-  _feedUrl = IsarCore.readString(reader, 15) ?? '';
-  final String _sourceUrl;
-  _sourceUrl = IsarCore.readString(reader, 16) ?? '';
   final List<String> _githubs;
   {
-    final length = IsarCore.readList(reader, 17, IsarCore.readerPtrPtr);
+    final length = IsarCore.readList(reader, 15, IsarCore.readerPtrPtr);
     {
       final reader = IsarCore.readerPtr;
       if (reader.isNull) {
@@ -469,21 +439,24 @@ Version deserializeVersion(IsarReader reader) {
       }
     }
   }
-  final List<String> _jxApi;
+  final DateTime? _updateAt;
   {
-    final length = IsarCore.readList(reader, 18, IsarCore.readerPtrPtr);
-    {
-      final reader = IsarCore.readerPtr;
-      if (reader.isNull) {
-        _jxApi = const [];
-      } else {
-        final list = List<String>.filled(length, '', growable: true);
-        for (var i = 0; i < length; i++) {
-          list[i] = IsarCore.readString(reader, i) ?? '';
-        }
-        IsarCore.freeReader(reader);
-        _jxApi = list;
-      }
+    final value = IsarCore.readLong(reader, 16);
+    if (value == -9223372036854775808) {
+      _updateAt = null;
+    } else {
+      _updateAt =
+          DateTime.fromMicrosecondsSinceEpoch(value, isUtc: true).toLocal();
+    }
+  }
+  final DateTime? _createAt;
+  {
+    final value = IsarCore.readLong(reader, 17);
+    if (value == -9223372036854775808) {
+      _createAt = null;
+    } else {
+      _createAt =
+          DateTime.fromMicrosecondsSinceEpoch(value, isUtc: true).toLocal();
     }
   }
   final object = Version(
@@ -501,10 +474,9 @@ Version deserializeVersion(IsarReader reader) {
     b2: _b2,
     platform: _platform,
     isMode: _isMode,
-    feedUrl: _feedUrl,
-    sourceUrl: _sourceUrl,
     githubs: _githubs,
-    jxApi: _jxApi,
+    updateAt: _updateAt,
+    createAt: _createAt,
   );
   return object;
 }
@@ -556,49 +528,48 @@ dynamic deserializeVersionProp(IsarReader reader, int property) {
     case 14:
       return IsarCore.readBool(reader, 14);
     case 15:
-      return IsarCore.readString(reader, 15) ?? '';
+      {
+        final length = IsarCore.readList(reader, 15, IsarCore.readerPtrPtr);
+        {
+          final reader = IsarCore.readerPtr;
+          if (reader.isNull) {
+            return const [];
+          } else {
+            final list = List<String>.filled(length, '', growable: true);
+            for (var i = 0; i < length; i++) {
+              list[i] = IsarCore.readString(reader, i) ?? '';
+            }
+            IsarCore.freeReader(reader);
+            return list;
+          }
+        }
+      }
     case 16:
-      return IsarCore.readString(reader, 16) ?? '';
+      {
+        final value = IsarCore.readLong(reader, 16);
+        if (value == -9223372036854775808) {
+          return null;
+        } else {
+          return DateTime.fromMicrosecondsSinceEpoch(value, isUtc: true)
+              .toLocal();
+        }
+      }
     case 17:
       {
-        final length = IsarCore.readList(reader, 17, IsarCore.readerPtrPtr);
-        {
-          final reader = IsarCore.readerPtr;
-          if (reader.isNull) {
-            return const [];
-          } else {
-            final list = List<String>.filled(length, '', growable: true);
-            for (var i = 0; i < length; i++) {
-              list[i] = IsarCore.readString(reader, i) ?? '';
-            }
-            IsarCore.freeReader(reader);
-            return list;
-          }
+        final value = IsarCore.readLong(reader, 17);
+        if (value == -9223372036854775808) {
+          return null;
+        } else {
+          return DateTime.fromMicrosecondsSinceEpoch(value, isUtc: true)
+              .toLocal();
         }
       }
+    case 0:
+      return IsarCore.readId(reader);
     case 18:
-      {
-        final length = IsarCore.readList(reader, 18, IsarCore.readerPtrPtr);
-        {
-          final reader = IsarCore.readerPtr;
-          if (reader.isNull) {
-            return const [];
-          } else {
-            final list = List<String>.filled(length, '', growable: true);
-            for (var i = 0; i < length; i++) {
-              list[i] = IsarCore.readString(reader, i) ?? '';
-            }
-            IsarCore.freeReader(reader);
-            return list;
-          }
-        }
-      }
+      return IsarCore.readBool(reader, 18);
     case 19:
       return IsarCore.readString(reader, 19) ?? '';
-    case 20:
-      return IsarCore.readBool(reader, 20);
-    case 21:
-      return IsarCore.readString(reader, 21) ?? '';
     default:
       throw ArgumentError('Unknown property: $property');
   }
@@ -606,7 +577,7 @@ dynamic deserializeVersionProp(IsarReader reader, int property) {
 
 sealed class _VersionUpdate {
   bool call({
-    required String id,
+    required int id,
     String? name,
     String? title,
     String? msg,
@@ -620,8 +591,8 @@ sealed class _VersionUpdate {
     String? b2,
     String? platform,
     bool? isMode,
-    String? feedUrl,
-    String? sourceUrl,
+    DateTime? updateAt,
+    DateTime? createAt,
     bool? isNew,
     String? fileName,
   });
@@ -630,11 +601,11 @@ sealed class _VersionUpdate {
 class _VersionUpdateImpl implements _VersionUpdate {
   const _VersionUpdateImpl(this.collection);
 
-  final IsarCollection<String, Version> collection;
+  final IsarCollection<int, Version> collection;
 
   @override
   bool call({
-    required String id,
+    required int id,
     Object? name = ignore,
     Object? title = ignore,
     Object? msg = ignore,
@@ -648,8 +619,8 @@ class _VersionUpdateImpl implements _VersionUpdate {
     Object? b2 = ignore,
     Object? platform = ignore,
     Object? isMode = ignore,
-    Object? feedUrl = ignore,
-    Object? sourceUrl = ignore,
+    Object? updateAt = ignore,
+    Object? createAt = ignore,
     Object? isNew = ignore,
     Object? fileName = ignore,
   }) {
@@ -669,10 +640,10 @@ class _VersionUpdateImpl implements _VersionUpdate {
           if (b2 != ignore) 12: b2 as String?,
           if (platform != ignore) 13: platform as String?,
           if (isMode != ignore) 14: isMode as bool?,
-          if (feedUrl != ignore) 15: feedUrl as String?,
-          if (sourceUrl != ignore) 16: sourceUrl as String?,
-          if (isNew != ignore) 20: isNew as bool?,
-          if (fileName != ignore) 21: fileName as String?,
+          if (updateAt != ignore) 16: updateAt as DateTime?,
+          if (createAt != ignore) 17: createAt as DateTime?,
+          if (isNew != ignore) 18: isNew as bool?,
+          if (fileName != ignore) 19: fileName as String?,
         }) >
         0;
   }
@@ -680,7 +651,7 @@ class _VersionUpdateImpl implements _VersionUpdate {
 
 sealed class _VersionUpdateAll {
   int call({
-    required List<String> id,
+    required List<int> id,
     String? name,
     String? title,
     String? msg,
@@ -694,8 +665,8 @@ sealed class _VersionUpdateAll {
     String? b2,
     String? platform,
     bool? isMode,
-    String? feedUrl,
-    String? sourceUrl,
+    DateTime? updateAt,
+    DateTime? createAt,
     bool? isNew,
     String? fileName,
   });
@@ -704,11 +675,11 @@ sealed class _VersionUpdateAll {
 class _VersionUpdateAllImpl implements _VersionUpdateAll {
   const _VersionUpdateAllImpl(this.collection);
 
-  final IsarCollection<String, Version> collection;
+  final IsarCollection<int, Version> collection;
 
   @override
   int call({
-    required List<String> id,
+    required List<int> id,
     Object? name = ignore,
     Object? title = ignore,
     Object? msg = ignore,
@@ -722,8 +693,8 @@ class _VersionUpdateAllImpl implements _VersionUpdateAll {
     Object? b2 = ignore,
     Object? platform = ignore,
     Object? isMode = ignore,
-    Object? feedUrl = ignore,
-    Object? sourceUrl = ignore,
+    Object? updateAt = ignore,
+    Object? createAt = ignore,
     Object? isNew = ignore,
     Object? fileName = ignore,
   }) {
@@ -741,15 +712,15 @@ class _VersionUpdateAllImpl implements _VersionUpdateAll {
       if (b2 != ignore) 12: b2 as String?,
       if (platform != ignore) 13: platform as String?,
       if (isMode != ignore) 14: isMode as bool?,
-      if (feedUrl != ignore) 15: feedUrl as String?,
-      if (sourceUrl != ignore) 16: sourceUrl as String?,
-      if (isNew != ignore) 20: isNew as bool?,
-      if (fileName != ignore) 21: fileName as String?,
+      if (updateAt != ignore) 16: updateAt as DateTime?,
+      if (createAt != ignore) 17: createAt as DateTime?,
+      if (isNew != ignore) 18: isNew as bool?,
+      if (fileName != ignore) 19: fileName as String?,
     });
   }
 }
 
-extension VersionUpdate on IsarCollection<String, Version> {
+extension VersionUpdate on IsarCollection<int, Version> {
   _VersionUpdate get update => _VersionUpdateImpl(this);
 
   _VersionUpdateAll get updateAll => _VersionUpdateAllImpl(this);
@@ -770,8 +741,8 @@ sealed class _VersionQueryUpdate {
     String? b2,
     String? platform,
     bool? isMode,
-    String? feedUrl,
-    String? sourceUrl,
+    DateTime? updateAt,
+    DateTime? createAt,
     bool? isNew,
     String? fileName,
   });
@@ -798,8 +769,8 @@ class _VersionQueryUpdateImpl implements _VersionQueryUpdate {
     Object? b2 = ignore,
     Object? platform = ignore,
     Object? isMode = ignore,
-    Object? feedUrl = ignore,
-    Object? sourceUrl = ignore,
+    Object? updateAt = ignore,
+    Object? createAt = ignore,
     Object? isNew = ignore,
     Object? fileName = ignore,
   }) {
@@ -817,10 +788,10 @@ class _VersionQueryUpdateImpl implements _VersionQueryUpdate {
       if (b2 != ignore) 12: b2 as String?,
       if (platform != ignore) 13: platform as String?,
       if (isMode != ignore) 14: isMode as bool?,
-      if (feedUrl != ignore) 15: feedUrl as String?,
-      if (sourceUrl != ignore) 16: sourceUrl as String?,
-      if (isNew != ignore) 20: isNew as bool?,
-      if (fileName != ignore) 21: fileName as String?,
+      if (updateAt != ignore) 16: updateAt as DateTime?,
+      if (createAt != ignore) 17: createAt as DateTime?,
+      if (isNew != ignore) 18: isNew as bool?,
+      if (fileName != ignore) 19: fileName as String?,
     });
   }
 }
@@ -853,8 +824,8 @@ class _VersionQueryBuilderUpdateImpl implements _VersionQueryUpdate {
     Object? b2 = ignore,
     Object? platform = ignore,
     Object? isMode = ignore,
-    Object? feedUrl = ignore,
-    Object? sourceUrl = ignore,
+    Object? updateAt = ignore,
+    Object? createAt = ignore,
     Object? isNew = ignore,
     Object? fileName = ignore,
   }) {
@@ -874,10 +845,10 @@ class _VersionQueryBuilderUpdateImpl implements _VersionQueryUpdate {
         if (b2 != ignore) 12: b2 as String?,
         if (platform != ignore) 13: platform as String?,
         if (isMode != ignore) 14: isMode as bool?,
-        if (feedUrl != ignore) 15: feedUrl as String?,
-        if (sourceUrl != ignore) 16: sourceUrl as String?,
-        if (isNew != ignore) 20: isNew as bool?,
-        if (fileName != ignore) 21: fileName as String?,
+        if (updateAt != ignore) 16: updateAt as DateTime?,
+        if (createAt != ignore) 17: createAt as DateTime?,
+        if (isNew != ignore) 18: isNew as bool?,
+        if (fileName != ignore) 19: fileName as String?,
       });
     } finally {
       q.close();
@@ -3166,354 +3137,6 @@ extension VersionQueryFilter
     });
   }
 
-  QueryBuilder<Version, Version, QAfterFilterCondition> feedUrlEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        EqualCondition(
-          property: 15,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> feedUrlGreaterThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        GreaterCondition(
-          property: 15,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition>
-      feedUrlGreaterThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        GreaterOrEqualCondition(
-          property: 15,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> feedUrlLessThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        LessCondition(
-          property: 15,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition>
-      feedUrlLessThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        LessOrEqualCondition(
-          property: 15,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> feedUrlBetween(
-    String lower,
-    String upper, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        BetweenCondition(
-          property: 15,
-          lower: lower,
-          upper: upper,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> feedUrlStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        StartsWithCondition(
-          property: 15,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> feedUrlEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        EndsWithCondition(
-          property: 15,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> feedUrlContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        ContainsCondition(
-          property: 15,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> feedUrlMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        MatchesCondition(
-          property: 15,
-          wildcard: pattern,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> feedUrlIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        const EqualCondition(
-          property: 15,
-          value: '',
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> feedUrlIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        const GreaterCondition(
-          property: 15,
-          value: '',
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        EqualCondition(
-          property: 16,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlGreaterThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        GreaterCondition(
-          property: 16,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition>
-      sourceUrlGreaterThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        GreaterOrEqualCondition(
-          property: 16,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlLessThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        LessCondition(
-          property: 16,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition>
-      sourceUrlLessThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        LessOrEqualCondition(
-          property: 16,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlBetween(
-    String lower,
-    String upper, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        BetweenCondition(
-          property: 16,
-          lower: lower,
-          upper: upper,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        StartsWithCondition(
-          property: 16,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        EndsWithCondition(
-          property: 16,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        ContainsCondition(
-          property: 16,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        MatchesCondition(
-          property: 16,
-          wildcard: pattern,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        const EqualCondition(
-          property: 16,
-          value: '',
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        const GreaterCondition(
-          property: 16,
-          value: '',
-        ),
-      );
-    });
-  }
-
   QueryBuilder<Version, Version, QAfterFilterCondition> githubsElementEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -3521,7 +3144,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
-          property: 17,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3537,7 +3160,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterCondition(
-          property: 17,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3553,7 +3176,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterOrEqualCondition(
-          property: 17,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3568,7 +3191,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessCondition(
-          property: 17,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3584,7 +3207,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessOrEqualCondition(
-          property: 17,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3600,7 +3223,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         BetweenCondition(
-          property: 17,
+          property: 15,
           lower: lower,
           upper: upper,
           caseSensitive: caseSensitive,
@@ -3617,7 +3240,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         StartsWithCondition(
-          property: 17,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3632,7 +3255,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EndsWithCondition(
-          property: 17,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3646,7 +3269,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         ContainsCondition(
-          property: 17,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3660,7 +3283,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         MatchesCondition(
-          property: 17,
+          property: 15,
           wildcard: pattern,
           caseSensitive: caseSensitive,
         ),
@@ -3673,7 +3296,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         const EqualCondition(
-          property: 17,
+          property: 15,
           value: '',
         ),
       );
@@ -3685,7 +3308,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         const GreaterCondition(
-          property: 17,
+          property: 15,
           value: '',
         ),
       );
@@ -3699,364 +3322,274 @@ extension VersionQueryFilter
   QueryBuilder<Version, Version, QAfterFilterCondition> githubsIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        const GreaterOrEqualCondition(property: 17, value: null),
+        const GreaterOrEqualCondition(property: 15, value: null),
       );
     });
   }
 
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxApiElementEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Version, Version, QAfterFilterCondition> updateAtIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 16));
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> updateAtIsNotNull() {
+    return QueryBuilder.apply(not(), (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 16));
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> updateAtEqualTo(
+    DateTime? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
-          property: 18,
+          property: 16,
           value: value,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxApiElementGreaterThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Version, Version, QAfterFilterCondition> updateAtGreaterThan(
+    DateTime? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterCondition(
-          property: 18,
+          property: 16,
           value: value,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition>
-      jxApiElementGreaterThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+      updateAtGreaterThanOrEqualTo(
+    DateTime? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterOrEqualCondition(
-          property: 18,
+          property: 16,
           value: value,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxApiElementLessThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Version, Version, QAfterFilterCondition> updateAtLessThan(
+    DateTime? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessCondition(
-          property: 18,
+          property: 16,
           value: value,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition>
-      jxApiElementLessThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+      updateAtLessThanOrEqualTo(
+    DateTime? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessOrEqualCondition(
-          property: 18,
+          property: 16,
           value: value,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxApiElementBetween(
-    String lower,
-    String upper, {
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Version, Version, QAfterFilterCondition> updateAtBetween(
+    DateTime? lower,
+    DateTime? upper,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         BetweenCondition(
-          property: 18,
+          property: 16,
           lower: lower,
           upper: upper,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxApiElementStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Version, Version, QAfterFilterCondition> createAtIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 17));
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> createAtIsNotNull() {
+    return QueryBuilder.apply(not(), (query) {
+      return query.addFilterCondition(const IsNullCondition(property: 17));
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> createAtEqualTo(
+    DateTime? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        StartsWithCondition(
-          property: 18,
+        EqualCondition(
+          property: 17,
           value: value,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxApiElementEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+  QueryBuilder<Version, Version, QAfterFilterCondition> createAtGreaterThan(
+    DateTime? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        EndsWithCondition(
-          property: 18,
+        GreaterCondition(
+          property: 17,
           value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxApiElementContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        ContainsCondition(
-          property: 18,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxApiElementMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        MatchesCondition(
-          property: 18,
-          wildcard: pattern,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxApiElementIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        const EqualCondition(
-          property: 18,
-          value: '',
         ),
       );
     });
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition>
-      jxApiElementIsNotEmpty() {
+      createAtGreaterThanOrEqualTo(
+    DateTime? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        const GreaterCondition(
-          property: 18,
-          value: '',
+        GreaterOrEqualCondition(
+          property: 17,
+          value: value,
         ),
       );
     });
   }
 
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxApiIsEmpty() {
-    return not().jxApiIsNotEmpty();
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxApiIsNotEmpty() {
+  QueryBuilder<Version, Version, QAfterFilterCondition> createAtLessThan(
+    DateTime? value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        const GreaterOrEqualCondition(property: 18, value: null),
+        LessCondition(
+          property: 17,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition>
+      createAtLessThanOrEqualTo(
+    DateTime? value,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 17,
+          value: value,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> createAtBetween(
+    DateTime? lower,
+    DateTime? upper,
+  ) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 17,
+          lower: lower,
+          upper: upper,
+        ),
       );
     });
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition> idEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+    int value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
-          property: 19,
+          property: 0,
           value: value,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition> idGreaterThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+    int value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterCondition(
-          property: 19,
+          property: 0,
           value: value,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition> idGreaterThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+    int value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterOrEqualCondition(
-          property: 19,
+          property: 0,
           value: value,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition> idLessThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+    int value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessCondition(
-          property: 19,
+          property: 0,
           value: value,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition> idLessThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
+    int value,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessOrEqualCondition(
-          property: 19,
+          property: 0,
           value: value,
-          caseSensitive: caseSensitive,
         ),
       );
     });
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition> idBetween(
-    String lower,
-    String upper, {
-    bool caseSensitive = true,
-  }) {
+    int lower,
+    int upper,
+  ) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         BetweenCondition(
-          property: 19,
+          property: 0,
           lower: lower,
           upper: upper,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> idStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        StartsWithCondition(
-          property: 19,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> idEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        EndsWithCondition(
-          property: 19,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> idContains(String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        ContainsCondition(
-          property: 19,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> idMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        MatchesCondition(
-          property: 19,
-          wildcard: pattern,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> idIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        const EqualCondition(
-          property: 19,
-          value: '',
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> idIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        const GreaterCondition(
-          property: 19,
-          value: '',
         ),
       );
     });
@@ -4068,7 +3601,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
-          property: 20,
+          property: 18,
           value: value,
         ),
       );
@@ -4082,7 +3615,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
-          property: 21,
+          property: 19,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -4097,7 +3630,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterCondition(
-          property: 21,
+          property: 19,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -4113,7 +3646,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterOrEqualCondition(
-          property: 21,
+          property: 19,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -4128,7 +3661,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessCondition(
-          property: 21,
+          property: 19,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -4144,7 +3677,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessOrEqualCondition(
-          property: 21,
+          property: 19,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -4160,7 +3693,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         BetweenCondition(
-          property: 21,
+          property: 19,
           lower: lower,
           upper: upper,
           caseSensitive: caseSensitive,
@@ -4176,7 +3709,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         StartsWithCondition(
-          property: 21,
+          property: 19,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -4191,7 +3724,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EndsWithCondition(
-          property: 21,
+          property: 19,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -4205,7 +3738,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         ContainsCondition(
-          property: 21,
+          property: 19,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -4219,7 +3752,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         MatchesCondition(
-          property: 21,
+          property: 19,
           wildcard: pattern,
           caseSensitive: caseSensitive,
         ),
@@ -4231,7 +3764,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         const EqualCondition(
-          property: 21,
+          property: 19,
           value: '',
         ),
       );
@@ -4242,7 +3775,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         const GreaterCondition(
-          property: 21,
+          property: 19,
           value: '',
         ),
       );
@@ -4518,78 +4051,51 @@ extension VersionQuerySortBy on QueryBuilder<Version, Version, QSortBy> {
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> sortByFeedUrl(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> sortByUpdateAt() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(
-        15,
-        caseSensitive: caseSensitive,
-      );
+      return query.addSortBy(16);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> sortByFeedUrlDesc(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> sortByUpdateAtDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(
-        15,
-        sort: Sort.desc,
-        caseSensitive: caseSensitive,
-      );
+      return query.addSortBy(16, sort: Sort.desc);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> sortBySourceUrl(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> sortByCreateAt() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(
-        16,
-        caseSensitive: caseSensitive,
-      );
+      return query.addSortBy(17);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> sortBySourceUrlDesc(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> sortByCreateAtDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(
-        16,
-        sort: Sort.desc,
-        caseSensitive: caseSensitive,
-      );
+      return query.addSortBy(17, sort: Sort.desc);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> sortById(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> sortById() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(
-        19,
-        caseSensitive: caseSensitive,
-      );
+      return query.addSortBy(0);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> sortByIdDesc(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> sortByIdDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(
-        19,
-        sort: Sort.desc,
-        caseSensitive: caseSensitive,
-      );
+      return query.addSortBy(0, sort: Sort.desc);
     });
   }
 
   QueryBuilder<Version, Version, QAfterSortBy> sortByIsNew() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(20);
+      return query.addSortBy(18);
     });
   }
 
   QueryBuilder<Version, Version, QAfterSortBy> sortByIsNewDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(20, sort: Sort.desc);
+      return query.addSortBy(18, sort: Sort.desc);
     });
   }
 
@@ -4597,7 +4103,7 @@ extension VersionQuerySortBy on QueryBuilder<Version, Version, QSortBy> {
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(
-        21,
+        19,
         caseSensitive: caseSensitive,
       );
     });
@@ -4607,7 +4113,7 @@ extension VersionQuerySortBy on QueryBuilder<Version, Version, QSortBy> {
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(
-        21,
+        19,
         sort: Sort.desc,
         caseSensitive: caseSensitive,
       );
@@ -4797,71 +4303,65 @@ extension VersionQuerySortThenBy
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> thenByFeedUrl(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> thenByUpdateAt() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(15, caseSensitive: caseSensitive);
+      return query.addSortBy(16);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> thenByFeedUrlDesc(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> thenByUpdateAtDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(15, sort: Sort.desc, caseSensitive: caseSensitive);
+      return query.addSortBy(16, sort: Sort.desc);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> thenBySourceUrl(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> thenByCreateAt() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(16, caseSensitive: caseSensitive);
+      return query.addSortBy(17);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> thenBySourceUrlDesc(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> thenByCreateAtDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(16, sort: Sort.desc, caseSensitive: caseSensitive);
+      return query.addSortBy(17, sort: Sort.desc);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> thenById(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(19, caseSensitive: caseSensitive);
+      return query.addSortBy(0);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> thenByIdDesc(
-      {bool caseSensitive = true}) {
+  QueryBuilder<Version, Version, QAfterSortBy> thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(19, sort: Sort.desc, caseSensitive: caseSensitive);
+      return query.addSortBy(0, sort: Sort.desc);
     });
   }
 
   QueryBuilder<Version, Version, QAfterSortBy> thenByIsNew() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(20);
+      return query.addSortBy(18);
     });
   }
 
   QueryBuilder<Version, Version, QAfterSortBy> thenByIsNewDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(20, sort: Sort.desc);
+      return query.addSortBy(18, sort: Sort.desc);
     });
   }
 
   QueryBuilder<Version, Version, QAfterSortBy> thenByFileName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(21, caseSensitive: caseSensitive);
+      return query.addSortBy(19, caseSensitive: caseSensitive);
     });
   }
 
   QueryBuilder<Version, Version, QAfterSortBy> thenByFileNameDesc(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(21, sort: Sort.desc, caseSensitive: caseSensitive);
+      return query.addSortBy(19, sort: Sort.desc, caseSensitive: caseSensitive);
     });
   }
 }
@@ -4964,42 +4464,34 @@ extension VersionQueryWhereDistinct
     });
   }
 
-  QueryBuilder<Version, Version, QAfterDistinct> distinctByFeedUrl(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(15, caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterDistinct> distinctBySourceUrl(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(16, caseSensitive: caseSensitive);
-    });
-  }
-
   QueryBuilder<Version, Version, QAfterDistinct> distinctByGithubs() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(15);
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterDistinct> distinctByUpdateAt() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(16);
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterDistinct> distinctByCreateAt() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(17);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterDistinct> distinctByJxApi() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(18);
-    });
-  }
-
   QueryBuilder<Version, Version, QAfterDistinct> distinctByIsNew() {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(20);
+      return query.addDistinctBy(18);
     });
   }
 
   QueryBuilder<Version, Version, QAfterDistinct> distinctByFileName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(21, caseSensitive: caseSensitive);
+      return query.addDistinctBy(19, caseSensitive: caseSensitive);
     });
   }
 }
@@ -5089,45 +4581,39 @@ extension VersionQueryProperty1 on QueryBuilder<Version, Version, QProperty> {
     });
   }
 
-  QueryBuilder<Version, String, QAfterProperty> feedUrlProperty() {
+  QueryBuilder<Version, List<String>, QAfterProperty> githubsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(15);
     });
   }
 
-  QueryBuilder<Version, String, QAfterProperty> sourceUrlProperty() {
+  QueryBuilder<Version, DateTime?, QAfterProperty> updateAtProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(16);
     });
   }
 
-  QueryBuilder<Version, List<String>, QAfterProperty> githubsProperty() {
+  QueryBuilder<Version, DateTime?, QAfterProperty> createAtProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(17);
     });
   }
 
-  QueryBuilder<Version, List<String>, QAfterProperty> jxApiProperty() {
+  QueryBuilder<Version, int, QAfterProperty> idProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(18);
-    });
-  }
-
-  QueryBuilder<Version, String, QAfterProperty> idProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addProperty(19);
+      return query.addProperty(0);
     });
   }
 
   QueryBuilder<Version, bool, QAfterProperty> isNewProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(20);
+      return query.addProperty(18);
     });
   }
 
   QueryBuilder<Version, String, QAfterProperty> fileNameProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(21);
+      return query.addProperty(19);
     });
   }
 }
@@ -5217,45 +4703,39 @@ extension VersionQueryProperty2<R> on QueryBuilder<Version, R, QAfterProperty> {
     });
   }
 
-  QueryBuilder<Version, (R, String), QAfterProperty> feedUrlProperty() {
+  QueryBuilder<Version, (R, List<String>), QAfterProperty> githubsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(15);
     });
   }
 
-  QueryBuilder<Version, (R, String), QAfterProperty> sourceUrlProperty() {
+  QueryBuilder<Version, (R, DateTime?), QAfterProperty> updateAtProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(16);
     });
   }
 
-  QueryBuilder<Version, (R, List<String>), QAfterProperty> githubsProperty() {
+  QueryBuilder<Version, (R, DateTime?), QAfterProperty> createAtProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(17);
     });
   }
 
-  QueryBuilder<Version, (R, List<String>), QAfterProperty> jxApiProperty() {
+  QueryBuilder<Version, (R, int), QAfterProperty> idProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(18);
-    });
-  }
-
-  QueryBuilder<Version, (R, String), QAfterProperty> idProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addProperty(19);
+      return query.addProperty(0);
     });
   }
 
   QueryBuilder<Version, (R, bool), QAfterProperty> isNewProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(20);
+      return query.addProperty(18);
     });
   }
 
   QueryBuilder<Version, (R, String), QAfterProperty> fileNameProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(21);
+      return query.addProperty(19);
     });
   }
 }
@@ -5346,45 +4826,39 @@ extension VersionQueryProperty3<R1, R2>
     });
   }
 
-  QueryBuilder<Version, (R1, R2, String), QOperations> feedUrlProperty() {
+  QueryBuilder<Version, (R1, R2, List<String>), QOperations> githubsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(15);
     });
   }
 
-  QueryBuilder<Version, (R1, R2, String), QOperations> sourceUrlProperty() {
+  QueryBuilder<Version, (R1, R2, DateTime?), QOperations> updateAtProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(16);
     });
   }
 
-  QueryBuilder<Version, (R1, R2, List<String>), QOperations> githubsProperty() {
+  QueryBuilder<Version, (R1, R2, DateTime?), QOperations> createAtProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(17);
     });
   }
 
-  QueryBuilder<Version, (R1, R2, List<String>), QOperations> jxApiProperty() {
+  QueryBuilder<Version, (R1, R2, int), QOperations> idProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(18);
-    });
-  }
-
-  QueryBuilder<Version, (R1, R2, String), QOperations> idProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addProperty(19);
+      return query.addProperty(0);
     });
   }
 
   QueryBuilder<Version, (R1, R2, bool), QOperations> isNewProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(20);
+      return query.addProperty(18);
     });
   }
 
   QueryBuilder<Version, (R1, R2, String), QOperations> fileNameProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(21);
+      return query.addProperty(19);
     });
   }
 }
@@ -5409,15 +4883,16 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
       b2: json['b2'] as String? ?? '',
       platform: json['platform'] as String? ?? '',
       isMode: json['isMode'] as bool? ?? false,
-      feedUrl: json['feedUrl'] as String? ?? '',
-      sourceUrl: json['sourceUrl'] as String? ?? '',
       githubs: (json['githubs'] as List<dynamic>?)
               ?.map((e) => e as String)
               .toList() ??
           const [],
-      jxApi:
-          (json['jxApi'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-              const [],
+      createAt: json['createAt'] == null
+          ? null
+          : DateTime.parse(json['createAt'] as String),
+      updateAt: json['updateAt'] == null
+          ? null
+          : DateTime.parse(json['updateAt'] as String),
     );
 
 Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
@@ -5435,8 +4910,7 @@ Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
       'b2': instance.b2,
       'platform': instance.platform,
       'isMode': instance.isMode,
-      'feedUrl': instance.feedUrl,
-      'sourceUrl': instance.sourceUrl,
       'githubs': instance.githubs,
-      'jxApi': instance.jxApi,
+      'updateAt': instance.updateAt?.toIso8601String(),
+      'createAt': instance.createAt?.toIso8601String(),
     };

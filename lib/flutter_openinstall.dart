@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_base/utils/logger_util.dart';
 import 'package:openinstall_flutter_plugin/openinstall_flutter_plugin.dart';
 
@@ -9,16 +10,16 @@ class FlutterOpeninstall {
 
   /// 初始化
   static Future<void> initSDK({String channel = ''}) async {
-    _openinstallFlutterPlugin.setDebug(true);
+    _openinstallFlutterPlugin.setDebug(kDebugMode);
     _openinstallFlutterPlugin.init(wakeupHandler);
     _openinstallFlutterPlugin.install(installHandler);
     _openinstallFlutterPlugin.setChannel(channel);
+
   }
 
   static Future<void> installHandler(Map<String, Object> data) async {
-    Log.d("installHandler : $data");
-    installLog = "install result : channel=${data['channelCode']}, data=${data['bindData']}\n${data['shouldRetry']}";
-    Log.d("installLog : $installLog");
+    installLog = "install result : channel=${data['channelCode']}, data=${data['bindData']} shouldRetry=${data['shouldRetry']}";
+    Log.d("初始化成功 installHandler : $data installLog : $installLog");
   }
 
   static Future<void> wakeupHandler(Map<String, Object> data) async {

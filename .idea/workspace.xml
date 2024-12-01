@@ -5,23 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9727270a-2ab4-43bc-ab95-1bdea14486c4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/build/fcd1995bc647fb959e82ea360c6c2c9a/asset_graph.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/build/fcd1995bc647fb959e82ea360c6c2c9a/asset_graph.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/build/generated/flutter_base/lib/models/version.copyWith.g.part" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/build/generated/flutter_base/lib/models/version.copyWith.g.part" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/build/generated/flutter_base/lib/models/version.isar_generator.g.part" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/build/generated/flutter_base/lib/models/version.isar_generator.g.part" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/build/generated/flutter_base/lib/models/version.json_serializable.g.part" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/build/generated/flutter_base/lib/models/version.json_serializable.g.part" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/flutter_base.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_base.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_openinstall.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_openinstall.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_umeng.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_umeng.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/models/version.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/version.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/models/version.g.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/version.g.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/service.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/service/version_service.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/dio_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/dio_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/time_parser.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/utils/util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/util.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/utils/value_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/value_util.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

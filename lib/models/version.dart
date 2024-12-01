@@ -11,7 +11,7 @@ part 'version.g.dart';
 @collection
 @Name("version")
 class Version {
-  String get id => Util.fastHash('version').toString();
+  int get id => Util.fastHash('version');
   final String name; //App名称
   final String title; //更新标题
   final String msg; //
@@ -26,10 +26,10 @@ class Version {
   final String b2; //本地build版本
   final String platform; //
   final bool isMode; //
-  final String feedUrl; // 订阅 url
-  final String sourceUrl; // 订阅url
   final List<String> githubs; //
-  final List<String> jxApi; //
+
+  final DateTime? updateAt; // 更新时间
+  final DateTime? createAt; // 创建时间
 
   Version({
     this.name = '',
@@ -46,11 +46,11 @@ class Version {
     this.b2 = '',
     this.platform = '',
     this.isMode = false,
-    this.feedUrl = '',
-    this.sourceUrl = '',
     this.githubs = const [],
-    this.jxApi = const [],
-  });
+    DateTime? createAt,
+    DateTime? updateAt,
+  })  : createAt = createAt ?? DateTime.now(),
+        updateAt = updateAt ?? DateTime.now();
 
   bool get isNew {
     if (build.isEmpty) return false;

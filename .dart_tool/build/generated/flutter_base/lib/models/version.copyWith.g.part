@@ -31,13 +31,11 @@ abstract class _$VersionCWProxy {
 
   Version isMode(bool isMode);
 
-  Version feedUrl(String feedUrl);
-
-  Version sourceUrl(String sourceUrl);
-
   Version githubs(List<String> githubs);
 
-  Version jxApi(List<String> jxApi);
+  Version createAt(DateTime? createAt);
+
+  Version updateAt(DateTime? updateAt);
 
   /// This function **does support** nullification of nullable fields. All `null` values passed to `non-nullable` fields will be ignored. You can also use `Version(...).copyWith.fieldName(...)` to override fields one at a time with nullification support.
   ///
@@ -60,10 +58,9 @@ abstract class _$VersionCWProxy {
     String? b2,
     String? platform,
     bool? isMode,
-    String? feedUrl,
-    String? sourceUrl,
     List<String>? githubs,
-    List<String>? jxApi,
+    DateTime? createAt,
+    DateTime? updateAt,
   });
 }
 
@@ -116,16 +113,13 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
   Version isMode(bool isMode) => this(isMode: isMode);
 
   @override
-  Version feedUrl(String feedUrl) => this(feedUrl: feedUrl);
-
-  @override
-  Version sourceUrl(String sourceUrl) => this(sourceUrl: sourceUrl);
-
-  @override
   Version githubs(List<String> githubs) => this(githubs: githubs);
 
   @override
-  Version jxApi(List<String> jxApi) => this(jxApi: jxApi);
+  Version createAt(DateTime? createAt) => this(createAt: createAt);
+
+  @override
+  Version updateAt(DateTime? updateAt) => this(updateAt: updateAt);
 
   @override
 
@@ -150,10 +144,9 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
     Object? b2 = const $CopyWithPlaceholder(),
     Object? platform = const $CopyWithPlaceholder(),
     Object? isMode = const $CopyWithPlaceholder(),
-    Object? feedUrl = const $CopyWithPlaceholder(),
-    Object? sourceUrl = const $CopyWithPlaceholder(),
     Object? githubs = const $CopyWithPlaceholder(),
-    Object? jxApi = const $CopyWithPlaceholder(),
+    Object? createAt = const $CopyWithPlaceholder(),
+    Object? updateAt = const $CopyWithPlaceholder(),
   }) {
     return Version(
       name: name == const $CopyWithPlaceholder() || name == null
@@ -213,22 +206,18 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
           ? _value.isMode
           // ignore: cast_nullable_to_non_nullable
           : isMode as bool,
-      feedUrl: feedUrl == const $CopyWithPlaceholder() || feedUrl == null
-          ? _value.feedUrl
-          // ignore: cast_nullable_to_non_nullable
-          : feedUrl as String,
-      sourceUrl: sourceUrl == const $CopyWithPlaceholder() || sourceUrl == null
-          ? _value.sourceUrl
-          // ignore: cast_nullable_to_non_nullable
-          : sourceUrl as String,
       githubs: githubs == const $CopyWithPlaceholder() || githubs == null
           ? _value.githubs
           // ignore: cast_nullable_to_non_nullable
           : githubs as List<String>,
-      jxApi: jxApi == const $CopyWithPlaceholder() || jxApi == null
-          ? _value.jxApi
+      createAt: createAt == const $CopyWithPlaceholder()
+          ? _value.createAt
           // ignore: cast_nullable_to_non_nullable
-          : jxApi as List<String>,
+          : createAt as DateTime?,
+      updateAt: updateAt == const $CopyWithPlaceholder()
+          ? _value.updateAt
+          // ignore: cast_nullable_to_non_nullable
+          : updateAt as DateTime?,
     );
   }
 }
