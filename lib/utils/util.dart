@@ -42,7 +42,10 @@ class Util {
 
   static Future<String?> fetchM3uUrl(String url, List urls, CachedNetwork network, {bool reacquire = false}) async {
     for (var i = 0; i < urls.length; i++) {
-      final _url = urls[i] + url;
+      var _url =  url;
+      if(url.contains("raw.githubusercontent.com")){
+         _url = urls[i] + url;
+      }
       try {
         final data = await network.request(_url, reacquire: reacquire);
         Log.d("index=$i url=$_url");
@@ -51,6 +54,8 @@ class Util {
         Log.d(error.toString());
       }
     }
+
+
   }
 
   /// 针对 Dart 字符串优化的 64 位哈希算法 FNV-1a
