@@ -82,7 +82,8 @@ class PermissionEngine {
           success();
         } else {
           // 权限被拒绝
-          await AppDefaultDialog("请到您的手机设置打开相册的权限", title: "提醒", confirmText: "去设置", confirmAction: () {
+          await AppDefaultDialog("请到您的手机设置打开相册的权限", title: "提醒", confirmText: "去设置",
+              confirmAction: () {
             openAppSettings();
           });
         }
@@ -125,7 +126,8 @@ class PermissionEngine {
         success();
       } else {
         // 权限被拒绝
-        await AppDefaultDialog("请到您的手机设置打开相机的权限", title: "提醒", confirmText: "去设置", confirmAction: () {
+        await AppDefaultDialog("请到您的手机设置打开相机的权限", title: "提醒", confirmText: "去设置",
+            confirmAction: () {
           openAppSettings();
         });
       }
@@ -168,7 +170,8 @@ class PermissionEngine {
         return true;
       } else {
         // 权限被拒绝
-        await AppDefaultDialog("请到您的手机设置打开定位的权限", title: "提醒", confirmText: "去设置", confirmAction: () {
+        await AppDefaultDialog("请到您的手机设置打开定位的权限", title: "提醒", confirmText: "去设置",
+            confirmAction: () {
           openAppSettings();
         });
         return false;
@@ -199,7 +202,6 @@ class PermissionEngine {
         // 再次等待权限请求结果
         status = await permissionRequestFuture;
       } else {
-        Log.d("权限请求已完成,立刻取消对话框展示");
         // 权限请求已完成，立刻取消对话框展示（如果已经展示的话）
         status = firstCompleted as PermissionStatus;
       }
@@ -213,7 +215,8 @@ class PermissionEngine {
     }
   }
 
-  Future<void> AppDefaultDialog(String des, {required String title, required String confirmText, void Function()? confirmAction}) async {
+  Future<void> AppDefaultDialog(String des,
+      {required String title, required String confirmText, void Function()? confirmAction}) async {
     SmartDialog.show(
       clickMaskDismiss: false,
       backDismiss: true,
@@ -252,7 +255,8 @@ class PermissionEngine {
 
   Future<bool> checkConnectivity() async {
     Completer<bool> completer = Completer();
-    StreamSubscription<List<ConnectivityResult>> subscription = Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> result) {
+    StreamSubscription<List<ConnectivityResult>> subscription =
+        Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> result) {
       // Received changes in available connectivity types!
       if (result != ConnectivityResult.none) {
         if (!completer.isCompleted) completer.complete(true);

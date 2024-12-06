@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:app_installer/app_installer.dart';
 import 'package:cached_network/cached_network.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
@@ -13,7 +14,6 @@ import 'package:flutter_base/widget/update_dialog/update_dialog.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:html_parser_plus/html_parser_plus.dart';
-import 'package:install_plugin/install_plugin.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -163,9 +163,8 @@ class ApkDownload {
   }
 
   static installPlugin(String savePath) async {
-    final res = await InstallPlugin.install(savePath);
-    if (res['isSuccess'] == true) SmartDialog.showToast('安装成功！');
-    Log.d("install apk ${res['isSuccess'] == true ? 'success' : 'fail:${res['errorMessage'] ?? ''}'}");
+    final res = await AppInstaller.installApk(savePath);
+    SmartDialog.showToast('安装成功！');
   }
 
   ///判断文件存不存在
@@ -225,7 +224,7 @@ class ApkDownload {
 
     Log.d('嗅探初始化 $url');
     headlessWebView = HeadlessInAppWebView(
-      initialUrlRequest: URLRequest(url: Uri.parse(url)),
+      initialUrlRequest: URLRequest(url: WebUri(url)),
       // initialSettings: InAppWebViewSettings(isInspectable: kDebugMode),
       initialOptions: InAppWebViewGroupOptions(
           crossPlatform: InAppWebViewOptions(
