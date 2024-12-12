@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SettingTile extends StatelessWidget {
-  final IconData? icon;
+  final Icon? icon;
 
   final String title;
   final String? subtitle;
@@ -28,15 +28,16 @@ class SettingTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var leading = icon != null ? Icon(icon) : null;
     var text = arrowText.isNotEmpty
         ? Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               isLoad
-                  ? const SizedBox(width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 3))
-                  : Text(arrowText, textAlign: TextAlign.right, style: const TextStyle(fontSize: 14)),
+                  ? const SizedBox(
+                      width: 18, height: 18, child: CircularProgressIndicator(strokeWidth: 3))
+                  : Text(arrowText,
+                      textAlign: TextAlign.right, style: const TextStyle(fontSize: 14)),
               const Icon(Icons.arrow_forward_ios, size: 16)
             ],
           )
@@ -45,7 +46,7 @@ class SettingTile extends StatelessWidget {
     var trailing = value != null ? Switch(value: value!, onChanged: onChanged) : text;
 
     return ListTile(
-      leading: leading,
+      leading: icon,
       contentPadding: const EdgeInsets.only(left: 16, right: 8),
       title: Text(title, style: style),
       subtitle: subtitle != null ? Text(subtitle!) : null,
