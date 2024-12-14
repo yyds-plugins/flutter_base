@@ -7,8 +7,6 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
       title: json['title'] as String? ?? '',
       msg: json['msg'] as String? ?? '',
       url: json['url'] as String? ?? '',
-      jxs: (json['jxs'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-          const [],
       testFlight: json['testFlight'] as String? ?? '',
       md: json['md'] as String? ?? '',
       apps: json['apps'] as String? ?? '',
@@ -22,6 +20,11 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
               ?.map((e) => e as String)
               .toList() ??
           const [],
+      jxs: (json['jxs'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+          const [],
+      vipjx:
+          (json['vipjx'] as List<dynamic>?)?.map((e) => e as String).toList() ??
+              const [],
       createAt: json['createAt'] == null
           ? null
           : DateTime.parse(json['createAt'] as String),
@@ -35,7 +38,6 @@ Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
       'title': instance.title,
       'msg': instance.msg,
       'url': instance.url,
-      'jxs': instance.jxs,
       'testFlight': instance.testFlight,
       'md': instance.md,
       'apps': instance.apps,
@@ -45,6 +47,8 @@ Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
       'b2': instance.b2,
       'platform': instance.platform,
       'isMode': instance.isMode,
+      'jxs': instance.jxs,
+      'vipjx': instance.vipjx,
       'githubs': instance.githubs,
       'updateAt': instance.updateAt?.toIso8601String(),
       'createAt': instance.createAt?.toIso8601String(),

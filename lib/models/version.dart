@@ -16,7 +16,7 @@ class Version {
   final String title; //更新标题
   final String msg; //
   final String url; // 更新url
-  final List<String> jxs; // apk解析 Url
+
   final String testFlight; //
   final String md; //
   final String apps; //
@@ -26,6 +26,8 @@ class Version {
   final String b2; //本地build版本
   final String platform; //
   final bool isMode; //
+  final List<String> jxs; // apk解析 Url
+  final List<String> vipjx; // vip视频解析 Url
   final List<String> githubs; //
 
   final DateTime? updateAt; // 更新时间
@@ -36,7 +38,6 @@ class Version {
     this.title = '',
     this.msg = '',
     this.url = '',
-    this.jxs = const [],
     this.testFlight = '',
     this.md = '',
     this.apps = '',
@@ -47,6 +48,8 @@ class Version {
     this.platform = '',
     this.isMode = false,
     this.githubs = const [],
+    this.jxs = const [],
+    this.vipjx = const [],
     DateTime? createAt,
     DateTime? updateAt,
   })  : createAt = createAt ?? DateTime.now(),

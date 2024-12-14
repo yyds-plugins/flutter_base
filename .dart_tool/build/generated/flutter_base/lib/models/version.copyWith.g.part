@@ -11,8 +11,6 @@ abstract class _$VersionCWProxy {
 
   Version url(String url);
 
-  Version jxs(List<String> jxs);
-
   Version testFlight(String testFlight);
 
   Version md(String md);
@@ -33,6 +31,10 @@ abstract class _$VersionCWProxy {
 
   Version githubs(List<String> githubs);
 
+  Version jxs(List<String> jxs);
+
+  Version vipjx(List<String> vipjx);
+
   Version createAt(DateTime? createAt);
 
   Version updateAt(DateTime? updateAt);
@@ -48,7 +50,6 @@ abstract class _$VersionCWProxy {
     String? title,
     String? msg,
     String? url,
-    List<String>? jxs,
     String? testFlight,
     String? md,
     String? apps,
@@ -59,6 +60,8 @@ abstract class _$VersionCWProxy {
     String? platform,
     bool? isMode,
     List<String>? githubs,
+    List<String>? jxs,
+    List<String>? vipjx,
     DateTime? createAt,
     DateTime? updateAt,
   });
@@ -81,9 +84,6 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
 
   @override
   Version url(String url) => this(url: url);
-
-  @override
-  Version jxs(List<String> jxs) => this(jxs: jxs);
 
   @override
   Version testFlight(String testFlight) => this(testFlight: testFlight);
@@ -116,6 +116,12 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
   Version githubs(List<String> githubs) => this(githubs: githubs);
 
   @override
+  Version jxs(List<String> jxs) => this(jxs: jxs);
+
+  @override
+  Version vipjx(List<String> vipjx) => this(vipjx: vipjx);
+
+  @override
   Version createAt(DateTime? createAt) => this(createAt: createAt);
 
   @override
@@ -134,7 +140,6 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
     Object? title = const $CopyWithPlaceholder(),
     Object? msg = const $CopyWithPlaceholder(),
     Object? url = const $CopyWithPlaceholder(),
-    Object? jxs = const $CopyWithPlaceholder(),
     Object? testFlight = const $CopyWithPlaceholder(),
     Object? md = const $CopyWithPlaceholder(),
     Object? apps = const $CopyWithPlaceholder(),
@@ -145,6 +150,8 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
     Object? platform = const $CopyWithPlaceholder(),
     Object? isMode = const $CopyWithPlaceholder(),
     Object? githubs = const $CopyWithPlaceholder(),
+    Object? jxs = const $CopyWithPlaceholder(),
+    Object? vipjx = const $CopyWithPlaceholder(),
     Object? createAt = const $CopyWithPlaceholder(),
     Object? updateAt = const $CopyWithPlaceholder(),
   }) {
@@ -165,10 +172,6 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
           ? _value.url
           // ignore: cast_nullable_to_non_nullable
           : url as String,
-      jxs: jxs == const $CopyWithPlaceholder() || jxs == null
-          ? _value.jxs
-          // ignore: cast_nullable_to_non_nullable
-          : jxs as List<String>,
       testFlight:
           testFlight == const $CopyWithPlaceholder() || testFlight == null
               ? _value.testFlight
@@ -210,6 +213,14 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
           ? _value.githubs
           // ignore: cast_nullable_to_non_nullable
           : githubs as List<String>,
+      jxs: jxs == const $CopyWithPlaceholder() || jxs == null
+          ? _value.jxs
+          // ignore: cast_nullable_to_non_nullable
+          : jxs as List<String>,
+      vipjx: vipjx == const $CopyWithPlaceholder() || vipjx == null
+          ? _value.vipjx
+          // ignore: cast_nullable_to_non_nullable
+          : vipjx as List<String>,
       createAt: createAt == const $CopyWithPlaceholder()
           ? _value.createAt
           // ignore: cast_nullable_to_non_nullable

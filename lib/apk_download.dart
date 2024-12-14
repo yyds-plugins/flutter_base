@@ -90,7 +90,8 @@ class ApkDownload {
   }
 
   /// 更新弹窗
-  static void showUpdateDialog(BuildContext context, Version version, String apkPath, {required void Function(String) onDownloadApk}) {
+  static void showUpdateDialog(BuildContext context, Version version, String apkPath,
+      {required void Function(String) onDownloadApk}) {
     if (dialog != null && dialog!.isShowing()) return;
     final cancelToken = CancelToken();
 
@@ -139,7 +140,8 @@ class ApkDownload {
     try {
       SmartDialog.showToast('开始下载...');
 
-      var response = await Dio().download(url, savePath, cancelToken: cancelToken, onReceiveProgress: (count, total) {
+      var response = await Dio().download(url, savePath, cancelToken: cancelToken,
+          onReceiveProgress: (count, total) {
         Log.d("count  $count total=$total");
         final value = count / total;
         if (progress != value) {
@@ -176,96 +178,5 @@ class ApkDownload {
       // 处理异常情况
       return false;
     }
-  }
-
-  static Future<String> apkFileUrl(Version version) async {
-    final network = CachedNetwork();
-    try {
-      Log.d("直接嗅探 URL=${version.url}");
-      return await jxApkUrl(version.url);
-    } catch (error) {
-      Log.d(error.toString());
-      for (var i = 0; i < version.jxs.length; i++) {
-        final _url = version.jxs[i] + version.url;
-        Log.d('jxs=$i url=$_url');
-        try {
-          var html = await network.request(version.url);
-          Map<String, dynamic> json = jsonDecode(html);
-          if (int.parse(json['code']) == 200) {
-            if (json['data'] != null) {
-              return json['data']['url'];
-            }
-            if (json['down'] != null) {
-              return json['down'];
-            }
-          }
-        } catch (error) {
-          Log.d(error.toString());
-        }
-      }
-    }
-    return '';
-  }
-
-  //============================================================================
-  /// 嗅探视频URL
-  static Future<String> jxApkUrl(
-    String url,
-  ) async {
-    Completer<String> completer = Completer();
-
-    late HeadlessInAppWebView headlessWebView;
-    InAppWebViewController _webViewController;
-
-    Future<void> _handleResult(String url, {String tag = ''}) async {
-      await headlessWebView.dispose();
-      if (!completer.isCompleted) completer.complete(url);
-    }
-
-    Log.d('嗅探初始化 $url');
-    headlessWebView = HeadlessInAppWebView(
-      initialUrlRequest: URLRequest(url: WebUri(url)),
-      // initialSettings: InAppWebViewSettings(isInspectable: kDebugMode),
-      initialOptions: InAppWebViewGroupOptions(
-          crossPlatform: InAppWebViewOptions(
-              useOnLoadResource: true, useShouldInterceptAjaxRequest: true, useShouldInterceptFetchRequest: true, useShouldOverrideUrlLoading: true),
-          android: AndroidInAppWebViewOptions(useShouldInterceptRequest: true),
-          ios: IOSInAppWebViewOptions(allowsInlineMediaPlayback: true, useOnNavigationResponse: true)),
-      onWebViewCreated: (controller) {
-        _webViewController = controller;
-      },
-
-      onLoadStop: (controller, webUri) async {
-        var html = await controller.evaluateJavascript(source: "document.body.innerHTML");
-        Log.d('File html: $html');
-
-        final parser = HtmlParser();
-        var item = parser.parse(html);
-        final name = parser.query(item, '//div[@class=\'appname\']@text');
-        Log.d('--->>>items name>>>${name}');
-
-        // Extract the values of 'var link =' and 'var urlpt ='
-        RegExp linkRegex = RegExp(r"var link = '(.*?)';");
-        RegExp urlptRegex = RegExp(r"var urlpt = '(.*?)';");
-
-        Match? linkMatch = linkRegex.firstMatch(html);
-        Match? urlptMatch = urlptRegex.firstMatch(html);
-
-        if (linkMatch != null && urlptMatch != null) {
-          String linkValue = linkMatch.group(1) ?? '';
-          String urlptValue = urlptMatch.group(1) ?? '';
-          Log.d('Urlpt value: ${urlptValue + linkValue}');
-
-          _handleResult(urlptValue + linkValue, tag: 'onLoadStop');
-        } else {
-          _handleResult('', tag: 'onLoadStop');
-        }
-      },
-    );
-
-    await headlessWebView.run();
-    Log.d('webView.run()');
-
-    return await completer.future;
   }
 }

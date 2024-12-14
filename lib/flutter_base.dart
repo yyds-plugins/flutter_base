@@ -7,6 +7,7 @@ export 'package:flutter_base/utils/value_util.dart';
 export 'package:flutter_base/widget/widget.dart';
 export 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 export 'package:leancloud_storage/leancloud.dart';
-export 'package:permission_request_page/permission_request_page.dart';
+// export 'package:permission_request_page/permission_request_page.dart';
 export 'package:share_plus/share_plus.dart';
 export 'package:talkingdata_sdk_plugin/talkingdata_sdk_plugin.dart';
+export 'package:permission_handler/permission_handler.dart';

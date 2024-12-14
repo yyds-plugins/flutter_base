@@ -12,7 +12,6 @@ export 'package:flutter_base/utils/list_util.dart';
 // export 'package:flutter_base/utils/log_toast.dart';
 export 'package:flutter_base/utils/logger_util.dart';
 export 'package:flutter_base/utils/network/dio_net.dart';
-export 'package:flutter_base/utils/permission_engine.dart';
 export 'package:flutter_base/utils/text_util.dart';
 export 'package:flutter_base/utils/util.dart';
 export 'package:flutter_base/utils/value_util.dart';
@@ -35,9 +34,8 @@ class Util {
       }
       try {
         final data = await network.request(_url, reacquire: reacquire);
-        final json = jsonDecode(data);
         Log.d("index=$i url=$_url");
-        return isJson ? json : data;
+        return isJson ? jsonDecode(data) : data;
       } catch (error) {
         Log.d(error.toString());
       }
