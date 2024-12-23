@@ -1,19 +1,14 @@
 library apk_download;
 
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 
-import 'package:app_installer/app_installer.dart';
-import 'package:cached_network/cached_network.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_base/utils/util.dart';
 import 'package:flutter_base/widget/update_dialog/update_dialog.dart';
-import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-import 'package:html_parser_plus/html_parser_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -41,7 +36,6 @@ class ApkDownload {
     }
 
     var path = '$docPath$fileName';
-    ;
     if (kDebugMode) {
       Log.e(path);
     }
@@ -165,7 +159,7 @@ class ApkDownload {
   }
 
   static installPlugin(String savePath) async {
-    final res = await AppInstaller.installApk(savePath);
+    // final res = await AppInstaller.installApk(savePath);
     SmartDialog.showToast('安装成功！');
   }
 
