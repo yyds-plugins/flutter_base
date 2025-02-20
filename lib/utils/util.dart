@@ -24,18 +24,34 @@ class Util {
     }
   }
 
-  /// 获取视频 Url
+  /// giturl 加速
   static Future<dynamic> fetchUrl(String url, List urls, CachedNetwork network,
-      {bool reacquire = false, bool isJson = false}) async {
+      {bool reacquire = false, bool isJson = false, bool vipjx = false}) async {
     for (var i = 0; i < urls.length; i++) {
       var _url = url;
-      if (url.contains("raw.githubusercontent.com")) {
+      if (url.contains("raw.githubusercontent.com") || vipjx) {
         _url = urls[i] + url;
       }
       try {
         final data = await network.request(_url, reacquire: reacquire);
         Log.d("index=$i url=$_url");
         return isJson ? jsonDecode(data) : data;
+      } catch (error) {
+        Log.d(error.toString());
+      }
+    }
+  }
+
+  static Future<dynamic> vipjx(String url, List urls, CachedNetwork network,
+      {bool reacquire = true}) async {
+    Log.d(" urls=$urls");
+
+    for (var i = 0; i < urls.length; i++) {
+      var _url = urls[i] + url;
+      try {
+        final data = await network.request(_url, reacquire: reacquire);
+        Log.d("index=$i url=$_url");
+        return jsonDecode(data);
       } catch (error) {
         Log.d(error.toString());
       }
@@ -55,4 +71,14 @@ class Util {
     }
     return hash;
   }
+}
+
+/// 内容基础加密/解密转换
+///
+/// [value] 内容
+class ValueConvert {
+  ValueConvert(this.value);
+  String value;
+  String encode() => base64Encode(utf8.encode(value));
+  String decode() => utf8.decode(base64Decode(value));
 }

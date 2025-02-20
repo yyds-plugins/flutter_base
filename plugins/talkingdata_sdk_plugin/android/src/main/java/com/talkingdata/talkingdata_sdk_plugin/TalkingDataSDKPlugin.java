@@ -22,7 +22,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-import io.flutter.plugin.common.PluginRegistry;
+//import io.flutter.plugin.common.PluginRegistry;
 
 public class TalkingDataSDKPlugin implements FlutterPlugin, MethodCallHandler {
   /// The MethodChannel that will the communication between Flutter and native Android
@@ -32,10 +32,10 @@ public class TalkingDataSDKPlugin implements FlutterPlugin, MethodCallHandler {
   private MethodChannel channel;
   private static Context mContext;
 
-  public static void registerWith(PluginRegistry.Registrar registrar) {
-    final MethodChannel channel = new MethodChannel(registrar.messenger(), "talkingdata_sdk_plugin");
-    channel.setMethodCallHandler(new TalkingDataSDKPlugin());
-  }
+//  public static void registerWith(PluginRegistry.Registrar registrar) {
+//    final MethodChannel channel = new MethodChannel(registrar.messenger(), "talkingdata_sdk_plugin");
+//    channel.setMethodCallHandler(new TalkingDataSDKPlugin());
+//  }
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {

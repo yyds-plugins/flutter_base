@@ -10,6 +10,8 @@ class TextSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final clearColor =  theme.primaryColor == Colors.black ? Colors.black : Colors.white;
     return Container(
       padding: EdgeInsets.only(left: 15),
       height: 50,
@@ -68,12 +70,12 @@ class TextSearchBar extends StatelessWidget {
               FocusScope.of(context).unfocus();
               Navigator.of(context).pop();
             },
-            child: const Text(
+            child:  Text(
               '取消',
               style: TextStyle(
-                color: Color(0xff444444),
+                color: clearColor,
                 fontSize: 17,
-                fontWeight: FontWeight.normal,
+                fontWeight: FontWeight.normal
               ),
             ),
           ),
