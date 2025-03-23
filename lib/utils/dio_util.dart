@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:charset/charset.dart';
 
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
@@ -31,6 +32,7 @@ class DioUtil {
     Duration? duration,
     String? method,
     Map<String, dynamic>? headers,
+    ResponseType? responseType,
     bool reacquire = false,
   }) async {
     timeout ??= const Duration(seconds: 10);
@@ -44,7 +46,14 @@ class DioUtil {
     final valid = await _valid(cacheUrl, duration: duration);
 
     if (!valid || reacquire) {
-      final data = await _request(body: body, charset: charset, method: method, url: url, headers: headers).timeout(timeout!);
+      final data = await _request(
+              body: body,
+              charset: charset,
+              method: method,
+              url: url,
+              headers: headers,
+              responseType: responseType)
+          .timeout(timeout!);
       await _cache(cacheUrl, jsonEncode(data));
       return jsonEncode(data);
     } else {
@@ -109,6 +118,7 @@ class DioUtil {
     String? charset,
     String? method,
     Map<String, dynamic>? headers,
+    ResponseType? responseType,
     required String url,
   }) async {
     // final uri = Uri.parse(url);
@@ -116,7 +126,7 @@ class DioUtil {
 
     final dio = Dio(BaseOptions(
       headers: headers,
-      responseType: ResponseType.json,
+      responseType: responseType,
     ));
     //只在测试的时候添加
     dio.interceptors.add(
@@ -127,10 +137,11 @@ class DioUtil {
       ),
     );
     if (method?.toLowerCase() == 'post') {
-      response = await dio.post(url, data: body);
+      response = await dio.post(url, queryParameters: body);
     } else {
       response = await dio.get(url, queryParameters: body);
     }
+
     return response.data;
   }
 

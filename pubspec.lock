@@ -1067,13 +1067,6 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.2.1"
-  permission_request_page:
-    dependency: "direct main"
-    description:
-      path: "plugins/permission_request_page"
-      relative: true
-    source: path
-    version: "2.0.0"
   petitparser:
     dependency: transitive
     description:

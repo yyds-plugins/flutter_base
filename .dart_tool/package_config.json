@@ -812,12 +812,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "permission_request_page",
-      "rootUri": "../plugins/permission_request_page",
-      "packageUri": "lib/",
-      "languageVersion": "2.18"
-    },
-    {
       "name": "petitparser",
       "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/petitparser-6.0.2",
       "packageUri": "lib/",
@@ -1322,7 +1316,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-02-20T09:40:46.721251Z",
+  "generated": "2025-03-23T08:23:05.296202Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///Users/allin/fvm/versions/stable",
