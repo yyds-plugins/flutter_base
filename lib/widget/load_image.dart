@@ -33,20 +33,12 @@ class LoadImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (image.isEmpty || image.startsWith('http')) {
-
-      Widget _error = Container(width: width, height: height,decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(6),
-      ));
-
-      Widget _image = holderImg != null
-          ? LoadAssetImage(holderImg!, height: height, width: width, fit: fit)
-          : Container(width: width, height: height, child: Center(child: CupertinoActivityIndicator()));
-
+      final placeholder = Container(alignment: Alignment.center, child: const Text("暂无封面"));
       return CachedNetworkImage(
         imageUrl: image,
         httpHeaders: httpHeaders,
-        placeholder: (_, __) => _image,
-        errorWidget: (_, __, dynamic error) => _error,
+        placeholder: (_, __) => placeholder,
+        errorWidget: (_, __, dynamic error) => placeholder,
         width: width,
         height: height,
         fit: fit,
@@ -72,7 +64,14 @@ class LoadImage extends StatelessWidget {
 /// 加载本地资源图片
 class LoadAssetImage extends StatelessWidget {
   const LoadAssetImage(this.image,
-      {Key? key, this.width, this.height, this.cacheWidth, this.cacheHeight, this.fit, this.format = ImageFormat.png, this.color})
+      {Key? key,
+      this.width,
+      this.height,
+      this.cacheWidth,
+      this.cacheHeight,
+      this.fit,
+      this.format = ImageFormat.png,
+      this.color})
       : super(key: key);
 
   final String image;
