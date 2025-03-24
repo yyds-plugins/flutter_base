@@ -10,7 +10,9 @@ class LoadImage extends StatelessWidget {
       {Key? key,
       this.width,
       this.height,
-      this.fit = BoxFit.cover,
+        this.borderRadius = 4,
+
+        this.fit = BoxFit.cover,
       this.format = ImageFormat.png,
       this.holderImg,
       this.cacheWidth,
@@ -22,6 +24,8 @@ class LoadImage extends StatelessWidget {
   final String image;
   final double? width;
   final double? height;
+  final double borderRadius;
+
   final BoxFit fit;
   final ImageFormat format;
   final String? holderImg;
@@ -32,32 +36,33 @@ class LoadImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (image.isEmpty || image.startsWith('http')) {
-      final placeholder = Container(alignment: Alignment.center, child: const Text("暂无封面"));
-      return CachedNetworkImage(
-        imageUrl: image,
-        httpHeaders: httpHeaders,
-        placeholder: (_, __) => placeholder,
-        errorWidget: (_, __, dynamic error) => placeholder,
-        width: width,
-        height: height,
-        fit: fit,
-        memCacheWidth: cacheWidth,
-        memCacheHeight: cacheHeight,
-        color: color, //目标颜色
-        colorBlendMode: BlendMode.color, //颜色混合模式
-      );
-    } else {
-      return LoadAssetImage(
-        image,
-        height: height,
-        width: width,
-        fit: fit,
-        format: format,
-        cacheWidth: cacheWidth,
-        cacheHeight: cacheHeight,
-      );
-    }
+
+    final placeholder = Center(child: const Text("暂无封面"));
+
+   return Card(child:ClipRRect(
+        borderRadius: BorderRadius.circular(borderRadius),
+        child:image.isEmpty || image.startsWith('http') ? CachedNetworkImage(
+          imageUrl: image,
+          httpHeaders: httpHeaders,
+          placeholder: (_, __) => placeholder,
+          errorWidget: (_, __, dynamic error) => placeholder,
+          width: width,
+          height: height,
+          fit: fit,
+          memCacheWidth: cacheWidth,
+          memCacheHeight: cacheHeight,
+          color: color, //目标颜色
+          colorBlendMode: BlendMode.color, //颜色混合模式
+        ): LoadAssetImage(
+          image,
+          height: height,
+          width: width,
+          fit: fit,
+          format: format,
+          cacheWidth: cacheWidth,
+          cacheHeight: cacheHeight,
+        )) );
+
   }
 }
 
