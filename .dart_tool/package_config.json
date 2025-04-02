@@ -345,13 +345,13 @@
     },
     {
       "name": "fl_umeng",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/fl_umeng-3.7.0",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/fl_umeng-4.0.2",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
     {
       "name": "fl_umeng_apm",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/fl_umeng_apm-0.6.0",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/fl_umeng_apm-1.0.2",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -705,7 +705,7 @@
     },
     {
       "name": "openinstall_flutter_plugin",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/openinstall_flutter_plugin-2.5.3",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/openinstall_flutter_plugin-2.5.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -1316,7 +1316,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-03-23T08:23:05.296202Z",
+  "generated": "2025-04-01T13:45:37.282769Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///Users/allin/fvm/versions/stable",

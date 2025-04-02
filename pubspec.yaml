@@ -55,9 +55,9 @@ dependencies:
 
 
   #第三方sdk
-  openinstall_flutter_plugin: ^2.5.3
-  fl_umeng: ^3.7.0
-  fl_umeng_apm: ^0.6.0
+  openinstall_flutter_plugin: ^2.5.4
+  fl_umeng: ^4.0.2
+  fl_umeng_apm: ^1.0.2
 
   # 模型处理
   flutter_riverpod: ^2.6.1

@@ -11,11 +11,11 @@ class ImageUtils {
     return 'assets/images/$name.${format.value}';
   }
 
-  static ImageProvider getImageProvider(String? imageUrl, {String holderImg = 'placeholder-3-4'}) {
+  static ImageProvider getImageProvider(String? imageUrl, {Map<String, String>? httpHeaders,String holderImg = 'placeholder-3-4'}) {
     if (TextUtil.isEmpty(imageUrl)) {
       return AssetImage(getImgPath(holderImg));
     }
-    return CachedNetworkImageProvider(imageUrl!);
+    return CachedNetworkImageProvider(imageUrl!,headers: httpHeaders);
   }
 }
 

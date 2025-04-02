@@ -10,10 +10,11 @@ class TextSearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
     final theme = Theme.of(context);
-    final clearColor =  theme.primaryColor == Colors.black ? Colors.black : Colors.white;
+    final clearColor = theme.primaryColor == Colors.black ? Colors.black : Colors.white;
     return Container(
-      padding: EdgeInsets.only(left: 15),
       height: 50,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -23,14 +24,15 @@ class TextSearchBar extends StatelessWidget {
             child: Ink(
               height: 36,
               decoration: BoxDecoration(
-                color: Colors.grey.shade200,
+                // color: Colors.grey.shade200,
                 borderRadius: BorderRadius.circular(18),
+                border: Border.all(color: isDarkMode ? Colors.white.withValues(alpha: 0.5) : Colors.black, width: 1),
               ),
               child: Row(
                 children: <Widget>[
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Icon(Icons.search_rounded, color: Color(0xff999999), size: 24),
+                    child: Icon(Icons.search_rounded, size: 24),
                   ),
                   Expanded(
                     flex: 1,
@@ -42,7 +44,6 @@ class TextSearchBar extends StatelessWidget {
                       decoration: InputDecoration(
                         hintText: title,
                         hintStyle: const TextStyle(
-                          color: Color(0xff999999),
                           fontSize: 16,
                           fontWeight: FontWeight.normal,
                         ),
@@ -58,7 +59,7 @@ class TextSearchBar extends StatelessWidget {
                     child: InkWell(
                       onTap: clear,
                       borderRadius: BorderRadius.circular(18),
-                      child: Icon(Icons.close_rounded, size: 20, color: Color(0xff999999)),
+                      child: Icon(Icons.close_rounded, size: 20),
                     ),
                   )
                 ],
@@ -70,13 +71,9 @@ class TextSearchBar extends StatelessWidget {
               FocusScope.of(context).unfocus();
               Navigator.of(context).pop();
             },
-            child:  Text(
+            child: Text(
               '取消',
-              style: TextStyle(
-                color: clearColor,
-                fontSize: 17,
-                fontWeight: FontWeight.normal
-              ),
+              style: TextStyle(color: clearColor, fontSize: 17, fontWeight: FontWeight.normal),
             ),
           ),
         ],

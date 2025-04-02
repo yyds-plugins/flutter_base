@@ -39,7 +39,7 @@ class LoadImage extends StatelessWidget {
 
     final placeholder = Center(child: const Text("暂无封面"));
 
-   return Card(child:ClipRRect(
+   return ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
         child:image.isEmpty || image.startsWith('http') ? CachedNetworkImage(
           imageUrl: image,
@@ -61,7 +61,7 @@ class LoadImage extends StatelessWidget {
           format: format,
           cacheWidth: cacheWidth,
           cacheHeight: cacheHeight,
-        )) );
+        ));
 
   }
 }

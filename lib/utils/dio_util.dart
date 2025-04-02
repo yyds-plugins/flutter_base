@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:charset/charset.dart';
 
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
@@ -9,7 +8,7 @@ import 'package:path/path.dart' as path;
 import 'package:path_provider/path_provider.dart';
 
 class DioUtil {
-  DioUtil({this.prefix, this.temporaryDirectory, this.timeout, this.cacheDuration});
+  DioUtil({this.prefix, this.temporaryDirectory, this.timeout, this.cacheDuration = const Duration(hours: 24)});
 
   String identifier = 'libCachedNetworkData';
   String? prefix;
@@ -47,12 +46,7 @@ class DioUtil {
 
     if (!valid || reacquire) {
       final data = await _request(
-              body: body,
-              charset: charset,
-              method: method,
-              url: url,
-              headers: headers,
-              responseType: responseType)
+              body: body, charset: charset, method: method, url: url, headers: headers, responseType: responseType)
           .timeout(timeout!);
       await _cache(cacheUrl, jsonEncode(data));
       return jsonEncode(data);

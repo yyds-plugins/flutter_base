@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9727270a-2ab4-43bc-ab95-1bdea14486c4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/apk_download.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/apk_download.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/dio_util.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/dio_util.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/utils_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/utils_image.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widget/load_image.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/load_image.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widget/search_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/search_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widget/text_search_bar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/text_search_bar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

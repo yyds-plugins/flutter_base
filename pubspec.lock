@@ -457,18 +457,18 @@ packages:
     dependency: "direct main"
     description:
       name: fl_umeng
-      sha256: "97b10fb7826b9eab11d7237534b193e22df229dc7a15e15c4dfb248362fdfe5b"
+      sha256: "4c69ce58ce26abcb2e43f0a91a0704255244394dd4a74ff91ce9560ef2f438e1"
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "3.7.0"
+    version: "4.0.2"
   fl_umeng_apm:
     dependency: "direct main"
     description:
       name: fl_umeng_apm
-      sha256: "4214ae15881af45fbcd95016616247d8d2d3254b8ea104450032b9f834d9d036"
+      sha256: ad3c8d08259dab1249f3a2bf9cf1dfa4e1d8977d1cef495cf2889335dc12175b
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "0.6.0"
+    version: "1.0.2"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -927,10 +927,10 @@ packages:
     dependency: "direct main"
     description:
       name: openinstall_flutter_plugin
-      sha256: e35ab3666267824fe76956623068c282b3e89aada2af754d6f38525c7a10e546
+      sha256: a07acd4a3c9c3175527512b6de2ca52644be46ff44a382ea0224635d6355ae76
       url: "https://pub.flutter-io.cn"
     source: hosted
-    version: "2.5.3"
+    version: "2.5.4"
   package_config:
     dependency: transitive
     description:

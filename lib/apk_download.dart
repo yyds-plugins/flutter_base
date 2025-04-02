@@ -134,8 +134,7 @@ class ApkDownload {
     try {
       SmartDialog.showToast('开始下载...');
 
-      var response = await Dio().download(url, savePath, cancelToken: cancelToken,
-          onReceiveProgress: (count, total) {
+      var response = await Dio().download(url, savePath, cancelToken: cancelToken, onReceiveProgress: (count, total) {
         Log.d("count  $count total=$total");
         final value = count / total;
         if (progress != value) {
