@@ -67,8 +67,10 @@ class DioUtil {
       // 如果你想完成请求并返回一些自定义数据，你可以使用 `handler.resolve(response)`。
       // 如果你想终止请求并触发一个错误，你可以使用 `handler.reject(error)`。
 
-      var data = ValueUtil.toStr(json.encode(options.data));
-      Log.d("data=$data");
+      if (options.data != null) {
+        var data = ValueUtil.toStr(json.encode(options.data));
+        Log.d("data=$data");
+      }
 
       // options.headers.addAll({"token": token, "request_id": requestId});
 
@@ -147,28 +149,6 @@ class DioUtil {
   /// duration from file created to now is greater than duration specified in the
   /// param.
 
-  ///  get
-  // Future<Response> request(String path,
-  //     {String? method,
-  //       Map<String, dynamic>? params,
-  //       Map<String, dynamic>? headers,
-  //       CancelToken? cancelToken,
-  //       ProgressCallback? onReceiveProgress}) async {
-  //   if (method == "POST") {
-  //     return post(
-  //       path,
-  //       headers: headers,
-  //       data: params,
-  //     );
-  //   } else {
-  //     return get(
-  //       path,
-  //       headers: headers,
-  //       params: params,
-  //     );
-  //   }
-  // }
-
   Future<dynamic> request(
     String url, {
     Map<String, dynamic>? body,
@@ -182,22 +162,61 @@ class DioUtil {
     timeout ??= const Duration(seconds: 10);
     duration ??= cacheDuration;
     String cacheUrl = url;
+
     if (body != null) {
       cacheUrl = '$url?${body.entries.map((entry) {
         return '${Uri.encodeComponent(entry.key)}=${Uri.encodeComponent(entry.value.toString())}';
       }).join('&')}';
     }
+
     final valid = await _valid(cacheUrl, duration: duration);
 
     if (!valid || reacquire) {
-      final data = await _request(
-              body: body, charset: charset, method: method, url: url, headers: headers, responseType: responseType)
-          .timeout(timeout!);
-      await _cache(cacheUrl, jsonEncode(data));
-      return jsonEncode(data);
+      final response = await _request(
+        url,
+        params: body,
+        method: method,
+        headers: headers,
+      );
+
+      // await _cache(cacheUrl, jsonEncode(response.data));
+      await _cache(cacheUrl, response.data);
+      return response.data;
+      // return jsonEncode(response.data);
     } else {
       final file = await _generate(cacheUrl);
+
       return file.readAsString();
+    }
+  }
+
+  ///  get
+  Future<Response> _request(String path,
+      {String? method,
+      Map<String, dynamic>? params,
+      Map<String, dynamic>? headers,
+      ResponseType? responseType,
+      CancelToken? cancelToken,
+      ProgressCallback? onReceiveProgress}) async {
+    if (method?.toLowerCase() == 'post') {
+      final response = post(
+        path,
+        headers: headers,
+        data: params,
+        responseType: responseType,
+        cancelToken: cancelToken,
+        onReceiveProgress: onReceiveProgress,
+      );
+      return response;
+    } else {
+      return get(
+        path,
+        headers: headers,
+        params: params,
+        responseType: responseType,
+        cancelToken: cancelToken,
+        onReceiveProgress: onReceiveProgress,
+      );
     }
   }
 
@@ -249,73 +268,6 @@ class DioUtil {
     return File(filePath);
   }
 
-  /// Use to fetch data from network.
-  ///
-  /// This function will return the plain text no matter has redirect or not.
-
-  Future<dynamic> _request({
-    Map<String, dynamic>? body,
-    String? charset,
-    String? method,
-    Map<String, dynamic>? headers,
-    ResponseType? responseType,
-    required String url,
-  }) async {
-    // final uri = Uri.parse(url);
-    Response response;
-
-    final dio = Dio(BaseOptions(
-      headers: headers,
-      responseType: responseType,
-      // responseType: ResponseType.plain,
-      connectTimeout: const Duration(milliseconds: CONNECT_TIMEOUT),
-      // 响应流上前后两次接受到数据的间隔，单位为毫秒。
-      receiveTimeout: const Duration(milliseconds: RECEIVE_TIMEOUT),
-    ));
-
-    //添加拦截器
-    dio.interceptors.add(InterceptorsWrapper(onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
-      // Log.d("请求之前 header = ${options.headers.toString()}");
-      // 如果你想完成请求并返回一些自定义数据，你可以使用 `handler.resolve(response)`。
-      // 如果你想终止请求并触发一个错误，你可以使用 `handler.reject(error)`。
-
-      var data = ValueUtil.toStr(json.encode(options.data));
-      Log.d("data=$data");
-
-      // options.headers.addAll({"token": token, "request_id": requestId});
-
-      return handler.next(options); //continue
-    }, onResponse: (Response response, ResponseInterceptorHandler handler) {
-      // Log.d("响应之前");
-      // 如果你想终止请求并触发一个错误，你可以使用 `handler.reject(error)`。
-      return handler.next(response); // continue
-    }, onError: (DioException e, ErrorInterceptorHandler handler) {
-      // Log.d("错误之前");
-      // 如果你想完成请求并返回一些自定义数据，你可以使用 `handler.resolve(response)`。
-      return handler.next(e);
-    }));
-
-    // 添加拦截器
-    if (kDebugMode == true) {
-      //只在测试的时候添加
-      dio.interceptors.add(
-        LogInterceptor(
-          responseBody: true,
-          requestBody: true,
-          logPrint: (o) => debugPrint(o.toString()),
-        ),
-      );
-    }
-
-    if (method?.toLowerCase() == 'post') {
-      response = await dio.post(url, queryParameters: body);
-    } else {
-      response = await dio.get(url, queryParameters: body);
-    }
-
-    return response.data;
-  }
-
   /// Use to cache data.
   ///
   /// Write content to file
@@ -330,12 +282,13 @@ class DioUtil {
   Future<Response<T>> get<T>(String path,
       {Map<String, dynamic>? params,
       Map<String, dynamic>? headers,
+      ResponseType? responseType,
       CancelToken? cancelToken,
       ProgressCallback? onReceiveProgress,
       bool followRedirects = true}) async {
     _dio.options.headers.addAll(headers ?? {});
     _dio.options.followRedirects = followRedirects;
-    _dio.options.responseType = ResponseType.json;
+    _dio.options.responseType = responseType ?? ResponseType.json;
     return await _dio.get<T>(
       path,
       queryParameters: params,
@@ -366,11 +319,12 @@ class DioUtil {
       {Map<String, dynamic>? params,
       data,
       Map<String, dynamic>? headers,
+      ResponseType? responseType,
       CancelToken? cancelToken,
       ProgressCallback? onSendProgress,
       ProgressCallback? onReceiveProgress}) async {
     _dio.options.headers.addAll(headers ?? {});
-    _dio.options.responseType = ResponseType.json;
+    _dio.options.responseType = responseType ?? ResponseType.json;
 
     return await _dio.post(
       path,
