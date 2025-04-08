@@ -2,7 +2,7 @@
 import 'package:dio/dio.dart';
 
 // Project imports:
-import '../dio_net.dart';
+import '../dio_util.dart';
 
 /// 参数拦截器
 class ParamsTokenInterceptor extends Interceptor {
@@ -11,7 +11,7 @@ class ParamsTokenInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.headers[DioNet.paramsHeaderKey] = token;
+    options.headers[DioUtil.paramsHeaderKey] = token;
     options.headers['Accept'] = 'application/json';
     super.onRequest(options, handler);
   }

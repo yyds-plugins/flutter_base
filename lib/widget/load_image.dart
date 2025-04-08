@@ -37,7 +37,7 @@ class LoadImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    final placeholder = Center(child: const Text("暂无封面"));
+    final placeholder = Center(child: const Text("暂无封面",textAlign: TextAlign.center,));
 
    return ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),

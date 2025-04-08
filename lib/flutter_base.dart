@@ -12,3 +12,4 @@ export 'package:leancloud_storage/leancloud.dart';
 export 'package:share_plus/share_plus.dart';
 export 'package:talkingdata_sdk_plugin/talkingdata_sdk_plugin.dart';
 export 'package:permission_handler/permission_handler.dart';
+export 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';

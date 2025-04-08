@@ -9,7 +9,10 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
       url: json['url'] as String? ?? '',
       testFlight: json['testFlight'] as String? ?? '',
       md: json['md'] as String? ?? '',
-      apps: json['apps'] as String? ?? '',
+      apps: (json['apps'] as List<dynamic>?)
+              ?.map((e) => App.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       version: json['version'] as String? ?? '',
       build: json['build'] as String? ?? '',
       b2v: json['b2v'] as String? ?? '',
@@ -20,8 +23,7 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
               ?.map((e) => e as String)
               .toList() ??
           const [],
-      jxs: (json['jxs'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-          const [],
+      sourceUrl: json['sourceUrl'] as String? ?? "",
       vipjx:
           (json['vipjx'] as List<dynamic>?)?.map((e) => e as String).toList() ??
               const [],
@@ -47,9 +49,9 @@ Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
       'b2': instance.b2,
       'platform': instance.platform,
       'isMode': instance.isMode,
-      'jxs': instance.jxs,
       'vipjx': instance.vipjx,
       'githubs': instance.githubs,
+      'sourceUrl': instance.sourceUrl,
       'updateAt': instance.updateAt?.toIso8601String(),
       'createAt': instance.createAt?.toIso8601String(),
     };

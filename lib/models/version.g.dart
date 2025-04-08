@@ -19,7 +19,7 @@ abstract class _$VersionCWProxy {
 
   Version md(String md);
 
-  Version apps(String apps);
+  Version apps(List<App> apps);
 
   Version version(String version);
 
@@ -35,7 +35,7 @@ abstract class _$VersionCWProxy {
 
   Version githubs(List<String> githubs);
 
-  Version jxs(List<String> jxs);
+  Version sourceUrl(String sourceUrl);
 
   Version vipjx(List<String> vipjx);
 
@@ -56,7 +56,7 @@ abstract class _$VersionCWProxy {
     String? url,
     String? testFlight,
     String? md,
-    String? apps,
+    List<App>? apps,
     String? version,
     String? build,
     String? b2v,
@@ -64,7 +64,7 @@ abstract class _$VersionCWProxy {
     String? platform,
     bool? isMode,
     List<String>? githubs,
-    List<String>? jxs,
+    String? sourceUrl,
     List<String>? vipjx,
     DateTime? createAt,
     DateTime? updateAt,
@@ -96,7 +96,7 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
   Version md(String md) => this(md: md);
 
   @override
-  Version apps(String apps) => this(apps: apps);
+  Version apps(List<App> apps) => this(apps: apps);
 
   @override
   Version version(String version) => this(version: version);
@@ -120,7 +120,7 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
   Version githubs(List<String> githubs) => this(githubs: githubs);
 
   @override
-  Version jxs(List<String> jxs) => this(jxs: jxs);
+  Version sourceUrl(String sourceUrl) => this(sourceUrl: sourceUrl);
 
   @override
   Version vipjx(List<String> vipjx) => this(vipjx: vipjx);
@@ -154,7 +154,7 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
     Object? platform = const $CopyWithPlaceholder(),
     Object? isMode = const $CopyWithPlaceholder(),
     Object? githubs = const $CopyWithPlaceholder(),
-    Object? jxs = const $CopyWithPlaceholder(),
+    Object? sourceUrl = const $CopyWithPlaceholder(),
     Object? vipjx = const $CopyWithPlaceholder(),
     Object? createAt = const $CopyWithPlaceholder(),
     Object? updateAt = const $CopyWithPlaceholder(),
@@ -188,7 +188,7 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
       apps: apps == const $CopyWithPlaceholder() || apps == null
           ? _value.apps
           // ignore: cast_nullable_to_non_nullable
-          : apps as String,
+          : apps as List<App>,
       version: version == const $CopyWithPlaceholder() || version == null
           ? _value.version
           // ignore: cast_nullable_to_non_nullable
@@ -217,10 +217,10 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
           ? _value.githubs
           // ignore: cast_nullable_to_non_nullable
           : githubs as List<String>,
-      jxs: jxs == const $CopyWithPlaceholder() || jxs == null
-          ? _value.jxs
+      sourceUrl: sourceUrl == const $CopyWithPlaceholder() || sourceUrl == null
+          ? _value.sourceUrl
           // ignore: cast_nullable_to_non_nullable
-          : jxs as List<String>,
+          : sourceUrl as String,
       vipjx: vipjx == const $CopyWithPlaceholder() || vipjx == null
           ? _value.vipjx
           // ignore: cast_nullable_to_non_nullable
@@ -287,7 +287,8 @@ const VersionSchema = IsarGeneratedSchema(
       ),
       IsarPropertySchema(
         name: 'apps',
-        type: IsarType.string,
+        type: IsarType.objectList,
+        target: 'App',
       ),
       IsarPropertySchema(
         name: 'version',
@@ -314,16 +315,16 @@ const VersionSchema = IsarGeneratedSchema(
         type: IsarType.bool,
       ),
       IsarPropertySchema(
-        name: 'jxs',
-        type: IsarType.stringList,
-      ),
-      IsarPropertySchema(
         name: 'vipjx',
         type: IsarType.stringList,
       ),
       IsarPropertySchema(
         name: 'githubs',
         type: IsarType.stringList,
+      ),
+      IsarPropertySchema(
+        name: 'sourceUrl',
+        type: IsarType.string,
       ),
       IsarPropertySchema(
         name: 'updateAt',
@@ -349,7 +350,7 @@ const VersionSchema = IsarGeneratedSchema(
     deserialize: deserializeVersion,
     deserializeProperty: deserializeVersionProp,
   ),
-  embeddedSchemas: [],
+  embeddedSchemas: [AppSchema],
 );
 
 @isarProtected
@@ -360,7 +361,19 @@ int serializeVersion(IsarWriter writer, Version object) {
   IsarCore.writeString(writer, 4, object.url);
   IsarCore.writeString(writer, 5, object.testFlight);
   IsarCore.writeString(writer, 6, object.md);
-  IsarCore.writeString(writer, 7, object.apps);
+  {
+    final list = object.apps;
+    final listWriter = IsarCore.beginList(writer, 7, list.length);
+    for (var i = 0; i < list.length; i++) {
+      {
+        final value = list[i];
+        final objectWriter = IsarCore.beginObject(listWriter, i);
+        serializeApp(objectWriter, value);
+        IsarCore.endObject(listWriter, objectWriter);
+      }
+    }
+    IsarCore.endList(writer, listWriter);
+  }
   IsarCore.writeString(writer, 8, object.version);
   IsarCore.writeString(writer, 9, object.build);
   IsarCore.writeString(writer, 10, object.b2v);
@@ -368,7 +381,7 @@ int serializeVersion(IsarWriter writer, Version object) {
   IsarCore.writeString(writer, 12, object.platform);
   IsarCore.writeBool(writer, 13, object.isMode);
   {
-    final list = object.jxs;
+    final list = object.vipjx;
     final listWriter = IsarCore.beginList(writer, 14, list.length);
     for (var i = 0; i < list.length; i++) {
       IsarCore.writeString(listWriter, i, list[i]);
@@ -376,21 +389,14 @@ int serializeVersion(IsarWriter writer, Version object) {
     IsarCore.endList(writer, listWriter);
   }
   {
-    final list = object.vipjx;
+    final list = object.githubs;
     final listWriter = IsarCore.beginList(writer, 15, list.length);
     for (var i = 0; i < list.length; i++) {
       IsarCore.writeString(listWriter, i, list[i]);
     }
     IsarCore.endList(writer, listWriter);
   }
-  {
-    final list = object.githubs;
-    final listWriter = IsarCore.beginList(writer, 16, list.length);
-    for (var i = 0; i < list.length; i++) {
-      IsarCore.writeString(listWriter, i, list[i]);
-    }
-    IsarCore.endList(writer, listWriter);
-  }
+  IsarCore.writeString(writer, 16, object.sourceUrl);
   IsarCore.writeLong(writer, 17,
       object.updateAt?.toUtc().microsecondsSinceEpoch ?? -9223372036854775808);
   IsarCore.writeLong(writer, 18,
@@ -414,8 +420,32 @@ Version deserializeVersion(IsarReader reader) {
   _testFlight = IsarCore.readString(reader, 5) ?? '';
   final String _md;
   _md = IsarCore.readString(reader, 6) ?? '';
-  final String _apps;
-  _apps = IsarCore.readString(reader, 7) ?? '';
+  final List<App> _apps;
+  {
+    final length = IsarCore.readList(reader, 7, IsarCore.readerPtrPtr);
+    {
+      final reader = IsarCore.readerPtr;
+      if (reader.isNull) {
+        _apps = const [];
+      } else {
+        final list = List<App>.filled(length, App(), growable: true);
+        for (var i = 0; i < length; i++) {
+          {
+            final objectReader = IsarCore.readObject(reader, i);
+            if (objectReader.isNull) {
+              list[i] = App();
+            } else {
+              final embedded = deserializeApp(objectReader);
+              IsarCore.freeReader(objectReader);
+              list[i] = embedded;
+            }
+          }
+        }
+        IsarCore.freeReader(reader);
+        _apps = list;
+      }
+    }
+  }
   final String _version;
   _version = IsarCore.readString(reader, 8) ?? '';
   final String _build;
@@ -428,26 +458,9 @@ Version deserializeVersion(IsarReader reader) {
   _platform = IsarCore.readString(reader, 12) ?? '';
   final bool _isMode;
   _isMode = IsarCore.readBool(reader, 13);
-  final List<String> _jxs;
-  {
-    final length = IsarCore.readList(reader, 14, IsarCore.readerPtrPtr);
-    {
-      final reader = IsarCore.readerPtr;
-      if (reader.isNull) {
-        _jxs = const [];
-      } else {
-        final list = List<String>.filled(length, '', growable: true);
-        for (var i = 0; i < length; i++) {
-          list[i] = IsarCore.readString(reader, i) ?? '';
-        }
-        IsarCore.freeReader(reader);
-        _jxs = list;
-      }
-    }
-  }
   final List<String> _vipjx;
   {
-    final length = IsarCore.readList(reader, 15, IsarCore.readerPtrPtr);
+    final length = IsarCore.readList(reader, 14, IsarCore.readerPtrPtr);
     {
       final reader = IsarCore.readerPtr;
       if (reader.isNull) {
@@ -464,7 +477,7 @@ Version deserializeVersion(IsarReader reader) {
   }
   final List<String> _githubs;
   {
-    final length = IsarCore.readList(reader, 16, IsarCore.readerPtrPtr);
+    final length = IsarCore.readList(reader, 15, IsarCore.readerPtrPtr);
     {
       final reader = IsarCore.readerPtr;
       if (reader.isNull) {
@@ -479,6 +492,8 @@ Version deserializeVersion(IsarReader reader) {
       }
     }
   }
+  final String _sourceUrl;
+  _sourceUrl = IsarCore.readString(reader, 16) ?? "";
   final DateTime? _updateAt;
   {
     final value = IsarCore.readLong(reader, 17);
@@ -513,9 +528,9 @@ Version deserializeVersion(IsarReader reader) {
     b2: _b2,
     platform: _platform,
     isMode: _isMode,
-    jxs: _jxs,
     vipjx: _vipjx,
     githubs: _githubs,
+    sourceUrl: _sourceUrl,
     updateAt: _updateAt,
     createAt: _createAt,
   );
@@ -538,7 +553,31 @@ dynamic deserializeVersionProp(IsarReader reader, int property) {
     case 6:
       return IsarCore.readString(reader, 6) ?? '';
     case 7:
-      return IsarCore.readString(reader, 7) ?? '';
+      {
+        final length = IsarCore.readList(reader, 7, IsarCore.readerPtrPtr);
+        {
+          final reader = IsarCore.readerPtr;
+          if (reader.isNull) {
+            return const [];
+          } else {
+            final list = List<App>.filled(length, App(), growable: true);
+            for (var i = 0; i < length; i++) {
+              {
+                final objectReader = IsarCore.readObject(reader, i);
+                if (objectReader.isNull) {
+                  list[i] = App();
+                } else {
+                  final embedded = deserializeApp(objectReader);
+                  IsarCore.freeReader(objectReader);
+                  list[i] = embedded;
+                }
+              }
+            }
+            IsarCore.freeReader(reader);
+            return list;
+          }
+        }
+      }
     case 8:
       return IsarCore.readString(reader, 8) ?? '';
     case 9:
@@ -586,22 +625,7 @@ dynamic deserializeVersionProp(IsarReader reader, int property) {
         }
       }
     case 16:
-      {
-        final length = IsarCore.readList(reader, 16, IsarCore.readerPtrPtr);
-        {
-          final reader = IsarCore.readerPtr;
-          if (reader.isNull) {
-            return const [];
-          } else {
-            final list = List<String>.filled(length, '', growable: true);
-            for (var i = 0; i < length; i++) {
-              list[i] = IsarCore.readString(reader, i) ?? '';
-            }
-            IsarCore.freeReader(reader);
-            return list;
-          }
-        }
-      }
+      return IsarCore.readString(reader, 16) ?? "";
     case 17:
       {
         final value = IsarCore.readLong(reader, 17);
@@ -642,13 +666,13 @@ sealed class _VersionUpdate {
     String? url,
     String? testFlight,
     String? md,
-    String? apps,
     String? version,
     String? build,
     String? b2v,
     String? b2,
     String? platform,
     bool? isMode,
+    String? sourceUrl,
     DateTime? updateAt,
     DateTime? createAt,
     bool? isNew,
@@ -670,13 +694,13 @@ class _VersionUpdateImpl implements _VersionUpdate {
     Object? url = ignore,
     Object? testFlight = ignore,
     Object? md = ignore,
-    Object? apps = ignore,
     Object? version = ignore,
     Object? build = ignore,
     Object? b2v = ignore,
     Object? b2 = ignore,
     Object? platform = ignore,
     Object? isMode = ignore,
+    Object? sourceUrl = ignore,
     Object? updateAt = ignore,
     Object? createAt = ignore,
     Object? isNew = ignore,
@@ -691,13 +715,13 @@ class _VersionUpdateImpl implements _VersionUpdate {
           if (url != ignore) 4: url as String?,
           if (testFlight != ignore) 5: testFlight as String?,
           if (md != ignore) 6: md as String?,
-          if (apps != ignore) 7: apps as String?,
           if (version != ignore) 8: version as String?,
           if (build != ignore) 9: build as String?,
           if (b2v != ignore) 10: b2v as String?,
           if (b2 != ignore) 11: b2 as String?,
           if (platform != ignore) 12: platform as String?,
           if (isMode != ignore) 13: isMode as bool?,
+          if (sourceUrl != ignore) 16: sourceUrl as String?,
           if (updateAt != ignore) 17: updateAt as DateTime?,
           if (createAt != ignore) 18: createAt as DateTime?,
           if (isNew != ignore) 19: isNew as bool?,
@@ -716,13 +740,13 @@ sealed class _VersionUpdateAll {
     String? url,
     String? testFlight,
     String? md,
-    String? apps,
     String? version,
     String? build,
     String? b2v,
     String? b2,
     String? platform,
     bool? isMode,
+    String? sourceUrl,
     DateTime? updateAt,
     DateTime? createAt,
     bool? isNew,
@@ -744,13 +768,13 @@ class _VersionUpdateAllImpl implements _VersionUpdateAll {
     Object? url = ignore,
     Object? testFlight = ignore,
     Object? md = ignore,
-    Object? apps = ignore,
     Object? version = ignore,
     Object? build = ignore,
     Object? b2v = ignore,
     Object? b2 = ignore,
     Object? platform = ignore,
     Object? isMode = ignore,
+    Object? sourceUrl = ignore,
     Object? updateAt = ignore,
     Object? createAt = ignore,
     Object? isNew = ignore,
@@ -763,13 +787,13 @@ class _VersionUpdateAllImpl implements _VersionUpdateAll {
       if (url != ignore) 4: url as String?,
       if (testFlight != ignore) 5: testFlight as String?,
       if (md != ignore) 6: md as String?,
-      if (apps != ignore) 7: apps as String?,
       if (version != ignore) 8: version as String?,
       if (build != ignore) 9: build as String?,
       if (b2v != ignore) 10: b2v as String?,
       if (b2 != ignore) 11: b2 as String?,
       if (platform != ignore) 12: platform as String?,
       if (isMode != ignore) 13: isMode as bool?,
+      if (sourceUrl != ignore) 16: sourceUrl as String?,
       if (updateAt != ignore) 17: updateAt as DateTime?,
       if (createAt != ignore) 18: createAt as DateTime?,
       if (isNew != ignore) 19: isNew as bool?,
@@ -792,13 +816,13 @@ sealed class _VersionQueryUpdate {
     String? url,
     String? testFlight,
     String? md,
-    String? apps,
     String? version,
     String? build,
     String? b2v,
     String? b2,
     String? platform,
     bool? isMode,
+    String? sourceUrl,
     DateTime? updateAt,
     DateTime? createAt,
     bool? isNew,
@@ -820,13 +844,13 @@ class _VersionQueryUpdateImpl implements _VersionQueryUpdate {
     Object? url = ignore,
     Object? testFlight = ignore,
     Object? md = ignore,
-    Object? apps = ignore,
     Object? version = ignore,
     Object? build = ignore,
     Object? b2v = ignore,
     Object? b2 = ignore,
     Object? platform = ignore,
     Object? isMode = ignore,
+    Object? sourceUrl = ignore,
     Object? updateAt = ignore,
     Object? createAt = ignore,
     Object? isNew = ignore,
@@ -839,13 +863,13 @@ class _VersionQueryUpdateImpl implements _VersionQueryUpdate {
       if (url != ignore) 4: url as String?,
       if (testFlight != ignore) 5: testFlight as String?,
       if (md != ignore) 6: md as String?,
-      if (apps != ignore) 7: apps as String?,
       if (version != ignore) 8: version as String?,
       if (build != ignore) 9: build as String?,
       if (b2v != ignore) 10: b2v as String?,
       if (b2 != ignore) 11: b2 as String?,
       if (platform != ignore) 12: platform as String?,
       if (isMode != ignore) 13: isMode as bool?,
+      if (sourceUrl != ignore) 16: sourceUrl as String?,
       if (updateAt != ignore) 17: updateAt as DateTime?,
       if (createAt != ignore) 18: createAt as DateTime?,
       if (isNew != ignore) 19: isNew as bool?,
@@ -875,13 +899,13 @@ class _VersionQueryBuilderUpdateImpl implements _VersionQueryUpdate {
     Object? url = ignore,
     Object? testFlight = ignore,
     Object? md = ignore,
-    Object? apps = ignore,
     Object? version = ignore,
     Object? build = ignore,
     Object? b2v = ignore,
     Object? b2 = ignore,
     Object? platform = ignore,
     Object? isMode = ignore,
+    Object? sourceUrl = ignore,
     Object? updateAt = ignore,
     Object? createAt = ignore,
     Object? isNew = ignore,
@@ -896,13 +920,13 @@ class _VersionQueryBuilderUpdateImpl implements _VersionQueryUpdate {
         if (url != ignore) 4: url as String?,
         if (testFlight != ignore) 5: testFlight as String?,
         if (md != ignore) 6: md as String?,
-        if (apps != ignore) 7: apps as String?,
         if (version != ignore) 8: version as String?,
         if (build != ignore) 9: build as String?,
         if (b2v != ignore) 10: b2v as String?,
         if (b2 != ignore) 11: b2 as String?,
         if (platform != ignore) 12: platform as String?,
         if (isMode != ignore) 13: isMode as bool?,
+        if (sourceUrl != ignore) 16: sourceUrl as String?,
         if (updateAt != ignore) 17: updateAt as DateTime?,
         if (createAt != ignore) 18: createAt as DateTime?,
         if (isNew != ignore) 19: isNew as bool?,
@@ -1959,175 +1983,14 @@ extension VersionQueryFilter
     });
   }
 
-  QueryBuilder<Version, Version, QAfterFilterCondition> appsEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        EqualCondition(
-          property: 7,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> appsGreaterThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        GreaterCondition(
-          property: 7,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition>
-      appsGreaterThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        GreaterOrEqualCondition(
-          property: 7,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> appsLessThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        LessCondition(
-          property: 7,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> appsLessThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        LessOrEqualCondition(
-          property: 7,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> appsBetween(
-    String lower,
-    String upper, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        BetweenCondition(
-          property: 7,
-          lower: lower,
-          upper: upper,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> appsStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        StartsWithCondition(
-          property: 7,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> appsEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        EndsWithCondition(
-          property: 7,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> appsContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        ContainsCondition(
-          property: 7,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> appsMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        MatchesCondition(
-          property: 7,
-          wildcard: pattern,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
   QueryBuilder<Version, Version, QAfterFilterCondition> appsIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        const EqualCondition(
-          property: 7,
-          value: '',
-        ),
-      );
-    });
+    return not().appsIsNotEmpty();
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition> appsIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        const GreaterCondition(
-          property: 7,
-          value: '',
-        ),
+        const GreaterOrEqualCondition(property: 7, value: null),
       );
     });
   }
@@ -3009,192 +2872,6 @@ extension VersionQueryFilter
     });
   }
 
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsElementEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        EqualCondition(
-          property: 14,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsElementGreaterThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        GreaterCondition(
-          property: 14,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition>
-      jxsElementGreaterThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        GreaterOrEqualCondition(
-          property: 14,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsElementLessThan(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        LessCondition(
-          property: 14,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition>
-      jxsElementLessThanOrEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        LessOrEqualCondition(
-          property: 14,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsElementBetween(
-    String lower,
-    String upper, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        BetweenCondition(
-          property: 14,
-          lower: lower,
-          upper: upper,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsElementStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        StartsWithCondition(
-          property: 14,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsElementEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        EndsWithCondition(
-          property: 14,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsElementContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        ContainsCondition(
-          property: 14,
-          value: value,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsElementMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        MatchesCondition(
-          property: 14,
-          wildcard: pattern,
-          caseSensitive: caseSensitive,
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsElementIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        const EqualCondition(
-          property: 14,
-          value: '',
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsElementIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        const GreaterCondition(
-          property: 14,
-          value: '',
-        ),
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsIsEmpty() {
-    return not().jxsIsNotEmpty();
-  }
-
-  QueryBuilder<Version, Version, QAfterFilterCondition> jxsIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(
-        const GreaterOrEqualCondition(property: 14, value: null),
-      );
-    });
-  }
-
   QueryBuilder<Version, Version, QAfterFilterCondition> vipjxElementEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -3202,7 +2879,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
-          property: 15,
+          property: 14,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3217,7 +2894,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterCondition(
-          property: 15,
+          property: 14,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3233,7 +2910,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterOrEqualCondition(
-          property: 15,
+          property: 14,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3248,7 +2925,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessCondition(
-          property: 15,
+          property: 14,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3264,7 +2941,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessOrEqualCondition(
-          property: 15,
+          property: 14,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3280,7 +2957,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         BetweenCondition(
-          property: 15,
+          property: 14,
           lower: lower,
           upper: upper,
           caseSensitive: caseSensitive,
@@ -3296,7 +2973,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         StartsWithCondition(
-          property: 15,
+          property: 14,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3311,7 +2988,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EndsWithCondition(
-          property: 15,
+          property: 14,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3325,7 +3002,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         ContainsCondition(
-          property: 15,
+          property: 14,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3339,7 +3016,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         MatchesCondition(
-          property: 15,
+          property: 14,
           wildcard: pattern,
           caseSensitive: caseSensitive,
         ),
@@ -3351,7 +3028,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         const EqualCondition(
-          property: 15,
+          property: 14,
           value: '',
         ),
       );
@@ -3363,7 +3040,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         const GreaterCondition(
-          property: 15,
+          property: 14,
           value: '',
         ),
       );
@@ -3377,7 +3054,7 @@ extension VersionQueryFilter
   QueryBuilder<Version, Version, QAfterFilterCondition> vipjxIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        const GreaterOrEqualCondition(property: 15, value: null),
+        const GreaterOrEqualCondition(property: 14, value: null),
       );
     });
   }
@@ -3389,7 +3066,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
-          property: 16,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3405,7 +3082,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterCondition(
-          property: 16,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3421,7 +3098,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterOrEqualCondition(
-          property: 16,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3436,7 +3113,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessCondition(
-          property: 16,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3452,7 +3129,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessOrEqualCondition(
-          property: 16,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3468,7 +3145,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         BetweenCondition(
-          property: 16,
+          property: 15,
           lower: lower,
           upper: upper,
           caseSensitive: caseSensitive,
@@ -3485,7 +3162,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         StartsWithCondition(
-          property: 16,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3500,7 +3177,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EndsWithCondition(
-          property: 16,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3514,7 +3191,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         ContainsCondition(
-          property: 16,
+          property: 15,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3528,7 +3205,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         MatchesCondition(
-          property: 16,
+          property: 15,
           wildcard: pattern,
           caseSensitive: caseSensitive,
         ),
@@ -3541,7 +3218,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         const EqualCondition(
-          property: 16,
+          property: 15,
           value: '',
         ),
       );
@@ -3553,7 +3230,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         const GreaterCondition(
-          property: 16,
+          property: 15,
           value: '',
         ),
       );
@@ -3567,7 +3244,181 @@ extension VersionQueryFilter
   QueryBuilder<Version, Version, QAfterFilterCondition> githubsIsNotEmpty() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
-        const GreaterOrEqualCondition(property: 16, value: null),
+        const GreaterOrEqualCondition(property: 15, value: null),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(
+          property: 16,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlGreaterThan(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 16,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition>
+      sourceUrlGreaterThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 16,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlLessThan(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(
+          property: 16,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition>
+      sourceUrlLessThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 16,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlBetween(
+    String lower,
+    String upper, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 16,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 16,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 16,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 16,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 16,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(
+          property: 16,
+          value: '',
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> sourceUrlIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(
+          property: 16,
+          value: '',
+        ),
       );
     });
   }
@@ -4158,27 +4009,6 @@ extension VersionQuerySortBy on QueryBuilder<Version, Version, QSortBy> {
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> sortByApps(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(
-        7,
-        caseSensitive: caseSensitive,
-      );
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterSortBy> sortByAppsDesc(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(
-        7,
-        sort: Sort.desc,
-        caseSensitive: caseSensitive,
-      );
-    });
-  }
-
   QueryBuilder<Version, Version, QAfterSortBy> sortByVersion(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -4293,6 +4123,27 @@ extension VersionQuerySortBy on QueryBuilder<Version, Version, QSortBy> {
   QueryBuilder<Version, Version, QAfterSortBy> sortByIsModeDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(13, sort: Sort.desc);
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterSortBy> sortBySourceUrl(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(
+        16,
+        caseSensitive: caseSensitive,
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterSortBy> sortBySourceUrlDesc(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(
+        16,
+        sort: Sort.desc,
+        caseSensitive: caseSensitive,
+      );
     });
   }
 
@@ -4452,20 +4303,6 @@ extension VersionQuerySortThenBy
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> thenByApps(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(7, caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterSortBy> thenByAppsDesc(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(7, sort: Sort.desc, caseSensitive: caseSensitive);
-    });
-  }
-
   QueryBuilder<Version, Version, QAfterSortBy> thenByVersion(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -4545,6 +4382,20 @@ extension VersionQuerySortThenBy
   QueryBuilder<Version, Version, QAfterSortBy> thenByIsModeDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(13, sort: Sort.desc);
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterSortBy> thenBySourceUrl(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(16, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterSortBy> thenBySourceUrlDesc(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(16, sort: Sort.desc, caseSensitive: caseSensitive);
     });
   }
 
@@ -4655,13 +4506,6 @@ extension VersionQueryWhereDistinct
     });
   }
 
-  QueryBuilder<Version, Version, QAfterDistinct> distinctByApps(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(7, caseSensitive: caseSensitive);
-    });
-  }
-
   QueryBuilder<Version, Version, QAfterDistinct> distinctByVersion(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -4703,21 +4547,22 @@ extension VersionQueryWhereDistinct
     });
   }
 
-  QueryBuilder<Version, Version, QAfterDistinct> distinctByJxs() {
+  QueryBuilder<Version, Version, QAfterDistinct> distinctByVipjx() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(14);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterDistinct> distinctByVipjx() {
+  QueryBuilder<Version, Version, QAfterDistinct> distinctByGithubs() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(15);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterDistinct> distinctByGithubs() {
+  QueryBuilder<Version, Version, QAfterDistinct> distinctBySourceUrl(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(16);
+      return query.addDistinctBy(16, caseSensitive: caseSensitive);
     });
   }
 
@@ -4784,7 +4629,7 @@ extension VersionQueryProperty1 on QueryBuilder<Version, Version, QProperty> {
     });
   }
 
-  QueryBuilder<Version, String, QAfterProperty> appsProperty() {
+  QueryBuilder<Version, List<App>, QAfterProperty> appsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(7);
     });
@@ -4826,19 +4671,19 @@ extension VersionQueryProperty1 on QueryBuilder<Version, Version, QProperty> {
     });
   }
 
-  QueryBuilder<Version, List<String>, QAfterProperty> jxsProperty() {
+  QueryBuilder<Version, List<String>, QAfterProperty> vipjxProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(14);
     });
   }
 
-  QueryBuilder<Version, List<String>, QAfterProperty> vipjxProperty() {
+  QueryBuilder<Version, List<String>, QAfterProperty> githubsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(15);
     });
   }
 
-  QueryBuilder<Version, List<String>, QAfterProperty> githubsProperty() {
+  QueryBuilder<Version, String, QAfterProperty> sourceUrlProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(16);
     });
@@ -4912,7 +4757,7 @@ extension VersionQueryProperty2<R> on QueryBuilder<Version, R, QAfterProperty> {
     });
   }
 
-  QueryBuilder<Version, (R, String), QAfterProperty> appsProperty() {
+  QueryBuilder<Version, (R, List<App>), QAfterProperty> appsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(7);
     });
@@ -4954,19 +4799,19 @@ extension VersionQueryProperty2<R> on QueryBuilder<Version, R, QAfterProperty> {
     });
   }
 
-  QueryBuilder<Version, (R, List<String>), QAfterProperty> jxsProperty() {
+  QueryBuilder<Version, (R, List<String>), QAfterProperty> vipjxProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(14);
     });
   }
 
-  QueryBuilder<Version, (R, List<String>), QAfterProperty> vipjxProperty() {
+  QueryBuilder<Version, (R, List<String>), QAfterProperty> githubsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(15);
     });
   }
 
-  QueryBuilder<Version, (R, List<String>), QAfterProperty> githubsProperty() {
+  QueryBuilder<Version, (R, String), QAfterProperty> sourceUrlProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(16);
     });
@@ -5041,7 +4886,7 @@ extension VersionQueryProperty3<R1, R2>
     });
   }
 
-  QueryBuilder<Version, (R1, R2, String), QOperations> appsProperty() {
+  QueryBuilder<Version, (R1, R2, List<App>), QOperations> appsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(7);
     });
@@ -5083,19 +4928,19 @@ extension VersionQueryProperty3<R1, R2>
     });
   }
 
-  QueryBuilder<Version, (R1, R2, List<String>), QOperations> jxsProperty() {
+  QueryBuilder<Version, (R1, R2, List<String>), QOperations> vipjxProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(14);
     });
   }
 
-  QueryBuilder<Version, (R1, R2, List<String>), QOperations> vipjxProperty() {
+  QueryBuilder<Version, (R1, R2, List<String>), QOperations> githubsProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(15);
     });
   }
 
-  QueryBuilder<Version, (R1, R2, List<String>), QOperations> githubsProperty() {
+  QueryBuilder<Version, (R1, R2, String), QOperations> sourceUrlProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(16);
     });
@@ -5143,7 +4988,10 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
       url: json['url'] as String? ?? '',
       testFlight: json['testFlight'] as String? ?? '',
       md: json['md'] as String? ?? '',
-      apps: json['apps'] as String? ?? '',
+      apps: (json['apps'] as List<dynamic>?)
+              ?.map((e) => App.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          const [],
       version: json['version'] as String? ?? '',
       build: json['build'] as String? ?? '',
       b2v: json['b2v'] as String? ?? '',
@@ -5154,8 +5002,7 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
               ?.map((e) => e as String)
               .toList() ??
           const [],
-      jxs: (json['jxs'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-          const [],
+      sourceUrl: json['sourceUrl'] as String? ?? "",
       vipjx:
           (json['vipjx'] as List<dynamic>?)?.map((e) => e as String).toList() ??
               const [],
@@ -5181,9 +5028,9 @@ Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
       'b2': instance.b2,
       'platform': instance.platform,
       'isMode': instance.isMode,
-      'jxs': instance.jxs,
       'vipjx': instance.vipjx,
       'githubs': instance.githubs,
+      'sourceUrl': instance.sourceUrl,
       'updateAt': instance.updateAt?.toIso8601String(),
       'createAt': instance.createAt?.toIso8601String(),
     };

@@ -11,7 +11,7 @@ abstract class _$AppCWProxy {
 
   App description(String description);
 
-  App iconUrl(String iconUrl);
+  App icon(String icon);
 
   App packageName(String packageName);
 
@@ -30,7 +30,7 @@ abstract class _$AppCWProxy {
     String? url,
     String? name,
     String? description,
-    String? iconUrl,
+    String? icon,
     String? packageName,
     String? bundleId,
     String? urlScheme,
@@ -56,7 +56,7 @@ class _$AppCWProxyImpl implements _$AppCWProxy {
   App description(String description) => this(description: description);
 
   @override
-  App iconUrl(String iconUrl) => this(iconUrl: iconUrl);
+  App icon(String icon) => this(icon: icon);
 
   @override
   App packageName(String packageName) => this(packageName: packageName);
@@ -80,7 +80,7 @@ class _$AppCWProxyImpl implements _$AppCWProxy {
     Object? url = const $CopyWithPlaceholder(),
     Object? name = const $CopyWithPlaceholder(),
     Object? description = const $CopyWithPlaceholder(),
-    Object? iconUrl = const $CopyWithPlaceholder(),
+    Object? icon = const $CopyWithPlaceholder(),
     Object? packageName = const $CopyWithPlaceholder(),
     Object? bundleId = const $CopyWithPlaceholder(),
     Object? urlScheme = const $CopyWithPlaceholder(),
@@ -103,10 +103,10 @@ class _$AppCWProxyImpl implements _$AppCWProxy {
               ? _value.description
               // ignore: cast_nullable_to_non_nullable
               : description as String,
-      iconUrl: iconUrl == const $CopyWithPlaceholder() || iconUrl == null
-          ? _value.iconUrl
+      icon: icon == const $CopyWithPlaceholder() || icon == null
+          ? _value.icon
           // ignore: cast_nullable_to_non_nullable
-          : iconUrl as String,
+          : icon as String,
       packageName:
           packageName == const $CopyWithPlaceholder() || packageName == null
               ? _value.packageName

@@ -3,6 +3,7 @@ import 'package:isar/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../utils/util.dart';
+import 'app.dart';
 
 part 'version.g.dart';
 
@@ -19,16 +20,19 @@ class Version {
 
   final String testFlight; //
   final String md; //
-  final String apps; //
+  final List<App> apps; //
   final String version; //版本号
   final String build; //build版本 最新版本
   final String b2v; //本地v版本号
   final String b2; //本地build版本
   final String platform; //
   final bool isMode; //
-  final List<String> jxs; // apk解析 Url
   final List<String> vipjx; // vip视频解析 Url
   final List<String> githubs; //
+
+  final String sourceUrl; //
+
+
 
   final DateTime? updateAt; // 更新时间
   final DateTime? createAt; // 创建时间
@@ -40,7 +44,7 @@ class Version {
     this.url = '',
     this.testFlight = '',
     this.md = '',
-    this.apps = '',
+    this.apps = const [],
     this.version = '',
     this.build = '',
     this.b2v = '',
@@ -48,7 +52,7 @@ class Version {
     this.platform = '',
     this.isMode = false,
     this.githubs = const [],
-    this.jxs = const [],
+    this.sourceUrl = "",
     this.vipjx = const [],
     DateTime? createAt,
     DateTime? updateAt,

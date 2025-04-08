@@ -7,11 +7,9 @@ import 'logger_util.dart';
 
 export 'package:flutter_base/utils/chore.dart';
 export 'package:flutter_base/utils/date_util.dart';
-export 'package:flutter_base/utils/dio_util.dart';
+export 'package:flutter_base/utils/network/dio_util.dart';
 export 'package:flutter_base/utils/list_util.dart';
-// export 'package:flutter_base/utils/log_toast.dart';
 export 'package:flutter_base/utils/logger_util.dart';
-export 'package:flutter_base/utils/network/dio_net.dart';
 export 'package:flutter_base/utils/text_util.dart';
 export 'package:flutter_base/utils/util.dart';
 export 'package:flutter_base/utils/value_util.dart';
@@ -34,16 +32,15 @@ class Util {
       }
       try {
         final data = await network.request(_url, reacquire: reacquire);
-        Log.d("index=$i url=$_url");
+        Log.d("index=$i url=$_url \n data=$data");
         return isJson ? jsonDecode(data) : data;
       } catch (error) {
-        Log.d(error.toString());
+        Log.e(error.toString());
       }
     }
   }
 
-  static Future<dynamic> vipjx(String url, List urls, CachedNetwork network,
-      {bool reacquire = true}) async {
+  static Future<dynamic> vipjx(String url, List urls, CachedNetwork network, {bool reacquire = true}) async {
     Log.d(" urls=$urls");
 
     for (var i = 0; i < urls.length; i++) {

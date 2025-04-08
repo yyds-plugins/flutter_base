@@ -1,16 +1,18 @@
 import 'package:copy_with_extension/copy_with_extension.dart';
+import 'package:isar/isar.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'app.g.dart';
 
 @JsonSerializable()
 @CopyWith()
+@embedded
 class App {
   final String id;
   final String url;
   final String name;
   final String description;
-  final String iconUrl;
+  final String icon;
   final String packageName;
   final String bundleId;
   final String urlScheme;
@@ -19,7 +21,7 @@ class App {
     this.url,
     this.name,
     this.description,
-    this.iconUrl,
+    this.icon,
     this.packageName,
     this.bundleId,
     this.urlScheme,
@@ -29,7 +31,7 @@ class App {
     this.url = '',
     this.name = '',
     this.description = '',
-    this.iconUrl = '',
+    this.icon = '',
     this.packageName = '',
     this.bundleId = '',
     this.urlScheme = '',

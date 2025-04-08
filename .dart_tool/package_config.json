@@ -195,7 +195,7 @@
     },
     {
       "name": "connectivity_plus",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/connectivity_plus-6.1.1",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/connectivity_plus-6.1.3",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -546,6 +546,12 @@
       "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/image_size_getter-2.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "internet_connection_checker_plus",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/internet_connection_checker_plus-2.7.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
     },
     {
       "name": "intersperse",
@@ -1316,7 +1322,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-04-01T13:45:37.282769Z",
+  "generated": "2025-04-05T13:59:41.196702Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///Users/allin/fvm/versions/stable",
