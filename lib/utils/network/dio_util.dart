@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:crypto/crypto.dart';
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_base/utils/value_util.dart';
 import 'package:path/path.dart' as path;
@@ -61,6 +62,16 @@ class DioUtil {
   static final CancelToken _cancelToken = CancelToken();
 
   DioUtil._internal() {
+    // 使用 createHttpClient 来设置 SSL 证书验证
+
+    _dio.httpClientAdapter = IOHttpClientAdapter(createHttpClient: () {
+      // Don't trust any certificate just because their root cert is trusted.
+      final HttpClient client = HttpClient(context: SecurityContext(withTrustedRoots: false));
+      // You can test the intermediate / root cert here. We just ignore it.
+      client.badCertificateCallback = (cert, host, port) => true;
+      return client;
+    });
+
     //添加拦截器
     _dio.interceptors.add(InterceptorsWrapper(onRequest: (RequestOptions options, RequestInterceptorHandler handler) {
       // Log.d("请求之前 header = ${options.headers.toString()}");
@@ -160,7 +171,8 @@ class DioUtil {
     bool reacquire = false,
   }) async {
     timeout ??= const Duration(seconds: 10);
-    duration ??= cacheDuration;
+    duration ??= cacheDuration ?? const Duration(hours: 8);
+
     String cacheUrl = url;
 
     if (body != null) {
@@ -172,20 +184,27 @@ class DioUtil {
     final valid = await _valid(cacheUrl, duration: duration);
 
     if (!valid || reacquire) {
-      final response = await _request(
-        url,
-        params: body,
-        method: method,
-        headers: headers,
-      );
+      try {
+        final response = await _request(
+          url,
+          params: body,
+          method: method,
+          headers: headers,
+        );
 
-      // await _cache(cacheUrl, jsonEncode(response.data));
-      await _cache(cacheUrl, response.data);
-      return response.data;
-      // return jsonEncode(response.data);
+        if (response.data is String) {
+          await _cache(cacheUrl, response.data);
+          return response.data;
+        }
+        await _cache(cacheUrl, jsonEncode(response.data));
+        return jsonEncode(response.data);
+      } catch (error) {
+        Log.e('info error=${error}');
+        final file = await _generate(cacheUrl);
+        return file.readAsString();
+      }
     } else {
       final file = await _generate(cacheUrl);
-
       return file.readAsString();
     }
   }

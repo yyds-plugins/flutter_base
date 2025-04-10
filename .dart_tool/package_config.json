@@ -122,12 +122,6 @@
       "languageVersion": "3.0"
     },
     {
-      "name": "cached_network",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/cached_network-2.1.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.18"
-    },
-    {
       "name": "cached_network_image",
       "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/cached_network_image-3.4.1",
       "packageUri": "lib/",
@@ -150,12 +144,6 @@
       "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/characters-1.4.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
-    },
-    {
-      "name": "charset",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/charset-2.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
     },
     {
       "name": "checked_yaml",
@@ -1322,7 +1310,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2025-04-05T13:59:41.196702Z",
+  "generated": "2025-04-10T07:22:15.903554Z",
   "generator": "pub",
   "generatorVersion": "3.7.0",
   "flutterRoot": "file:///Users/allin/fvm/versions/stable",

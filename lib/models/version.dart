@@ -31,8 +31,7 @@ class Version {
   final List<String> githubs; //
 
   final String sourceUrl; //
-
-
+  final String iptvUrl; //
 
   final DateTime? updateAt; // 更新时间
   final DateTime? createAt; // 创建时间
@@ -53,6 +52,7 @@ class Version {
     this.isMode = false,
     this.githubs = const [],
     this.sourceUrl = "",
+    this.iptvUrl = "",
     this.vipjx = const [],
     DateTime? createAt,
     DateTime? updateAt,

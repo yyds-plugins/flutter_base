@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   dio: ^5.4.1
-  cached_network: ^2.1.0
+#  cached_network: ^2.1.0
   cached_network_image: ^3.3.1
 
 

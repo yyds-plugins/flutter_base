@@ -37,6 +37,8 @@ abstract class _$VersionCWProxy {
 
   Version sourceUrl(String sourceUrl);
 
+  Version iptvUrl(String iptvUrl);
+
   Version vipjx(List<String> vipjx);
 
   Version createAt(DateTime? createAt);
@@ -65,6 +67,7 @@ abstract class _$VersionCWProxy {
     bool? isMode,
     List<String>? githubs,
     String? sourceUrl,
+    String? iptvUrl,
     List<String>? vipjx,
     DateTime? createAt,
     DateTime? updateAt,
@@ -123,6 +126,9 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
   Version sourceUrl(String sourceUrl) => this(sourceUrl: sourceUrl);
 
   @override
+  Version iptvUrl(String iptvUrl) => this(iptvUrl: iptvUrl);
+
+  @override
   Version vipjx(List<String> vipjx) => this(vipjx: vipjx);
 
   @override
@@ -155,6 +161,7 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
     Object? isMode = const $CopyWithPlaceholder(),
     Object? githubs = const $CopyWithPlaceholder(),
     Object? sourceUrl = const $CopyWithPlaceholder(),
+    Object? iptvUrl = const $CopyWithPlaceholder(),
     Object? vipjx = const $CopyWithPlaceholder(),
     Object? createAt = const $CopyWithPlaceholder(),
     Object? updateAt = const $CopyWithPlaceholder(),
@@ -221,6 +228,10 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
           ? _value.sourceUrl
           // ignore: cast_nullable_to_non_nullable
           : sourceUrl as String,
+      iptvUrl: iptvUrl == const $CopyWithPlaceholder() || iptvUrl == null
+          ? _value.iptvUrl
+          // ignore: cast_nullable_to_non_nullable
+          : iptvUrl as String,
       vipjx: vipjx == const $CopyWithPlaceholder() || vipjx == null
           ? _value.vipjx
           // ignore: cast_nullable_to_non_nullable
@@ -327,6 +338,10 @@ const VersionSchema = IsarGeneratedSchema(
         type: IsarType.string,
       ),
       IsarPropertySchema(
+        name: 'iptvUrl',
+        type: IsarType.string,
+      ),
+      IsarPropertySchema(
         name: 'updateAt',
         type: IsarType.dateTime,
       ),
@@ -397,12 +412,13 @@ int serializeVersion(IsarWriter writer, Version object) {
     IsarCore.endList(writer, listWriter);
   }
   IsarCore.writeString(writer, 16, object.sourceUrl);
-  IsarCore.writeLong(writer, 17,
-      object.updateAt?.toUtc().microsecondsSinceEpoch ?? -9223372036854775808);
+  IsarCore.writeString(writer, 17, object.iptvUrl);
   IsarCore.writeLong(writer, 18,
+      object.updateAt?.toUtc().microsecondsSinceEpoch ?? -9223372036854775808);
+  IsarCore.writeLong(writer, 19,
       object.createAt?.toUtc().microsecondsSinceEpoch ?? -9223372036854775808);
-  IsarCore.writeBool(writer, 19, object.isNew);
-  IsarCore.writeString(writer, 20, object.fileName);
+  IsarCore.writeBool(writer, 20, object.isNew);
+  IsarCore.writeString(writer, 21, object.fileName);
   return object.id;
 }
 
@@ -494,9 +510,11 @@ Version deserializeVersion(IsarReader reader) {
   }
   final String _sourceUrl;
   _sourceUrl = IsarCore.readString(reader, 16) ?? "";
+  final String _iptvUrl;
+  _iptvUrl = IsarCore.readString(reader, 17) ?? "";
   final DateTime? _updateAt;
   {
-    final value = IsarCore.readLong(reader, 17);
+    final value = IsarCore.readLong(reader, 18);
     if (value == -9223372036854775808) {
       _updateAt = null;
     } else {
@@ -506,7 +524,7 @@ Version deserializeVersion(IsarReader reader) {
   }
   final DateTime? _createAt;
   {
-    final value = IsarCore.readLong(reader, 18);
+    final value = IsarCore.readLong(reader, 19);
     if (value == -9223372036854775808) {
       _createAt = null;
     } else {
@@ -531,6 +549,7 @@ Version deserializeVersion(IsarReader reader) {
     vipjx: _vipjx,
     githubs: _githubs,
     sourceUrl: _sourceUrl,
+    iptvUrl: _iptvUrl,
     updateAt: _updateAt,
     createAt: _createAt,
   );
@@ -627,15 +646,7 @@ dynamic deserializeVersionProp(IsarReader reader, int property) {
     case 16:
       return IsarCore.readString(reader, 16) ?? "";
     case 17:
-      {
-        final value = IsarCore.readLong(reader, 17);
-        if (value == -9223372036854775808) {
-          return null;
-        } else {
-          return DateTime.fromMicrosecondsSinceEpoch(value, isUtc: true)
-              .toLocal();
-        }
-      }
+      return IsarCore.readString(reader, 17) ?? "";
     case 18:
       {
         final value = IsarCore.readLong(reader, 18);
@@ -646,12 +657,22 @@ dynamic deserializeVersionProp(IsarReader reader, int property) {
               .toLocal();
         }
       }
+    case 19:
+      {
+        final value = IsarCore.readLong(reader, 19);
+        if (value == -9223372036854775808) {
+          return null;
+        } else {
+          return DateTime.fromMicrosecondsSinceEpoch(value, isUtc: true)
+              .toLocal();
+        }
+      }
     case 0:
       return IsarCore.readId(reader);
-    case 19:
-      return IsarCore.readBool(reader, 19);
     case 20:
-      return IsarCore.readString(reader, 20) ?? '';
+      return IsarCore.readBool(reader, 20);
+    case 21:
+      return IsarCore.readString(reader, 21) ?? '';
     default:
       throw ArgumentError('Unknown property: $property');
   }
@@ -673,6 +694,7 @@ sealed class _VersionUpdate {
     String? platform,
     bool? isMode,
     String? sourceUrl,
+    String? iptvUrl,
     DateTime? updateAt,
     DateTime? createAt,
     bool? isNew,
@@ -701,6 +723,7 @@ class _VersionUpdateImpl implements _VersionUpdate {
     Object? platform = ignore,
     Object? isMode = ignore,
     Object? sourceUrl = ignore,
+    Object? iptvUrl = ignore,
     Object? updateAt = ignore,
     Object? createAt = ignore,
     Object? isNew = ignore,
@@ -722,10 +745,11 @@ class _VersionUpdateImpl implements _VersionUpdate {
           if (platform != ignore) 12: platform as String?,
           if (isMode != ignore) 13: isMode as bool?,
           if (sourceUrl != ignore) 16: sourceUrl as String?,
-          if (updateAt != ignore) 17: updateAt as DateTime?,
-          if (createAt != ignore) 18: createAt as DateTime?,
-          if (isNew != ignore) 19: isNew as bool?,
-          if (fileName != ignore) 20: fileName as String?,
+          if (iptvUrl != ignore) 17: iptvUrl as String?,
+          if (updateAt != ignore) 18: updateAt as DateTime?,
+          if (createAt != ignore) 19: createAt as DateTime?,
+          if (isNew != ignore) 20: isNew as bool?,
+          if (fileName != ignore) 21: fileName as String?,
         }) >
         0;
   }
@@ -747,6 +771,7 @@ sealed class _VersionUpdateAll {
     String? platform,
     bool? isMode,
     String? sourceUrl,
+    String? iptvUrl,
     DateTime? updateAt,
     DateTime? createAt,
     bool? isNew,
@@ -775,6 +800,7 @@ class _VersionUpdateAllImpl implements _VersionUpdateAll {
     Object? platform = ignore,
     Object? isMode = ignore,
     Object? sourceUrl = ignore,
+    Object? iptvUrl = ignore,
     Object? updateAt = ignore,
     Object? createAt = ignore,
     Object? isNew = ignore,
@@ -794,10 +820,11 @@ class _VersionUpdateAllImpl implements _VersionUpdateAll {
       if (platform != ignore) 12: platform as String?,
       if (isMode != ignore) 13: isMode as bool?,
       if (sourceUrl != ignore) 16: sourceUrl as String?,
-      if (updateAt != ignore) 17: updateAt as DateTime?,
-      if (createAt != ignore) 18: createAt as DateTime?,
-      if (isNew != ignore) 19: isNew as bool?,
-      if (fileName != ignore) 20: fileName as String?,
+      if (iptvUrl != ignore) 17: iptvUrl as String?,
+      if (updateAt != ignore) 18: updateAt as DateTime?,
+      if (createAt != ignore) 19: createAt as DateTime?,
+      if (isNew != ignore) 20: isNew as bool?,
+      if (fileName != ignore) 21: fileName as String?,
     });
   }
 }
@@ -823,6 +850,7 @@ sealed class _VersionQueryUpdate {
     String? platform,
     bool? isMode,
     String? sourceUrl,
+    String? iptvUrl,
     DateTime? updateAt,
     DateTime? createAt,
     bool? isNew,
@@ -851,6 +879,7 @@ class _VersionQueryUpdateImpl implements _VersionQueryUpdate {
     Object? platform = ignore,
     Object? isMode = ignore,
     Object? sourceUrl = ignore,
+    Object? iptvUrl = ignore,
     Object? updateAt = ignore,
     Object? createAt = ignore,
     Object? isNew = ignore,
@@ -870,10 +899,11 @@ class _VersionQueryUpdateImpl implements _VersionQueryUpdate {
       if (platform != ignore) 12: platform as String?,
       if (isMode != ignore) 13: isMode as bool?,
       if (sourceUrl != ignore) 16: sourceUrl as String?,
-      if (updateAt != ignore) 17: updateAt as DateTime?,
-      if (createAt != ignore) 18: createAt as DateTime?,
-      if (isNew != ignore) 19: isNew as bool?,
-      if (fileName != ignore) 20: fileName as String?,
+      if (iptvUrl != ignore) 17: iptvUrl as String?,
+      if (updateAt != ignore) 18: updateAt as DateTime?,
+      if (createAt != ignore) 19: createAt as DateTime?,
+      if (isNew != ignore) 20: isNew as bool?,
+      if (fileName != ignore) 21: fileName as String?,
     });
   }
 }
@@ -906,6 +936,7 @@ class _VersionQueryBuilderUpdateImpl implements _VersionQueryUpdate {
     Object? platform = ignore,
     Object? isMode = ignore,
     Object? sourceUrl = ignore,
+    Object? iptvUrl = ignore,
     Object? updateAt = ignore,
     Object? createAt = ignore,
     Object? isNew = ignore,
@@ -927,10 +958,11 @@ class _VersionQueryBuilderUpdateImpl implements _VersionQueryUpdate {
         if (platform != ignore) 12: platform as String?,
         if (isMode != ignore) 13: isMode as bool?,
         if (sourceUrl != ignore) 16: sourceUrl as String?,
-        if (updateAt != ignore) 17: updateAt as DateTime?,
-        if (createAt != ignore) 18: createAt as DateTime?,
-        if (isNew != ignore) 19: isNew as bool?,
-        if (fileName != ignore) 20: fileName as String?,
+        if (iptvUrl != ignore) 17: iptvUrl as String?,
+        if (updateAt != ignore) 18: updateAt as DateTime?,
+        if (createAt != ignore) 19: createAt as DateTime?,
+        if (isNew != ignore) 20: isNew as bool?,
+        if (fileName != ignore) 21: fileName as String?,
       });
     } finally {
       q.close();
@@ -3423,15 +3455,189 @@ extension VersionQueryFilter
     });
   }
 
+  QueryBuilder<Version, Version, QAfterFilterCondition> iptvUrlEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EqualCondition(
+          property: 17,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> iptvUrlGreaterThan(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterCondition(
+          property: 17,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition>
+      iptvUrlGreaterThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        GreaterOrEqualCondition(
+          property: 17,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> iptvUrlLessThan(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessCondition(
+          property: 17,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition>
+      iptvUrlLessThanOrEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        LessOrEqualCondition(
+          property: 17,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> iptvUrlBetween(
+    String lower,
+    String upper, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        BetweenCondition(
+          property: 17,
+          lower: lower,
+          upper: upper,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> iptvUrlStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        StartsWithCondition(
+          property: 17,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> iptvUrlEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        EndsWithCondition(
+          property: 17,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> iptvUrlContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        ContainsCondition(
+          property: 17,
+          value: value,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> iptvUrlMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        MatchesCondition(
+          property: 17,
+          wildcard: pattern,
+          caseSensitive: caseSensitive,
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> iptvUrlIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const EqualCondition(
+          property: 17,
+          value: '',
+        ),
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterFilterCondition> iptvUrlIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const GreaterCondition(
+          property: 17,
+          value: '',
+        ),
+      );
+    });
+  }
+
   QueryBuilder<Version, Version, QAfterFilterCondition> updateAtIsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 17));
+      return query.addFilterCondition(const IsNullCondition(property: 18));
     });
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition> updateAtIsNotNull() {
     return QueryBuilder.apply(not(), (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 17));
+      return query.addFilterCondition(const IsNullCondition(property: 18));
     });
   }
 
@@ -3441,7 +3647,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
-          property: 17,
+          property: 18,
           value: value,
         ),
       );
@@ -3454,7 +3660,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterCondition(
-          property: 17,
+          property: 18,
           value: value,
         ),
       );
@@ -3468,7 +3674,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterOrEqualCondition(
-          property: 17,
+          property: 18,
           value: value,
         ),
       );
@@ -3481,7 +3687,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessCondition(
-          property: 17,
+          property: 18,
           value: value,
         ),
       );
@@ -3495,7 +3701,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessOrEqualCondition(
-          property: 17,
+          property: 18,
           value: value,
         ),
       );
@@ -3509,7 +3715,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         BetweenCondition(
-          property: 17,
+          property: 18,
           lower: lower,
           upper: upper,
         ),
@@ -3519,13 +3725,13 @@ extension VersionQueryFilter
 
   QueryBuilder<Version, Version, QAfterFilterCondition> createAtIsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 18));
+      return query.addFilterCondition(const IsNullCondition(property: 19));
     });
   }
 
   QueryBuilder<Version, Version, QAfterFilterCondition> createAtIsNotNull() {
     return QueryBuilder.apply(not(), (query) {
-      return query.addFilterCondition(const IsNullCondition(property: 18));
+      return query.addFilterCondition(const IsNullCondition(property: 19));
     });
   }
 
@@ -3535,7 +3741,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
-          property: 18,
+          property: 19,
           value: value,
         ),
       );
@@ -3548,7 +3754,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterCondition(
-          property: 18,
+          property: 19,
           value: value,
         ),
       );
@@ -3562,7 +3768,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterOrEqualCondition(
-          property: 18,
+          property: 19,
           value: value,
         ),
       );
@@ -3575,7 +3781,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessCondition(
-          property: 18,
+          property: 19,
           value: value,
         ),
       );
@@ -3589,7 +3795,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessOrEqualCondition(
-          property: 18,
+          property: 19,
           value: value,
         ),
       );
@@ -3603,7 +3809,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         BetweenCondition(
-          property: 18,
+          property: 19,
           lower: lower,
           upper: upper,
         ),
@@ -3697,7 +3903,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
-          property: 19,
+          property: 20,
           value: value,
         ),
       );
@@ -3711,7 +3917,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EqualCondition(
-          property: 20,
+          property: 21,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3726,7 +3932,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterCondition(
-          property: 20,
+          property: 21,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3742,7 +3948,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         GreaterOrEqualCondition(
-          property: 20,
+          property: 21,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3757,7 +3963,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessCondition(
-          property: 20,
+          property: 21,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3773,7 +3979,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         LessOrEqualCondition(
-          property: 20,
+          property: 21,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3789,7 +3995,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         BetweenCondition(
-          property: 20,
+          property: 21,
           lower: lower,
           upper: upper,
           caseSensitive: caseSensitive,
@@ -3805,7 +4011,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         StartsWithCondition(
-          property: 20,
+          property: 21,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3820,7 +4026,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         EndsWithCondition(
-          property: 20,
+          property: 21,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3834,7 +4040,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         ContainsCondition(
-          property: 20,
+          property: 21,
           value: value,
           caseSensitive: caseSensitive,
         ),
@@ -3848,7 +4054,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         MatchesCondition(
-          property: 20,
+          property: 21,
           wildcard: pattern,
           caseSensitive: caseSensitive,
         ),
@@ -3860,7 +4066,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         const EqualCondition(
-          property: 20,
+          property: 21,
           value: '',
         ),
       );
@@ -3871,7 +4077,7 @@ extension VersionQueryFilter
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         const GreaterCondition(
-          property: 20,
+          property: 21,
           value: '',
         ),
       );
@@ -4147,27 +4353,48 @@ extension VersionQuerySortBy on QueryBuilder<Version, Version, QSortBy> {
     });
   }
 
+  QueryBuilder<Version, Version, QAfterSortBy> sortByIptvUrl(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(
+        17,
+        caseSensitive: caseSensitive,
+      );
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterSortBy> sortByIptvUrlDesc(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(
+        17,
+        sort: Sort.desc,
+        caseSensitive: caseSensitive,
+      );
+    });
+  }
+
   QueryBuilder<Version, Version, QAfterSortBy> sortByUpdateAt() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(17);
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterSortBy> sortByUpdateAtDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(17, sort: Sort.desc);
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterSortBy> sortByCreateAt() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(18);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> sortByCreateAtDesc() {
+  QueryBuilder<Version, Version, QAfterSortBy> sortByUpdateAtDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(18, sort: Sort.desc);
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterSortBy> sortByCreateAt() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(19);
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterSortBy> sortByCreateAtDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(19, sort: Sort.desc);
     });
   }
 
@@ -4185,13 +4412,13 @@ extension VersionQuerySortBy on QueryBuilder<Version, Version, QSortBy> {
 
   QueryBuilder<Version, Version, QAfterSortBy> sortByIsNew() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(19);
+      return query.addSortBy(20);
     });
   }
 
   QueryBuilder<Version, Version, QAfterSortBy> sortByIsNewDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(19, sort: Sort.desc);
+      return query.addSortBy(20, sort: Sort.desc);
     });
   }
 
@@ -4199,7 +4426,7 @@ extension VersionQuerySortBy on QueryBuilder<Version, Version, QSortBy> {
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(
-        20,
+        21,
         caseSensitive: caseSensitive,
       );
     });
@@ -4209,7 +4436,7 @@ extension VersionQuerySortBy on QueryBuilder<Version, Version, QSortBy> {
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(
-        20,
+        21,
         sort: Sort.desc,
         caseSensitive: caseSensitive,
       );
@@ -4399,27 +4626,41 @@ extension VersionQuerySortThenBy
     });
   }
 
+  QueryBuilder<Version, Version, QAfterSortBy> thenByIptvUrl(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(17, caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterSortBy> thenByIptvUrlDesc(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(17, sort: Sort.desc, caseSensitive: caseSensitive);
+    });
+  }
+
   QueryBuilder<Version, Version, QAfterSortBy> thenByUpdateAt() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(17);
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterSortBy> thenByUpdateAtDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(17, sort: Sort.desc);
-    });
-  }
-
-  QueryBuilder<Version, Version, QAfterSortBy> thenByCreateAt() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(18);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterSortBy> thenByCreateAtDesc() {
+  QueryBuilder<Version, Version, QAfterSortBy> thenByUpdateAtDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(18, sort: Sort.desc);
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterSortBy> thenByCreateAt() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(19);
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterSortBy> thenByCreateAtDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(19, sort: Sort.desc);
     });
   }
 
@@ -4437,27 +4678,27 @@ extension VersionQuerySortThenBy
 
   QueryBuilder<Version, Version, QAfterSortBy> thenByIsNew() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(19);
+      return query.addSortBy(20);
     });
   }
 
   QueryBuilder<Version, Version, QAfterSortBy> thenByIsNewDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(19, sort: Sort.desc);
+      return query.addSortBy(20, sort: Sort.desc);
     });
   }
 
   QueryBuilder<Version, Version, QAfterSortBy> thenByFileName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(20, caseSensitive: caseSensitive);
+      return query.addSortBy(21, caseSensitive: caseSensitive);
     });
   }
 
   QueryBuilder<Version, Version, QAfterSortBy> thenByFileNameDesc(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(20, sort: Sort.desc, caseSensitive: caseSensitive);
+      return query.addSortBy(21, sort: Sort.desc, caseSensitive: caseSensitive);
     });
   }
 }
@@ -4566,28 +4807,35 @@ extension VersionQueryWhereDistinct
     });
   }
 
-  QueryBuilder<Version, Version, QAfterDistinct> distinctByUpdateAt() {
+  QueryBuilder<Version, Version, QAfterDistinct> distinctByIptvUrl(
+      {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(17);
+      return query.addDistinctBy(17, caseSensitive: caseSensitive);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterDistinct> distinctByCreateAt() {
+  QueryBuilder<Version, Version, QAfterDistinct> distinctByUpdateAt() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(18);
     });
   }
 
-  QueryBuilder<Version, Version, QAfterDistinct> distinctByIsNew() {
+  QueryBuilder<Version, Version, QAfterDistinct> distinctByCreateAt() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(19);
+    });
+  }
+
+  QueryBuilder<Version, Version, QAfterDistinct> distinctByIsNew() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(20);
     });
   }
 
   QueryBuilder<Version, Version, QAfterDistinct> distinctByFileName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(20, caseSensitive: caseSensitive);
+      return query.addDistinctBy(21, caseSensitive: caseSensitive);
     });
   }
 }
@@ -4689,15 +4937,21 @@ extension VersionQueryProperty1 on QueryBuilder<Version, Version, QProperty> {
     });
   }
 
-  QueryBuilder<Version, DateTime?, QAfterProperty> updateAtProperty() {
+  QueryBuilder<Version, String, QAfterProperty> iptvUrlProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(17);
     });
   }
 
-  QueryBuilder<Version, DateTime?, QAfterProperty> createAtProperty() {
+  QueryBuilder<Version, DateTime?, QAfterProperty> updateAtProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(18);
+    });
+  }
+
+  QueryBuilder<Version, DateTime?, QAfterProperty> createAtProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(19);
     });
   }
 
@@ -4709,13 +4963,13 @@ extension VersionQueryProperty1 on QueryBuilder<Version, Version, QProperty> {
 
   QueryBuilder<Version, bool, QAfterProperty> isNewProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(19);
+      return query.addProperty(20);
     });
   }
 
   QueryBuilder<Version, String, QAfterProperty> fileNameProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(20);
+      return query.addProperty(21);
     });
   }
 }
@@ -4817,15 +5071,21 @@ extension VersionQueryProperty2<R> on QueryBuilder<Version, R, QAfterProperty> {
     });
   }
 
-  QueryBuilder<Version, (R, DateTime?), QAfterProperty> updateAtProperty() {
+  QueryBuilder<Version, (R, String), QAfterProperty> iptvUrlProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(17);
     });
   }
 
-  QueryBuilder<Version, (R, DateTime?), QAfterProperty> createAtProperty() {
+  QueryBuilder<Version, (R, DateTime?), QAfterProperty> updateAtProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(18);
+    });
+  }
+
+  QueryBuilder<Version, (R, DateTime?), QAfterProperty> createAtProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(19);
     });
   }
 
@@ -4837,13 +5097,13 @@ extension VersionQueryProperty2<R> on QueryBuilder<Version, R, QAfterProperty> {
 
   QueryBuilder<Version, (R, bool), QAfterProperty> isNewProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(19);
+      return query.addProperty(20);
     });
   }
 
   QueryBuilder<Version, (R, String), QAfterProperty> fileNameProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(20);
+      return query.addProperty(21);
     });
   }
 }
@@ -4946,15 +5206,21 @@ extension VersionQueryProperty3<R1, R2>
     });
   }
 
-  QueryBuilder<Version, (R1, R2, DateTime?), QOperations> updateAtProperty() {
+  QueryBuilder<Version, (R1, R2, String), QOperations> iptvUrlProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(17);
     });
   }
 
-  QueryBuilder<Version, (R1, R2, DateTime?), QOperations> createAtProperty() {
+  QueryBuilder<Version, (R1, R2, DateTime?), QOperations> updateAtProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addProperty(18);
+    });
+  }
+
+  QueryBuilder<Version, (R1, R2, DateTime?), QOperations> createAtProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addProperty(19);
     });
   }
 
@@ -4966,13 +5232,13 @@ extension VersionQueryProperty3<R1, R2>
 
   QueryBuilder<Version, (R1, R2, bool), QOperations> isNewProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(19);
+      return query.addProperty(20);
     });
   }
 
   QueryBuilder<Version, (R1, R2, String), QOperations> fileNameProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addProperty(20);
+      return query.addProperty(21);
     });
   }
 }
@@ -5003,6 +5269,7 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
               .toList() ??
           const [],
       sourceUrl: json['sourceUrl'] as String? ?? "",
+      iptvUrl: json['iptvUrl'] as String? ?? "",
       vipjx:
           (json['vipjx'] as List<dynamic>?)?.map((e) => e as String).toList() ??
               const [],
@@ -5031,6 +5298,7 @@ Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
       'vipjx': instance.vipjx,
       'githubs': instance.githubs,
       'sourceUrl': instance.sourceUrl,
+      'iptvUrl': instance.iptvUrl,
       'updateAt': instance.updateAt?.toIso8601String(),
       'createAt': instance.createAt?.toIso8601String(),
     };

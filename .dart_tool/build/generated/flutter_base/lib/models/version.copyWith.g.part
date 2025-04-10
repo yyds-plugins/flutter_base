@@ -33,6 +33,8 @@ abstract class _$VersionCWProxy {
 
   Version sourceUrl(String sourceUrl);
 
+  Version iptvUrl(String iptvUrl);
+
   Version vipjx(List<String> vipjx);
 
   Version createAt(DateTime? createAt);
@@ -61,6 +63,7 @@ abstract class _$VersionCWProxy {
     bool? isMode,
     List<String>? githubs,
     String? sourceUrl,
+    String? iptvUrl,
     List<String>? vipjx,
     DateTime? createAt,
     DateTime? updateAt,
@@ -119,6 +122,9 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
   Version sourceUrl(String sourceUrl) => this(sourceUrl: sourceUrl);
 
   @override
+  Version iptvUrl(String iptvUrl) => this(iptvUrl: iptvUrl);
+
+  @override
   Version vipjx(List<String> vipjx) => this(vipjx: vipjx);
 
   @override
@@ -151,6 +157,7 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
     Object? isMode = const $CopyWithPlaceholder(),
     Object? githubs = const $CopyWithPlaceholder(),
     Object? sourceUrl = const $CopyWithPlaceholder(),
+    Object? iptvUrl = const $CopyWithPlaceholder(),
     Object? vipjx = const $CopyWithPlaceholder(),
     Object? createAt = const $CopyWithPlaceholder(),
     Object? updateAt = const $CopyWithPlaceholder(),
@@ -217,6 +224,10 @@ class _$VersionCWProxyImpl implements _$VersionCWProxy {
           ? _value.sourceUrl
           // ignore: cast_nullable_to_non_nullable
           : sourceUrl as String,
+      iptvUrl: iptvUrl == const $CopyWithPlaceholder() || iptvUrl == null
+          ? _value.iptvUrl
+          // ignore: cast_nullable_to_non_nullable
+          : iptvUrl as String,
       vipjx: vipjx == const $CopyWithPlaceholder() || vipjx == null
           ? _value.vipjx
           // ignore: cast_nullable_to_non_nullable

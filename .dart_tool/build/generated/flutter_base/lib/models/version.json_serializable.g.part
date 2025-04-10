@@ -24,6 +24,7 @@ Version _$VersionFromJson(Map<String, dynamic> json) => Version(
               .toList() ??
           const [],
       sourceUrl: json['sourceUrl'] as String? ?? "",
+      iptvUrl: json['iptvUrl'] as String? ?? "",
       vipjx:
           (json['vipjx'] as List<dynamic>?)?.map((e) => e as String).toList() ??
               const [],
@@ -52,6 +53,7 @@ Map<String, dynamic> _$VersionToJson(Version instance) => <String, dynamic>{
       'vipjx': instance.vipjx,
       'githubs': instance.githubs,
       'sourceUrl': instance.sourceUrl,
+      'iptvUrl': instance.iptvUrl,
       'updateAt': instance.updateAt?.toIso8601String(),
       'createAt': instance.createAt?.toIso8601String(),
     };

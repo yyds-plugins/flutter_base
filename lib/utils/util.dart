@@ -1,9 +1,7 @@
 import 'dart:convert';
 
-import 'package:cached_network/cached_network.dart';
+import 'package:flutter_base/flutter_base.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'logger_util.dart';
 
 export 'package:flutter_base/utils/chore.dart';
 export 'package:flutter_base/utils/date_util.dart';
@@ -13,6 +11,7 @@ export 'package:flutter_base/utils/logger_util.dart';
 export 'package:flutter_base/utils/text_util.dart';
 export 'package:flutter_base/utils/util.dart';
 export 'package:flutter_base/utils/value_util.dart';
+export 'package:flutter_base/utils/network/cache_manager.dart';
 
 class Util {
   const Util._();
@@ -23,34 +22,48 @@ class Util {
   }
 
   /// giturl 加速
-  static Future<dynamic> fetchUrl(String url, List urls, CachedNetwork network,
-      {bool reacquire = false, bool isJson = false, bool vipjx = false}) async {
+  // static Future<dynamic> fetchUrl(String url, List urls, DioUtil network,
+  //     {bool reacquire = false, bool vipjx = false}) async {
+  //   for (var i = 0; i < urls.length; i++) {
+  //     var _url = url;
+  //     if (url.contains("raw.githubusercontent.com") || vipjx) {
+  //       _url = urls[i] + url;
+  //     }
+  //     try {
+  //       Log.e(_url);
+  //       final data = await network.request(_url, reacquire: reacquire);
+  //       Log.d("index=$i url=$_url \n data=$data");
+  //       return data;
+  //     } catch (error) {
+  //       Log.e(error.toString());
+  //     }
+  //   }
+  // }
+
+  static Future<dynamic> fetchGithubUrl(String url, List urls, DioUtil network) async {
     for (var i = 0; i < urls.length; i++) {
-      var _url = url;
-      if (url.contains("raw.githubusercontent.com") || vipjx) {
-        _url = urls[i] + url;
-      }
+      var _url = urls[i] + url;
       try {
-        final data = await network.request(_url, reacquire: reacquire);
+        final data = await network.request(_url, reacquire: true);
         Log.d("index=$i url=$_url \n data=$data");
-        return isJson ? jsonDecode(data) : data;
+        return data;
       } catch (error) {
         Log.e(error.toString());
       }
     }
   }
 
-  static Future<dynamic> vipjx(String url, List urls, CachedNetwork network, {bool reacquire = true}) async {
-    Log.d(" urls=$urls");
-
+  /// giturl 加速
+  static Future<dynamic> fetchVipJx(String url, List urls, DioUtil network) async {
     for (var i = 0; i < urls.length; i++) {
       var _url = urls[i] + url;
       try {
-        final data = await network.request(_url, reacquire: reacquire);
-        Log.d("index=$i url=$_url");
+        Log.e(_url);
+        final data = await network.request(_url, reacquire: true);
+        Log.d("index=$i url=$_url \n data=$data");
         return jsonDecode(data);
       } catch (error) {
-        Log.d(error.toString());
+        Log.e(error.toString());
       }
     }
   }
