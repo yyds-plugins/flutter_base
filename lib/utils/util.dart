@@ -54,14 +54,16 @@ class Util {
   }
 
   /// giturl 加速
-  static Future<dynamic> fetchVipJx(String url, List urls, DioUtil network) async {
+  static Future<String?> fetchVipJx(String url, List urls, DioUtil network) async {
     for (var i = 0; i < urls.length; i++) {
       var _url = urls[i] + url;
       try {
         Log.e(_url);
         final data = await network.request(_url, reacquire: true);
         Log.d("index=$i url=$_url \n data=$data");
-        return jsonDecode(data);
+        final  json = jsonDecode(data);
+        final url = ValueUtil.toStr(json["url"]);
+        return url;
       } catch (error) {
         Log.e(error.toString());
       }
