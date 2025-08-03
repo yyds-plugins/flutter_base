@@ -10,11 +10,10 @@ class LoadImage extends StatelessWidget {
       {Key? key,
       this.width,
       this.height,
-        this.borderRadius = 4,
-
-        this.fit = BoxFit.cover,
+      this.borderRadius = 4,
+      this.fit = BoxFit.cover,
       this.format = ImageFormat.png,
-      this.holderImg,
+      this.holderImg = 'logo',
       this.cacheWidth,
       this.cacheHeight,
       this.httpHeaders,
@@ -28,7 +27,7 @@ class LoadImage extends StatelessWidget {
 
   final BoxFit fit;
   final ImageFormat format;
-  final String? holderImg;
+  final String holderImg;
   final int? cacheWidth;
   final int? cacheHeight;
   final Map<String, String>? httpHeaders;
@@ -36,33 +35,33 @@ class LoadImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Widget holder = LoadAssetImage(holderImg, height: height, width: width, fit: fit);
 
-    final placeholder = Center(child: const Text("暂无封面",textAlign: TextAlign.center,));
-
-   return ClipRRect(
+    return ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
-        child:image.isEmpty || image.startsWith('http') ? CachedNetworkImage(
-          imageUrl: image,
-          httpHeaders: httpHeaders,
-          placeholder: (_, __) => placeholder,
-          errorWidget: (_, __, dynamic error) => placeholder,
-          width: width,
-          height: height,
-          fit: fit,
-          memCacheWidth: cacheWidth,
-          memCacheHeight: cacheHeight,
-          color: color, //目标颜色
-          colorBlendMode: BlendMode.color, //颜色混合模式
-        ): LoadAssetImage(
-          image,
-          height: height,
-          width: width,
-          fit: fit,
-          format: format,
-          cacheWidth: cacheWidth,
-          cacheHeight: cacheHeight,
-        ));
-
+        child: image.isEmpty || image.startsWith('http')
+            ? CachedNetworkImage(
+                imageUrl: image,
+                httpHeaders: httpHeaders,
+                placeholder: (_, __) => holder,
+                errorWidget: (_, __, dynamic error) => holder,
+                width: width,
+                height: height,
+                fit: fit,
+                memCacheWidth: cacheWidth,
+                memCacheHeight: cacheHeight,
+                color: color, //目标颜色
+                colorBlendMode: BlendMode.color, //颜色混合模式
+              )
+            : LoadAssetImage(
+                image,
+                height: height,
+                width: width,
+                fit: fit,
+                format: format,
+                cacheWidth: cacheWidth,
+                cacheHeight: cacheHeight,
+              ));
   }
 }
 

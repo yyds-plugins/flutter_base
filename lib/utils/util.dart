@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:flutter_base/flutter_base.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 export 'package:flutter_base/utils/chore.dart';
 export 'package:flutter_base/utils/date_util.dart';
@@ -12,33 +11,10 @@ export 'package:flutter_base/utils/text_util.dart';
 export 'package:flutter_base/utils/util.dart';
 export 'package:flutter_base/utils/value_util.dart';
 export 'package:flutter_base/utils/network/cache_manager.dart';
+export 'package:flutter_base/utils/adaptive_screen_utils.dart';
 
 class Util {
   const Util._();
-  static Future<void> LaunchUrl(String _url) async {
-    if (!await launchUrl(Uri.parse(_url))) {
-      throw Exception('Could not launch $_url');
-    }
-  }
-
-  /// giturl 加速
-  // static Future<dynamic> fetchUrl(String url, List urls, DioUtil network,
-  //     {bool reacquire = false, bool vipjx = false}) async {
-  //   for (var i = 0; i < urls.length; i++) {
-  //     var _url = url;
-  //     if (url.contains("raw.githubusercontent.com") || vipjx) {
-  //       _url = urls[i] + url;
-  //     }
-  //     try {
-  //       Log.e(_url);
-  //       final data = await network.request(_url, reacquire: reacquire);
-  //       Log.d("index=$i url=$_url \n data=$data");
-  //       return data;
-  //     } catch (error) {
-  //       Log.e(error.toString());
-  //     }
-  //   }
-  // }
 
   static Future<dynamic> fetchGithubUrl(String url, List urls, DioUtil network) async {
     for (var i = 0; i < urls.length; i++) {
@@ -61,8 +37,8 @@ class Util {
         Log.e(_url);
         final data = await network.request(_url, reacquire: true);
         Log.d("index=$i url=$_url \n data=$data");
-        final  json = jsonDecode(data);
-        final url = ValueUtil.toStr(json["url"]);
+        final json = jsonDecode(data);
+        final url = json["url"];
         return url;
       } catch (error) {
         Log.e(error.toString());

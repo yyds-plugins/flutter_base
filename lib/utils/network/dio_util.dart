@@ -183,8 +183,8 @@ class DioUtil {
 
     final valid = await _valid(cacheUrl, duration: duration);
 
-    if (!valid || reacquire) {
-      try {
+    try {
+      if (!valid || reacquire) {
         final response = await _request(
           url,
           params: body,
@@ -198,15 +198,16 @@ class DioUtil {
         }
         await _cache(cacheUrl, jsonEncode(response.data));
         return jsonEncode(response.data);
-      } catch (error) {
-        Log.e('info error=${error}');
+      } else {
         final file = await _generate(cacheUrl);
         return file.readAsString();
       }
-    } else {
-      final file = await _generate(cacheUrl);
-      return file.readAsString();
+    } catch (error) {
+      Log.e('info error=${error}');
     }
+
+
+
   }
 
   ///  get
