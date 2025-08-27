@@ -13,7 +13,7 @@ class LoadImage extends StatelessWidget {
       this.borderRadius = 4,
       this.fit = BoxFit.cover,
       this.format = ImageFormat.png,
-      this.holderImg = 'logo',
+      this.holderImg = '',
       this.cacheWidth,
       this.cacheHeight,
       this.httpHeaders,
@@ -35,7 +35,9 @@ class LoadImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Widget holder = LoadAssetImage(holderImg, height: height, width: width, fit: fit);
+    final Widget holder = holderImg.isNotEmpty
+        ? LoadAssetImage(holderImg, height: height, width: width, fit: fit)
+        : SizedBox(width: width, height: height);
 
     return ClipRRect(
         borderRadius: BorderRadius.circular(borderRadius),
