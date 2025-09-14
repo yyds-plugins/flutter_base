@@ -12,8 +12,6 @@ class TextSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final isDarkMode = Theme.of(context).brightness == Brightness.dark;
 
-    final theme = Theme.of(context);
-    final clearColor = theme.primaryColor == Colors.black ? Colors.black : Colors.white;
     return Container(
       height: 50,
       child: Row(
@@ -73,7 +71,7 @@ class TextSearchBar extends StatelessWidget {
             },
             child: Text(
               '取消',
-              style: TextStyle(color: clearColor, fontSize: 17, fontWeight: FontWeight.normal),
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.normal),
             ),
           ),
         ],

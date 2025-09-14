@@ -49,6 +49,7 @@ class AppSearchBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           ),
         ),
+        SizedBox(width: 10),
         Row(crossAxisAlignment: CrossAxisAlignment.center, children: actions ?? []),
       ],
     );

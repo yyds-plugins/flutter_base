@@ -2,6 +2,18 @@
   "configVersion": 2,
   "packages": [
     {
+      "name": "args",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/args-2.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "asn1lib",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/asn1lib-1.6.5",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "async",
       "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/async-2.13.0",
       "packageUri": "lib/",
@@ -38,6 +50,12 @@
       "languageVersion": "3.4"
     },
     {
+      "name": "charset",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/charset-2.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "clock",
       "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/clock-1.1.2",
       "packageUri": "lib/",
@@ -46,6 +64,12 @@
     {
       "name": "collection",
       "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/collection-1.19.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
+      "name": "convert",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/convert-3.1.2",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -66,6 +90,12 @@
       "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/dio_web_adapter-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "3.3"
+    },
+    {
+      "name": "encrypt",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/encrypt-5.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "fake_async",
@@ -111,7 +141,7 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/http-1.4.0",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/http-1.5.0",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -120,6 +150,12 @@
       "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/http_parser-4.1.2",
       "packageUri": "lib/",
       "languageVersion": "3.4"
+    },
+    {
+      "name": "js",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/js-0.7.2",
+      "packageUri": "lib/",
+      "languageVersion": "3.7"
     },
     {
       "name": "leak_tracker",
@@ -183,15 +219,15 @@
     },
     {
       "name": "path_provider_android",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.17",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/path_provider_android-2.2.18",
       "packageUri": "lib/",
-      "languageVersion": "3.6"
+      "languageVersion": "3.7"
     },
     {
       "name": "path_provider_foundation",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.1",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/path_provider_foundation-2.4.2",
       "packageUri": "lib/",
-      "languageVersion": "3.3"
+      "languageVersion": "3.7"
     },
     {
       "name": "path_provider_linux",
@@ -222,6 +258,12 @@
       "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/plugin_platform_interface-2.1.8",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "pointycastle",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/pointycastle-3.9.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
     },
     {
       "name": "rxdart",
@@ -255,15 +297,15 @@
     },
     {
       "name": "sqflite_android",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/sqflite_android-2.4.1",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/sqflite_android-2.4.2+2",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.9"
     },
     {
       "name": "sqflite_common",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/sqflite_common-2.5.5",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/sqflite_common-2.5.6",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.8"
     },
     {
       "name": "sqflite_darwin",
@@ -297,9 +339,9 @@
     },
     {
       "name": "synchronized",
-      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/synchronized-3.3.1",
+      "rootUri": "file:///Users/allin/.pub-cache/hosted/pub.flutter-io.cn/synchronized-3.4.0",
       "packageUri": "lib/",
-      "languageVersion": "3.7"
+      "languageVersion": "3.8"
     },
     {
       "name": "term_glyph",

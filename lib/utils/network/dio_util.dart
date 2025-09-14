@@ -33,6 +33,8 @@ class DioUtil {
   String identifier = 'libCachedNetworkData';
   String? prefix;
   Directory? temporaryDirectory;
+  Directory? cacheDirectory;
+
   Duration? timeout;
   Duration? cacheDuration;
   // 工厂构造函数
@@ -205,9 +207,6 @@ class DioUtil {
     } catch (error) {
       Log.e('info error=${error}');
     }
-
-
-
   }
 
   ///  get

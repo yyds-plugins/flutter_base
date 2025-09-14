@@ -3,6 +3,7 @@ export 'package:flutter_base/utils/log_toast.dart';
 export 'package:flutter_base/utils/util.dart';
 export 'package:flutter_base/widget/load_image.dart';
 export 'package:flutter_base/widget/loading_indicator.dart';
+export 'package:flutter_base/widget/update_dialog/update_dialog.dart';
 
 export 'package:flutter_base/utils/value_util.dart';
 export 'package:flutter_base/utils/color_utils.dart';
