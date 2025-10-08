@@ -1,5 +1,4 @@
 export 'package:cached_network_image/cached_network_image.dart';
-export 'package:flutter_base/utils/log_toast.dart';
 export 'package:flutter_base/utils/util.dart';
 export 'package:flutter_base/widget/load_image.dart';
 export 'package:flutter_base/widget/loading_indicator.dart';
